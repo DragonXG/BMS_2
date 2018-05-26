@@ -30,23 +30,6 @@
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.textBox9 = new System.Windows.Forms.TextBox();
-            this.textBox10 = new System.Windows.Forms.TextBox();
-            this.textBox11 = new System.Windows.Forms.TextBox();
-            this.textBox12 = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
@@ -61,6 +44,23 @@
             this.button2 = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.textBox9 = new System.Windows.Forms.TextBox();
+            this.textBox10 = new System.Windows.Forms.TextBox();
+            this.textBox11 = new System.Windows.Forms.TextBox();
+            this.textBox12 = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -75,7 +75,7 @@
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(592, 346);
+            this.tabControl1.Size = new System.Drawing.Size(603, 158);
             this.tabControl1.TabIndex = 0;
             // 
             // tabPage1
@@ -97,10 +97,124 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(584, 320);
+            this.tabPage1.Size = new System.Drawing.Size(595, 132);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "增加图书";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(384, 60);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(157, 21);
+            this.textBox1.TabIndex = 41;
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(105, 60);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(157, 21);
+            this.textBox2.TabIndex = 40;
+            // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(384, 33);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(157, 21);
+            this.textBox3.TabIndex = 39;
+            // 
+            // textBox4
+            // 
+            this.textBox4.Location = new System.Drawing.Point(105, 33);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(157, 21);
+            this.textBox4.TabIndex = 38;
+            // 
+            // textBox5
+            // 
+            this.textBox5.Location = new System.Drawing.Point(384, 6);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.Size = new System.Drawing.Size(157, 21);
+            this.textBox5.TabIndex = 37;
+            // 
+            // textBox6
+            // 
+            this.textBox6.Location = new System.Drawing.Point(105, 6);
+            this.textBox6.Name = "textBox6";
+            this.textBox6.Size = new System.Drawing.Size(157, 21);
+            this.textBox6.TabIndex = 36;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(293, 63);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(41, 12);
+            this.label1.TabIndex = 35;
+            this.label1.Text = "摘要：";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(14, 63);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(41, 12);
+            this.label2.TabIndex = 34;
+            this.label2.Text = "单价：";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(293, 36);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(53, 12);
+            this.label3.TabIndex = 33;
+            this.label3.Text = "出版者：";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(14, 36);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(41, 12);
+            this.label4.TabIndex = 32;
+            this.label4.Text = "作者：";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(176, 87);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 31;
+            this.button1.Text = "清空";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(329, 87);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 30;
+            this.button2.Text = "确定";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(293, 9);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(53, 12);
+            this.label5.TabIndex = 29;
+            this.label5.Text = "图书名：";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(14, 9);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(41, 12);
+            this.label6.TabIndex = 28;
+            this.label6.Text = "编号：";
             // 
             // tabPage2
             // 
@@ -125,25 +239,6 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "修改信息";
             this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // tabPage3
-            // 
-            this.tabPage3.Location = new System.Drawing.Point(4, 22);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(594, 389);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "删除图书";
-            this.tabPage3.UseVisualStyleBackColor = true;
-            // 
-            // tabPage4
-            // 
-            this.tabPage4.Location = new System.Drawing.Point(4, 22);
-            this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Size = new System.Drawing.Size(594, 389);
-            this.tabPage4.TabIndex = 3;
-            this.tabPage4.Text = "图书信息";
-            this.tabPage4.UseVisualStyleBackColor = true;
             // 
             // textBox7
             // 
@@ -259,119 +354,24 @@
             this.label12.TabIndex = 14;
             this.label12.Text = "编号：";
             // 
-            // textBox1
+            // tabPage3
             // 
-            this.textBox1.Location = new System.Drawing.Point(384, 60);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(157, 21);
-            this.textBox1.TabIndex = 41;
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.Size = new System.Drawing.Size(584, 320);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "删除图书";
+            this.tabPage3.UseVisualStyleBackColor = true;
             // 
-            // textBox2
+            // tabPage4
             // 
-            this.textBox2.Location = new System.Drawing.Point(105, 60);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(157, 21);
-            this.textBox2.TabIndex = 40;
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(384, 33);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(157, 21);
-            this.textBox3.TabIndex = 39;
-            // 
-            // textBox4
-            // 
-            this.textBox4.Location = new System.Drawing.Point(105, 33);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(157, 21);
-            this.textBox4.TabIndex = 38;
-            // 
-            // textBox5
-            // 
-            this.textBox5.Location = new System.Drawing.Point(384, 6);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(157, 21);
-            this.textBox5.TabIndex = 37;
-            // 
-            // textBox6
-            // 
-            this.textBox6.Location = new System.Drawing.Point(105, 6);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(157, 21);
-            this.textBox6.TabIndex = 36;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(293, 63);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(41, 12);
-            this.label1.TabIndex = 35;
-            this.label1.Text = "摘要：";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(14, 63);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(41, 12);
-            this.label2.TabIndex = 34;
-            this.label2.Text = "单价：";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(293, 36);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(53, 12);
-            this.label3.TabIndex = 33;
-            this.label3.Text = "出版者：";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(14, 36);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(41, 12);
-            this.label4.TabIndex = 32;
-            this.label4.Text = "作者：";
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(176, 87);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 31;
-            this.button1.Text = "清空";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(329, 87);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 30;
-            this.button2.Text = "确定";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(293, 9);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(53, 12);
-            this.label5.TabIndex = 29;
-            this.label5.Text = "图书名：";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(14, 9);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(41, 12);
-            this.label6.TabIndex = 28;
-            this.label6.Text = "编号：";
+            this.tabPage4.Location = new System.Drawing.Point(4, 22);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Size = new System.Drawing.Size(584, 320);
+            this.tabPage4.TabIndex = 3;
+            this.tabPage4.Text = "图书信息";
+            this.tabPage4.UseVisualStyleBackColor = true;
             // 
             // BookManage
             // 

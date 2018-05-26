@@ -25,9 +25,6 @@ D:\GitHub\Works\BMS\BooksManagementSystem\BMS\obj\Debug\BMS.PwdChange.resources
 D:\GitHub\Works\BMS\BooksManagementSystem\BMS\obj\Debug\BMS.ReaderInfo.resources
 D:\GitHub\Works\BMS\BooksManagementSystem\BMS\obj\Debug\BMS.BorrowHistory.resources
 D:\GitHub\Works\BMS\BooksManagementSystem\BMS\obj\Debug\BMS.BookManage.resources
-G:\BooksManagementSystem\BMS-b9f35d197f3716d157fa5c458b37137875efe591\BooksManagementSystem\BMS\bin\Debug\BMS.exe.config
-G:\BooksManagementSystem\BMS-b9f35d197f3716d157fa5c458b37137875efe591\BooksManagementSystem\BMS\obj\Debug\BMS.exe
-G:\BooksManagementSystem\BMS-b9f35d197f3716d157fa5c458b37137875efe591\BooksManagementSystem\BMS\obj\Debug\BMS.pdb
-G:\BMS\BooksManagementSystem\BMS\bin\Debug\BMS.exe.config
-G:\BMS\BooksManagementSystem\BMS\obj\Debug\BMS.exe
-G:\BMS\BooksManagementSystem\BMS\obj\Debug\BMS.pdb
+D:\code\BooksManagementSystem\BMS\bin\Debug\BMS.exe.config
+D:\code\BooksManagementSystem\BMS\obj\Debug\BMS.exe
+D:\code\BooksManagementSystem\BMS\obj\Debug\BMS.pdb
