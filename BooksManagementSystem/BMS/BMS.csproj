@@ -58,6 +58,12 @@
     <Compile Include="BookManage.Designer.cs">
       <DependentUpon>BookManage.cs</DependentUpon>
     </Compile>
+    <Compile Include="BorrowManager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BorrowManager.Designer.cs">
+      <DependentUpon>BorrowManager.cs</DependentUpon>
+    </Compile>
     <Compile Include="PwdChange.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -95,6 +101,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="BookManage.resx">
       <DependentUpon>BookManage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BorrowManager.resx">
+      <DependentUpon>BorrowManager.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PwdChange.resx">
       <DependentUpon>PwdChange.cs</DependentUpon>

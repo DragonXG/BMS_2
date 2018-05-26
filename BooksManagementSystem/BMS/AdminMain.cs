@@ -19,7 +19,8 @@ namespace BMS
 
         private void toolStripButton3_Click(object sender, EventArgs e)
         {
-
+            BookManage Form = new BookManage();
+            Form.ShowDialog();
         }
     }
 }
