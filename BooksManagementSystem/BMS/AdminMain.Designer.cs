@@ -117,6 +117,7 @@
             this.toolStripButton2.Size = new System.Drawing.Size(74, 81);
             this.toolStripButton2.Text = "借还记录";
             this.toolStripButton2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.toolStripButton2.Click += new System.EventHandler(this.toolStripButton2_Click);
             // 
             // AdminMain
             // 

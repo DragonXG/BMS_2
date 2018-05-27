@@ -45,3 +45,5 @@ D:\GitHub\Works\BMS_2\BooksManagementSystem\BMS\obj\Debug\BMS.AdminMain.resource
 D:\GitHub\Works\BMS_2\BooksManagementSystem\BMS\obj\Debug\BMS.Properties.Resources.resources
 D:\GitHub\Works\BMS_2\BooksManagementSystem\BMS\obj\Debug\BMS.ReaderMain.resources
 D:\GitHub\Works\BMS_2\BooksManagementSystem\BMS\obj\Debug\BMS.csproj.GenerateResource.Cache
+D:\GitHub\Works\BMS_2\BooksManagementSystem\BMS\obj\Debug\BMS.BorrowManager.resources
+D:\GitHub\Works\BMS_2\BooksManagementSystem\BMS\obj\Debug\BMS.ReaderManage.resources
