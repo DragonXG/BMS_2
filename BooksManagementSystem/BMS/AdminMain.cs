@@ -19,12 +19,26 @@ namespace BMS
 
         private void toolStripButton3_Click(object sender, EventArgs e)
         {
-
+            BookManage form = new BookManage();
+            form.ShowDialog();
         }
 
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
+            ReaderManage form = new ReaderManage();
+            form.ShowDialog();
+        }
 
+        private void toolStripButton2_Click(object sender, EventArgs e)
+        {
+            BorrowHistory borrowForm = new BorrowHistory();
+            borrowForm.ShowDialog();
+        }
+
+        private void toolStripButton4_Click(object sender, EventArgs e)
+        {
+            BorrowReturn form = new BorrowReturn();
+            form.ShowDialog();
         }
     }
 }

@@ -60,11 +60,11 @@
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.button6 = new System.Windows.Forms.Button();
             this.label13 = new System.Windows.Forms.Label();
             this.textBox13 = new System.Windows.Forms.TextBox();
             this.button5 = new System.Windows.Forms.Button();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.button7 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -209,18 +209,18 @@
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(293, 9);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(53, 12);
+            this.label5.Size = new System.Drawing.Size(59, 12);
             this.label5.TabIndex = 29;
-            this.label5.Text = "图书名：";
+            this.label5.Text = "图书名*：";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(14, 9);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(41, 12);
+            this.label6.Size = new System.Drawing.Size(47, 12);
             this.label6.TabIndex = 28;
-            this.label6.Text = "编号：";
+            this.label6.Text = "编号*：";
             // 
             // tabPage2
             // 
@@ -283,6 +283,7 @@
             // 
             // textBox12
             // 
+            this.textBox12.Enabled = false;
             this.textBox12.Location = new System.Drawing.Point(105, 6);
             this.textBox12.Name = "textBox12";
             this.textBox12.Size = new System.Drawing.Size(157, 21);
@@ -374,16 +375,6 @@
             this.tabPage3.Text = "删除图书";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
-            // dataGridView1
-            // 
-            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.Window;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(4, 160);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.Height = 23;
-            this.dataGridView1.Size = new System.Drawing.Size(595, 216);
-            this.dataGridView1.TabIndex = 1;
-            // 
             // button6
             // 
             this.button6.Location = new System.Drawing.Point(501, 55);
@@ -418,6 +409,16 @@
             this.button5.Text = "查询";
             this.button5.UseVisualStyleBackColor = true;
             // 
+            // dataGridView1
+            // 
+            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.Window;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(0, 160);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowTemplate.Height = 23;
+            this.dataGridView1.Size = new System.Drawing.Size(599, 216);
+            this.dataGridView1.TabIndex = 1;
+            // 
             // button7
             // 
             this.button7.Location = new System.Drawing.Point(517, 382);
@@ -426,6 +427,7 @@
             this.button7.TabIndex = 4;
             this.button7.Text = "完成";
             this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
             // BookManage
             // 

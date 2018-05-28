@@ -82,7 +82,7 @@
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Name = "ReaderMain";
-            this.Text = "Form1";
+            this.Text = "读者界面";
             this.ResumeLayout(false);
 
         }
