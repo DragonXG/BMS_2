@@ -28,11 +28,5 @@ namespace BMS
             ReaderInfo Form = new ReaderInfo();
             Form.ShowDialog();
         }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            BorrowReturn form = new BorrowReturn();
-            form.ShowDialog();
-        }
     }
 }
