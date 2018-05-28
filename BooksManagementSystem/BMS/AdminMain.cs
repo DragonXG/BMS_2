@@ -22,11 +22,5 @@ namespace BMS
             BookManage Form = new BookManage();
             Form.ShowDialog();
         }
-
-        private void toolStripButton2_Click(object sender, EventArgs e)
-        {
-            BorrowHistory Form = new BorrowHistory();
-            Form.ShowDialog();
-        }
     }
 }

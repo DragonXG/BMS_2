@@ -64,12 +64,6 @@
     <Compile Include="BorrowManager.Designer.cs">
       <DependentUpon>BorrowManager.cs</DependentUpon>
     </Compile>
-    <Compile Include="ReaderManage.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ReaderManage.Designer.cs">
-      <DependentUpon>ReaderManage.cs</DependentUpon>
-    </Compile>
     <Compile Include="PwdChange.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -110,9 +104,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="BorrowManager.resx">
       <DependentUpon>BorrowManager.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ReaderManage.resx">
-      <DependentUpon>ReaderManage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PwdChange.resx">
       <DependentUpon>PwdChange.cs</DependentUpon>
