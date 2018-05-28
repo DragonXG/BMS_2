@@ -10,21 +10,11 @@ using System.Windows.Forms;
 
 namespace BMS
 {
-    public partial class AdminMain : Form
+    public partial class ReaderManage : Form
     {
-        public AdminMain()
+        public ReaderManage()
         {
             InitializeComponent();
-        }
-
-        private void toolStripButton3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void toolStripButton1_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

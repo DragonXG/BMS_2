@@ -80,6 +80,7 @@
             this.toolStripButton1.Size = new System.Drawing.Size(74, 81);
             this.toolStripButton1.Text = "读者管理";
             this.toolStripButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
             // 
             // toolStripButton3
             // 

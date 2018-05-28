@@ -58,11 +58,11 @@
     <Compile Include="BookManage.Designer.cs">
       <DependentUpon>BookManage.cs</DependentUpon>
     </Compile>
-    <Compile Include="BorrowManager.cs">
+    <Compile Include="ReaderManage.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="BorrowManager.Designer.cs">
-      <DependentUpon>BorrowManager.cs</DependentUpon>
+    <Compile Include="ReaderManage.Designer.cs">
+      <DependentUpon>ReaderManage.cs</DependentUpon>
     </Compile>
     <Compile Include="PwdChange.cs">
       <SubType>Form</SubType>
@@ -102,9 +102,6 @@
     <EmbeddedResource Include="BookManage.resx">
       <DependentUpon>BookManage.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="BorrowManager.resx">
-      <DependentUpon>BorrowManager.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="PwdChange.resx">
       <DependentUpon>PwdChange.cs</DependentUpon>
     </EmbeddedResource>
@@ -129,6 +126,9 @@
     </Compile>
     <EmbeddedResource Include="ReaderMain.resx">
       <DependentUpon>ReaderMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReaderManage.resx">
+      <DependentUpon>ReaderManage.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
