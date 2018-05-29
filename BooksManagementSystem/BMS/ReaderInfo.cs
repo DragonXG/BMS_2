@@ -12,7 +12,6 @@ namespace BMS
 {
     public partial class ReaderInfo : Form
     {
-        Login log;
        /* public ReaderInfo(Login log)
             :this()
         {

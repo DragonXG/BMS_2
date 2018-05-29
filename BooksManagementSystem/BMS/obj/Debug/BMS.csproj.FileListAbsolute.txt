@@ -65,3 +65,5 @@ G:\BooksManagementSystem\BMS_2-GXL\BooksManagementSystem\BMS\obj\Debug\BMS.cspro
 G:\BMS备份\BooksManagementSystem\BMS\bin\Debug\BMS.exe.config
 G:\BMS备份\BooksManagementSystem\BMS\obj\Debug\BMS.exe
 G:\BMS备份\BooksManagementSystem\BMS\obj\Debug\BMS.pdb
+G:\BMS\BMS\BooksManagementSystem\BMS\obj\Debug\BMS.BorrowInformation.resources
+G:\BMS\BMS\BooksManagementSystem\BMS\obj\Debug\BMS.BookingInformation.resources
