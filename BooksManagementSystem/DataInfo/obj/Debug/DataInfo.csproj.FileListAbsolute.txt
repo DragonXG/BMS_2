@@ -8,3 +8,8 @@ G:\BMS\BMS\BooksManagementSystem\DataInfo\bin\Debug\DataInfo.pdb
 G:\BMS\BMS\BooksManagementSystem\DataInfo\obj\Debug\DataInfo.csprojResolveAssemblyReference.cache
 G:\BMS\BMS\BooksManagementSystem\DataInfo\obj\Debug\DataInfo.dll
 G:\BMS\BMS\BooksManagementSystem\DataInfo\obj\Debug\DataInfo.pdb
+G:\BooksManagementSystem\BMS_2-GXL\BooksManagementSystem\DataInfo\bin\Debug\DataInfo.dll
+G:\BooksManagementSystem\BMS_2-GXL\BooksManagementSystem\DataInfo\bin\Debug\DataInfo.pdb
+G:\BooksManagementSystem\BMS_2-GXL\BooksManagementSystem\DataInfo\obj\Debug\DataInfo.csprojResolveAssemblyReference.cache
+G:\BooksManagementSystem\BMS_2-GXL\BooksManagementSystem\DataInfo\obj\Debug\DataInfo.dll
+G:\BooksManagementSystem\BMS_2-GXL\BooksManagementSystem\DataInfo\obj\Debug\DataInfo.pdb

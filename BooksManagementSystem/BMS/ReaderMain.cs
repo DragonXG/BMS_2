@@ -12,11 +12,16 @@ namespace BMS
 {
     public partial class ReaderMain : Form
     {
+        static public string str_1 = "";
         public ReaderMain()
         {
             InitializeComponent();
         }
-
+        public ReaderMain(string text)
+            :this()
+        {
+            str_1 = text;
+        }
         private void button2_Click(object sender, EventArgs e)
         {
             PwdChange Form = new PwdChange();
@@ -27,6 +32,18 @@ namespace BMS
         {
             ReaderInfo Form = new ReaderInfo();
             Form.ShowDialog();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            ReaderInfo readinfo = new ReaderInfo(label2.Text);
+            readinfo.Show();
+        }
+
+        private void ReaderMain_Load(object sender, EventArgs e)
+        {
+            label2.Text = str_1;
+            str_1 = "";
         }
     }
 }
