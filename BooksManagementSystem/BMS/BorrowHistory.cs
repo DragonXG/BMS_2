@@ -16,5 +16,14 @@ namespace BMS
         {
             InitializeComponent();
         }
+        public BorrowHistory(string text)
+            :this()
+        {
+            textBox1
+        }
+        private void BorrowHistory_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

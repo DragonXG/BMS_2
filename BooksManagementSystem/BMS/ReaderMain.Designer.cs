@@ -34,6 +34,7 @@
             this.button5 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button2
@@ -97,11 +98,21 @@
             this.label2.TabIndex = 6;
             this.label2.Text = "label2";
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(137, 338);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(161, 31);
+            this.button1.TabIndex = 7;
+            this.button1.Text = "个人图书信息";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
             // ReaderMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(715, 482);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button5);
@@ -110,10 +121,8 @@
             this.Controls.Add(this.button2);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "ReaderMain";
-
             this.Text = "读者权限信息";
             this.Load += new System.EventHandler(this.ReaderMain_Load);
-
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -127,6 +136,7 @@
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button button1;
 
     }
 }

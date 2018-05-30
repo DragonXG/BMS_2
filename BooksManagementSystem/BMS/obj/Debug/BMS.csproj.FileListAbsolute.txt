@@ -1,4 +1,4 @@
-﻿G:\C#作业\BooksManagementSystem\BMS\bin\Debug\BMS.exe.config
+G:\C#作业\BooksManagementSystem\BMS\bin\Debug\BMS.exe.config
 G:\BSM\BMS\BooksManagementSystem\BMS\bin\Debug\BMS.exe.config
 G:\BSM\BMS\BooksManagementSystem\BMS\bin\Debug\BMS.exe
 G:\BSM\BMS\BooksManagementSystem\BMS\bin\Debug\BMS.pdb
@@ -65,7 +65,6 @@ G:\BooksManagementSystem\BMS_2-GXL\BooksManagementSystem\BMS\obj\Debug\BMS.cspro
 G:\BMS备份\BooksManagementSystem\BMS\bin\Debug\BMS.exe.config
 G:\BMS备份\BooksManagementSystem\BMS\obj\Debug\BMS.exe
 G:\BMS备份\BooksManagementSystem\BMS\obj\Debug\BMS.pdb
-
 D:\GitHub\Works\BMS_2\BooksManagementSystem\BMS\bin\Debug\BMS.exe.config
 D:\GitHub\Works\BMS_2\BooksManagementSystem\BMS\bin\Debug\BMS.exe
 D:\GitHub\Works\BMS_2\BooksManagementSystem\BMS\bin\Debug\BMS.pdb
@@ -85,7 +84,12 @@ D:\GitHub\Works\BMS_2\BooksManagementSystem\BMS\obj\Debug\BMS.ReaderManage.resou
 D:\GitHub\Works\BMS_2\BooksManagementSystem\BMS\obj\Debug\BMS.csproj.GenerateResource.Cache
 D:\GitHub\Works\BMS_2\BooksManagementSystem\BMS\obj\Debug\BMS.exe
 D:\GitHub\Works\BMS_2\BooksManagementSystem\BMS\obj\Debug\BMS.pdb
-
 G:\BMS\BMS\BooksManagementSystem\BMS\obj\Debug\BMS.BorrowInformation.resources
 G:\BMS\BMS\BooksManagementSystem\BMS\obj\Debug\BMS.BookingInformation.resources
-
+G:\BooksManagementSystem\BMS_2-GXL\BooksManagementSystem\BMS\obj\Debug\BMS.BookingInformation.resources
+G:\BooksManagementSystem\BMS_2-GXL\BooksManagementSystem\BMS\obj\Debug\BMS.BorrowReturn.resources
+G:\BooksManagementSystem\BMS_2-GXL\BooksManagementSystem\BMS\obj\Debug\BMS.BorrowInformation.resources
+G:\BooksManagementSystem\BMS_2-GXL\BooksManagementSystem\BMS\obj\Debug\BMS.ReaderManage.resources
+G:\BMS备份\备份（3）\BooksManagementSystem\BMS\bin\Debug\BMS.exe.config
+G:\BMS备份\备份（3）\BooksManagementSystem\BMS\obj\Debug\BMS.exe
+G:\BMS备份\备份（3）\BooksManagementSystem\BMS\obj\Debug\BMS.pdb
