@@ -71,7 +71,7 @@ namespace BMS
                 }
                 if (flag_3 == true)
                 {
-                    ReaderMain readmain = new ReaderMain(str3);
+                    ReaderMain readmain = new ReaderMain(str3, textBox1.Text);
                     Program.checkin_reader = true;
                     this.Close();
                 }
