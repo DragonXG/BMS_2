@@ -32,6 +32,10 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>
+    </StartupObject>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="MySql.Data, Version=8.0.11.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
     <Reference Include="System" />
@@ -64,7 +68,6 @@
     <Compile Include="BookManage.Designer.cs">
       <DependentUpon>BookManage.cs</DependentUpon>
     </Compile>
-
     <Compile Include="BorrowReturn.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -76,13 +79,12 @@
     </Compile>
     <Compile Include="ReaderManage.Designer.cs">
       <DependentUpon>ReaderManage.cs</DependentUpon>
-	 </Compile>
+    </Compile>
     <Compile Include="BorrowInformation.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="BorrowInformation.Designer.cs">
       <DependentUpon>BorrowInformation.cs</DependentUpon>
-
     </Compile>
     <Compile Include="PwdChange.cs">
       <SubType>Form</SubType>
@@ -125,13 +127,11 @@
     <EmbeddedResource Include="BookManage.resx">
       <DependentUpon>BookManage.cs</DependentUpon>
     </EmbeddedResource>
-
     <EmbeddedResource Include="BorrowReturn.resx">
       <DependentUpon>BorrowReturn.cs</DependentUpon>
-	 </EmbeddedResource>
+    </EmbeddedResource>
     <EmbeddedResource Include="BorrowInformation.resx">
       <DependentUpon>BorrowInformation.cs</DependentUpon>
-	
     </EmbeddedResource>
     <EmbeddedResource Include="PwdChange.resx">
       <DependentUpon>PwdChange.cs</DependentUpon>
