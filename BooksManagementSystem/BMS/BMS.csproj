@@ -58,6 +58,19 @@
     <Compile Include="BookManage.Designer.cs">
       <DependentUpon>BookManage.cs</DependentUpon>
     </Compile>
+    <Compile Include="BorrowReturn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BorrowReturn.Designer.cs">
+      <DependentUpon>BorrowReturn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="open_mysql_llm.cs" />
+    <Compile Include="ReaderManage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReaderManage.Designer.cs">
+      <DependentUpon>ReaderManage.cs</DependentUpon>
+    </Compile>
     <Compile Include="PwdChange.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -96,6 +109,9 @@
     <EmbeddedResource Include="BookManage.resx">
       <DependentUpon>BookManage.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="BorrowReturn.resx">
+      <DependentUpon>BorrowReturn.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="PwdChange.resx">
       <DependentUpon>PwdChange.cs</DependentUpon>
     </EmbeddedResource>
@@ -120,6 +136,9 @@
     </Compile>
     <EmbeddedResource Include="ReaderMain.resx">
       <DependentUpon>ReaderMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReaderManage.resx">
+      <DependentUpon>ReaderManage.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

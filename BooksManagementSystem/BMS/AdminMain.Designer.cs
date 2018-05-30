@@ -80,6 +80,7 @@
             this.toolStripButton1.Size = new System.Drawing.Size(74, 81);
             this.toolStripButton1.Text = "读者管理";
             this.toolStripButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
             // 
             // toolStripButton3
             // 
@@ -105,6 +106,7 @@
             this.toolStripButton4.Size = new System.Drawing.Size(74, 81);
             this.toolStripButton4.Text = "图书借阅";
             this.toolStripButton4.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.toolStripButton4.Click += new System.EventHandler(this.toolStripButton4_Click);
             // 
             // toolStripButton2
             // 
@@ -117,6 +119,7 @@
             this.toolStripButton2.Size = new System.Drawing.Size(74, 81);
             this.toolStripButton2.Text = "借还记录";
             this.toolStripButton2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.toolStripButton2.Click += new System.EventHandler(this.toolStripButton2_Click);
             // 
             // AdminMain
             // 
@@ -125,9 +128,10 @@
             this.ClientSize = new System.Drawing.Size(791, 511);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.menuStrip1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "AdminMain";
-            this.Text = "Form2";
+            this.Text = "管理员界面";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.toolStrip1.ResumeLayout(false);

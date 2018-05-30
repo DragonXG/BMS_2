@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace BMS
 {
-    public partial class BookManage : Form
+    public partial class ReaderManage : Form
     {
-        public BookManage()
+        public ReaderManage()
         {
             InitializeComponent();
         }

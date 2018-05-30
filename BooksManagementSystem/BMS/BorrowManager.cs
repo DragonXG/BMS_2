@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace BMS
 {
-    public partial class BookManage : Form
+    public partial class BorrowManager : Form
     {
-        public BookManage()
+        public BorrowManager()
         {
             InitializeComponent();
-        }
-
-        private void button7_Click(object sender, EventArgs e)
-        {
-            this.Close();
         }
     }
 }
