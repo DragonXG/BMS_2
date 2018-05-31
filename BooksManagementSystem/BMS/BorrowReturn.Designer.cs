@@ -30,6 +30,8 @@
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.textBox9 = new System.Windows.Forms.TextBox();
+            this.textBox8 = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
@@ -56,8 +58,6 @@
             this.label10 = new System.Windows.Forms.Label();
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.textBox9 = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -99,6 +99,22 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "借书处理";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // textBox9
+            // 
+            this.textBox9.Location = new System.Drawing.Point(41, 398);
+            this.textBox9.Multiline = true;
+            this.textBox9.Name = "textBox9";
+            this.textBox9.Size = new System.Drawing.Size(682, 157);
+            this.textBox9.TabIndex = 17;
+            // 
+            // textBox8
+            // 
+            this.textBox8.Location = new System.Drawing.Point(41, 140);
+            this.textBox8.Multiline = true;
+            this.textBox8.Name = "textBox8";
+            this.textBox8.Size = new System.Drawing.Size(682, 148);
+            this.textBox8.TabIndex = 16;
             // 
             // button2
             // 
@@ -236,7 +252,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 25);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(807, 640);
+            this.tabPage2.Size = new System.Drawing.Size(776, 640);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "还书处理";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -333,22 +349,6 @@
             this.label9.Size = new System.Drawing.Size(98, 15);
             this.label9.TabIndex = 0;
             this.label9.Text = "读入图书ID：";
-            // 
-            // textBox8
-            // 
-            this.textBox8.Location = new System.Drawing.Point(41, 140);
-            this.textBox8.Multiline = true;
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(682, 148);
-            this.textBox8.TabIndex = 16;
-            // 
-            // textBox9
-            // 
-            this.textBox9.Location = new System.Drawing.Point(41, 398);
-            this.textBox9.Multiline = true;
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(682, 157);
-            this.textBox9.TabIndex = 17;
             // 
             // BorrowReturn
             // 
