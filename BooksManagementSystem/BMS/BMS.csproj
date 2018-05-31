@@ -74,6 +74,12 @@
     <Compile Include="BorrowReturn.Designer.cs">
       <DependentUpon>BorrowReturn.cs</DependentUpon>
     </Compile>
+    <Compile Include="QueryBeforeLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QueryBeforeLogin.Designer.cs">
+      <DependentUpon>QueryBeforeLogin.cs</DependentUpon>
+    </Compile>
     <Compile Include="ReaderManage.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -135,6 +141,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="PwdChange.resx">
       <DependentUpon>PwdChange.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QueryBeforeLogin.resx">
+      <DependentUpon>QueryBeforeLogin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ReaderInfo.resx">
       <DependentUpon>ReaderInfo.cs</DependentUpon>

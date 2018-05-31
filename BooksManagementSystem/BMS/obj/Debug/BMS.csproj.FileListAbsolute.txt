@@ -88,3 +88,4 @@ G:\BMS\BMS\BooksManagementSystem\BMS\obj\Debug\BMS.BorrowInformation.resources
 G:\BMS\BMS\BooksManagementSystem\BMS\obj\Debug\BMS.BookingInformation.resources
 D:\GitHub\Works\BMS_2\BooksManagementSystem\BMS\obj\Debug\BMS.BookingInformation.resources
 D:\GitHub\Works\BMS_2\BooksManagementSystem\BMS\obj\Debug\BMS.BorrowInformation.resources
+D:\GitHub\Works\BMS_2\BooksManagementSystem\BMS\obj\Debug\BMS.QueryBeforeLogin.resources
