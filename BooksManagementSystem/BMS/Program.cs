@@ -20,11 +20,11 @@ namespace BMS
             Application.SetCompatibleTextRenderingDefault(false);
 
             Application.Run(new Login());
-            if(checkIn == true)
+           /* if(checkIn == true)
             {
                 Application.Run(new ReaderMain());
-            }
-            //Application.Run(new AdminMain());
+            }*/
+            Application.Run(new AdminMain());
             
 
         }

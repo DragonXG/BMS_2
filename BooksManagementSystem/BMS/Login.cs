@@ -89,5 +89,11 @@ namespace BMS
             get { return textBox1.Text; }
             set { textBox1.Text = value; }
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            QueryBeforeLogin form = new QueryBeforeLogin();
+            form.ShowDialog();
+        }
     }
 }
