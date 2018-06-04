@@ -51,7 +51,6 @@ namespace BMS
         {
             BorrowHistory borrowhistory = new BorrowHistory(str_2);
             borrowhistory.Show();
-            str_2 = "";
         }
     }
 }
