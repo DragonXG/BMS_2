@@ -54,14 +54,13 @@
             this.label12 = new System.Windows.Forms.Label();
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
-            this.dataGridView3 = new System.Windows.Forms.DataGridView();
             this.label10 = new System.Windows.Forms.Label();
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
+            this.textBox10 = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -240,6 +239,7 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.textBox10);
             this.tabPage2.Controls.Add(this.button5);
             this.tabPage2.Controls.Add(this.button4);
             this.tabPage2.Controls.Add(this.button3);
@@ -247,7 +247,6 @@
             this.tabPage2.Controls.Add(this.label12);
             this.tabPage2.Controls.Add(this.textBox6);
             this.tabPage2.Controls.Add(this.label11);
-            this.tabPage2.Controls.Add(this.dataGridView3);
             this.tabPage2.Controls.Add(this.label10);
             this.tabPage2.Controls.Add(this.textBox5);
             this.tabPage2.Controls.Add(this.label9);
@@ -267,6 +266,7 @@
             this.button5.TabIndex = 10;
             this.button5.Text = "退出";
             this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // button4
             // 
@@ -276,6 +276,7 @@
             this.button4.TabIndex = 9;
             this.button4.Text = "续借";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // button3
             // 
@@ -285,6 +286,7 @@
             this.button3.TabIndex = 8;
             this.button3.Text = "还书";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // textBox7
             // 
@@ -318,15 +320,6 @@
             this.label11.TabIndex = 4;
             this.label11.Text = "应收罚款：";
             // 
-            // dataGridView3
-            // 
-            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView3.Location = new System.Drawing.Point(48, 100);
-            this.dataGridView3.Name = "dataGridView3";
-            this.dataGridView3.RowTemplate.Height = 27;
-            this.dataGridView3.Size = new System.Drawing.Size(729, 149);
-            this.dataGridView3.TabIndex = 3;
-            // 
             // label10
             // 
             this.label10.AutoSize = true;
@@ -338,10 +331,11 @@
             // 
             // textBox5
             // 
-            this.textBox5.Location = new System.Drawing.Point(171, 16);
+            this.textBox5.Location = new System.Drawing.Point(149, 17);
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(207, 25);
             this.textBox5.TabIndex = 1;
+            this.textBox5.MouseLeave += new System.EventHandler(this.textBox5_MouseLeave);
             // 
             // label9
             // 
@@ -351,6 +345,14 @@
             this.label9.Size = new System.Drawing.Size(98, 15);
             this.label9.TabIndex = 0;
             this.label9.Text = "读入图书ID：";
+            // 
+            // textBox10
+            // 
+            this.textBox10.Location = new System.Drawing.Point(48, 93);
+            this.textBox10.Multiline = true;
+            this.textBox10.Name = "textBox10";
+            this.textBox10.Size = new System.Drawing.Size(666, 183);
+            this.textBox10.TabIndex = 11;
             // 
             // BorrowReturn
             // 
@@ -367,7 +369,6 @@
             this.tabPage1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -395,7 +396,6 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.TextBox textBox6;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.DataGridView dataGridView3;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.Label label9;
@@ -404,6 +404,7 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.TextBox textBox8;
         private System.Windows.Forms.TextBox textBox9;
+        private System.Windows.Forms.TextBox textBox10;
 
 
     }
