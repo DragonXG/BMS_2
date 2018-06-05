@@ -18,3 +18,8 @@ F:\工程实践_2\BMS_2-cpy\BooksManagementSystem\DataInfo\bin\Debug\DataInfo.pd
 F:\工程实践_2\BMS_2-cpy\BooksManagementSystem\DataInfo\obj\Debug\DataInfo.csprojResolveAssemblyReference.cache
 F:\工程实践_2\BMS_2-cpy\BooksManagementSystem\DataInfo\obj\Debug\DataInfo.dll
 F:\工程实践_2\BMS_2-cpy\BooksManagementSystem\DataInfo\obj\Debug\DataInfo.pdb
+F:\git下载\BMS_2\BooksManagementSystem\DataInfo\bin\Debug\DataInfo.dll
+F:\git下载\BMS_2\BooksManagementSystem\DataInfo\bin\Debug\DataInfo.pdb
+F:\git下载\BMS_2\BooksManagementSystem\DataInfo\obj\Debug\DataInfo.csprojResolveAssemblyReference.cache
+F:\git下载\BMS_2\BooksManagementSystem\DataInfo\obj\Debug\DataInfo.dll
+F:\git下载\BMS_2\BooksManagementSystem\DataInfo\obj\Debug\DataInfo.pdb
