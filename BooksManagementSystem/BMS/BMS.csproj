@@ -68,6 +68,12 @@
     <Compile Include="BorrowReturn.Designer.cs">
       <DependentUpon>BorrowReturn.cs</DependentUpon>
     </Compile>
+    <Compile Include="PayForOverdue.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PayForOverdue.Designer.cs">
+      <DependentUpon>PayForOverdue.cs</DependentUpon>
+    </Compile>
     <Compile Include="QueryBeforeLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -120,6 +126,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="BorrowReturn.resx">
       <DependentUpon>BorrowReturn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PayForOverdue.resx">
+      <DependentUpon>PayForOverdue.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PwdChange.resx">
       <DependentUpon>PwdChange.cs</DependentUpon>

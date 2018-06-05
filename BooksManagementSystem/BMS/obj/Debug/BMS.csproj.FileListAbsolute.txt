@@ -148,3 +148,4 @@ G:\BMS备份\备份（4）\BooksManagementSystem\BMS\obj\Debug\BMS.ReaderMain.re
 G:\BMS备份\备份（4）\BooksManagementSystem\BMS\obj\Debug\BMS.ReaderManage.resources
 G:\BMS备份\备份（4）\BooksManagementSystem\BMS\obj\Debug\BMS.csproj.GenerateResource.Cache
 D:\GitHub\Works\BMS_2\BooksManagementSystem\BMS\obj\Debug\BMS.QueryBeforeLogin.resources
+D:\GitHub\Works\BMS_2\BooksManagementSystem\BMS\obj\Debug\BMS.PayForOverdue.resources

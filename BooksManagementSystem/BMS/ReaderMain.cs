@@ -52,5 +52,11 @@ namespace BMS
             BorrowHistory borrowhistory = new BorrowHistory(str_2);
             borrowhistory.Show();
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            PayForOverdue form = new PayForOverdue();
+            form.ShowDialog();
+        }
     }
 }
