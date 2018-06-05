@@ -12,15 +12,16 @@ namespace BMS
 {
     public partial class ReaderMain : Form
     {
-        static public string str_1 = "";
+        static public string str_1 = "", str_2 = "";
         public ReaderMain()
         {
             InitializeComponent();
         }
-        public ReaderMain(string text)
+        public ReaderMain(string text, string text_num)
             :this()
         {
             str_1 = text;
+            str_2 = text_num;
         }
         private void button2_Click(object sender, EventArgs e)
         {
@@ -44,6 +45,12 @@ namespace BMS
         {
             label2.Text = str_1;
             str_1 = "";
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            BorrowHistory borrowhistory = new BorrowHistory(str_2);
+            borrowhistory.Show();
         }
     }
 }

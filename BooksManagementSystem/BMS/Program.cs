@@ -12,7 +12,8 @@ namespace BMS
         /// 应用程序的主入口点。
         /// </summary>
         /// 
-        static public bool checkIn=false;
+        static public bool checkin_reader=false;
+        static public bool checkin_admin = false;
         [STAThread]
         static void Main()
         {
@@ -20,12 +21,15 @@ namespace BMS
             Application.SetCompatibleTextRenderingDefault(false);
 
             Application.Run(new Login());
-           /* if(checkIn == true)
+
+            if(checkin_reader == true)
             {
                 Application.Run(new ReaderMain());
-            }*/
-            Application.Run(new AdminMain());
-            
+            }
+            if(checkin_admin == true)
+            {
+                Application.Run(new AdminMain());
+            }       
 
         }
     }

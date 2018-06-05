@@ -50,12 +50,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BookingInformation.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="BookingInformation.Designer.cs">
-      <DependentUpon>BookingInformation.cs</DependentUpon>
-    </Compile>
     <Compile Include="BorrowHistory.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -85,12 +79,6 @@
     </Compile>
     <Compile Include="ReaderManage.Designer.cs">
       <DependentUpon>ReaderManage.cs</DependentUpon>
-    </Compile>
-    <Compile Include="BorrowInformation.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="BorrowInformation.Designer.cs">
-      <DependentUpon>BorrowInformation.cs</DependentUpon>
     </Compile>
     <Compile Include="PwdChange.cs">
       <SubType>Form</SubType>
@@ -124,9 +112,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="BookingInformation.resx">
-      <DependentUpon>BookingInformation.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="BorrowHistory.resx">
       <DependentUpon>BorrowHistory.cs</DependentUpon>
     </EmbeddedResource>
@@ -135,9 +120,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="BorrowReturn.resx">
       <DependentUpon>BorrowReturn.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="BorrowInformation.resx">
-      <DependentUpon>BorrowInformation.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PwdChange.resx">
       <DependentUpon>PwdChange.cs</DependentUpon>
