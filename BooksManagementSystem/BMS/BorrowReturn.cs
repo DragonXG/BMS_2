@@ -339,6 +339,7 @@ namespace BMS
                         newrow["CardNum"] = cardnum;
                         //name = "名";
                         newrow["BookName"] = name;
+                        newrow["BorrowingStatus"] = "在借";         //********************************
 
 
                         dsmydata.Tables["recorder"].Rows.Add(newrow);
@@ -456,6 +457,9 @@ namespace BMS
                 }
                 else
                 {
+                    String cardnum = "";
+                    String name = "";
+
                     open_mysql_llm.conn.Open();
                     DataSet dsmydata = new DataSet();
                     String bookid = textBox5.Text.Trim();
@@ -463,6 +467,13 @@ namespace BMS
                     MySqlDataAdapter darecorder = new MySqlDataAdapter(strmy_reader, open_mysql_llm.conn);
                     MySqlCommandBuilder bdrecorder = new MySqlCommandBuilder(darecorder);
                     darecorder.Fill(dsmydata, "recorder");
+
+                    foreach (DataRow row in dsmydata.Tables["recorder"].Rows)
+                    {
+                        name = row["BookName"].ToString();
+                        cardnum = row["CardNum"].ToString();
+                    }
+                    
                     dsmydata.Tables["recorder"].Rows[0].Delete();
 
                     darecorder.Update(dsmydata, "recorder");
@@ -479,6 +490,33 @@ namespace BMS
                     dabookinformation.Update(dsmydata, "bookinformation");
                     dsmydata.Tables["bookinformation"].AcceptChanges();
 
+                    //添加数据
+                    
+                    String strmy_returnedbook = "Select * From returnedbook";
+                    MySqlDataAdapter dareturnedbook = new MySqlDataAdapter(strmy_returnedbook, open_mysql_llm.conn);
+                    MySqlCommandBuilder bdreturnedbook = new MySqlCommandBuilder(dareturnedbook);
+                    dareturnedbook.Fill(dsmydata, "returnedbook");
+
+                    System.DateTime now = new System.DateTime();   //获取系统时间
+                    now = System.DateTime.Now;
+
+
+                    //为eturnedbook添加借阅信息。
+                    DataRow newrow = dsmydata.Tables["returnedbook"].NewRow();
+                    newrow["BookID"] = bookid;
+                    newrow["BorrowDate"] = now;
+                    newrow["CardNum"] = cardnum;
+                    //name = "名";
+                    newrow["BookName"] = name;
+                    newrow["BorrowingStatus"] = "已还";         //********************************
+
+
+                    dsmydata.Tables["returnedbook"].Rows.Add(newrow);
+                    dareturnedbook.Update(dsmydata, "returnedbook");
+                    dsmydata.Tables["returnedbook"].AcceptChanges();
+                     
+
+                  
                     MessageBox.Show("还书成功！");
                     this.Close();
 
