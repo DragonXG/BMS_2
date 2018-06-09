@@ -74,6 +74,12 @@
     <Compile Include="PayForOverdue.Designer.cs">
       <DependentUpon>PayForOverdue.cs</DependentUpon>
     </Compile>
+    <Compile Include="PayMoney.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PayMoney.Designer.cs">
+      <DependentUpon>PayMoney.cs</DependentUpon>
+    </Compile>
     <Compile Include="QueryBeforeLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -130,6 +136,9 @@
     <EmbeddedResource Include="PayForOverdue.resx">
       <DependentUpon>PayForOverdue.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="PayMoney.resx">
+      <DependentUpon>PayMoney.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="PwdChange.resx">
       <DependentUpon>PwdChange.cs</DependentUpon>
     </EmbeddedResource>
@@ -172,7 +181,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\2.jpg" />

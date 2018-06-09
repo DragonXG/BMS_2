@@ -12,16 +12,16 @@ namespace BMS
 {
     public partial class ReaderMain : Form
     {
-        static public string str_1 = "", str_2 = "";
+        static public string str_cardname = "", str_cardnum = "";
         public ReaderMain()
         {
             InitializeComponent();
         }
-        public ReaderMain(string text, string text_num)
+        public ReaderMain(string text_name, string text_num)
             :this()
         {
-            str_1 = text;
-            str_2 = text_num;
+            str_cardname = text_name;
+            str_cardnum = text_num;
         }
         private void button2_Click(object sender, EventArgs e)
         {
@@ -43,20 +43,28 @@ namespace BMS
 
         private void ReaderMain_Load(object sender, EventArgs e)
         {
-            label2.Text = str_1;
-            str_1 = "";
+            label2.Text = str_cardname;
+            str_cardname = "";
         }
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            BorrowHistory borrowhistory = new BorrowHistory(str_2);
+            BorrowHistory borrowhistory = new BorrowHistory(str_cardnum);
             borrowhistory.Show();
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            PayForOverdue form = new PayForOverdue();
+
+            PayForOverdue form = new PayForOverdue(str_cardnum);
             form.ShowDialog();
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            BorrowReturn borrowreturn = new BorrowReturn();
+            borrowreturn.ShowDialog();
+        }
+
     }
 }

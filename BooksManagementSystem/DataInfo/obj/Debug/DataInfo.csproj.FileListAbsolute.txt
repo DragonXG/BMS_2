@@ -15,7 +15,6 @@ G:\BooksManagementSystem\BMS_2-GXL\BooksManagementSystem\DataInfo\obj\Debug\Data
 G:\BooksManagementSystem\BMS_2-GXL\BooksManagementSystem\DataInfo\obj\Debug\DataInfo.pdb
 D:\GitHub\Works\BMS_2\BooksManagementSystem\DataInfo\bin\Debug\DataInfo.dll
 D:\GitHub\Works\BMS_2\BooksManagementSystem\DataInfo\bin\Debug\DataInfo.pdb
-D:\GitHub\Works\BMS_2\BooksManagementSystem\DataInfo\obj\Debug\DataInfo.csprojResolveAssemblyReference.cache
 D:\GitHub\Works\BMS_2\BooksManagementSystem\DataInfo\obj\Debug\DataInfo.dll
 D:\GitHub\Works\BMS_2\BooksManagementSystem\DataInfo\obj\Debug\DataInfo.pdb
 G:\BMS_2\BooksManagementSystem\DataInfo\bin\Debug\DataInfo.dll
