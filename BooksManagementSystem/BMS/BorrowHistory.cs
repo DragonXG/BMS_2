@@ -23,14 +23,14 @@ namespace BMS
         }
         private void BorrowHistory_Load(object sender, EventArgs e)
         {
+            string str1 = "";
+            str1 = textBox1.Text;
+            textBox1.ReadOnly = true;
             String str = "Server=localhost;Database=bms;Uid=root;password=123456;sslmode=none;";
             MySqlConnection conn = new MySqlConnection(str);
             conn.Open();
             MySqlCommand cmd = new MySqlCommand("select * from reader;", conn);
             MySqlDataReader borrow_info;
-            string str1 = "";
-            str1 = textBox1.Text;
-            textBox1.ReadOnly = true;
             borrow_info = cmd.ExecuteReader();
             while(borrow_info.Read())
             {
@@ -50,7 +50,7 @@ namespace BMS
             MySqlConnection conn = new MySqlConnection(str);
             conn.Open();
             string cardnum = textBox1.Text;
-            MySqlCommand cmd_1 = new MySqlCommand("select BookID, BookName, BorrowDate, BorrowingStatus from recorder where CardNum = '" + cardnum + "' union select BookID, BookName, BorrowDate, BorrowingStatus from returnedbook where CardNum = '" + cardnum + "' order by BorrowDate ASC;", conn);
+            MySqlCommand cmd_1 = new MySqlCommand("select BookID, BookName, BorrowDate, BorrowingStatus from recorder where CardNum = '" + cardnum + "' union select BookID, BookName, BorrowDate, BorrowingStatus from returnedbook where CardNum = '" + cardnum + "' and BorrowingStatus = '"+"已还"+"' order by BorrowDate ASC;", conn);
             DataTable dataread = new DataTable();
             dataread.Load(cmd_1.ExecuteReader());
             dataGridView1.DataSource = dataread;
@@ -61,7 +61,7 @@ namespace BMS
             //设置dataGridView1控件第二列的列头文字
             dataGridView1.Columns[1].HeaderText = "图书名";
             //设置dataGridView1控件第二列的列宽
-            dataGridView1.Columns[1].Width = 200;
+            dataGridView1.Columns[1].Width = 300;
 
             //设置dataGridView1控件第三列的列头文字
             dataGridView1.Columns[2].HeaderText = "借阅日期";
@@ -103,7 +103,7 @@ namespace BMS
             //设置dataGridView1控件第二列的列头文字
             dataGridView1.Columns[1].HeaderText = "图书名";
             //设置dataGridView1控件第二列的列宽
-            dataGridView1.Columns[1].Width = 200;
+            dataGridView1.Columns[1].Width = 300;
 
             //设置dataGridView1控件第三列的列头文字
             dataGridView1.Columns[2].HeaderText = "借阅日期";
@@ -125,7 +125,7 @@ namespace BMS
             MySqlConnection conn = new MySqlConnection(str);
             conn.Open();
             string cardnum = textBox1.Text;
-            MySqlCommand cmd = new MySqlCommand("select BookID,BookName,BorrowDate,Borrowingstatus from returnedbook where CardNum = '" + cardnum + "';", conn);
+            MySqlCommand cmd = new MySqlCommand("select BookID,BookName,BorrowDate,Borrowingstatus from returnedbook where CardNum = '" + cardnum + "' and BorrowingStatus = '"+"已还"+"';", conn);
             DataTable dataread = new DataTable();
             dataread.Load(cmd.ExecuteReader());
             dataGridView1.DataSource = dataread;
@@ -137,7 +137,7 @@ namespace BMS
             //设置dataGridView1控件第二列的列头文字
             dataGridView1.Columns[1].HeaderText = "图书名";
             //设置dataGridView1控件第二列的列宽
-            dataGridView1.Columns[1].Width = 200;
+            dataGridView1.Columns[1].Width = 300;
 
             //设置dataGridView1控件第三列的列头文字
             dataGridView1.Columns[2].HeaderText = "还书日期";

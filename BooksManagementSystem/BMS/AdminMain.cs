@@ -40,5 +40,18 @@ namespace BMS
             BorrowReturn form = new BorrowReturn();
             form.ShowDialog();
         }
+
+        private void AdminMain_Load(object sender, EventArgs e)
+        {
+
+        }
+        private void toolStrip1_Paint(object sender, PaintEventArgs e)
+        {
+            if ((sender as ToolStrip).RenderMode == ToolStripRenderMode.System)
+            {
+                Rectangle rect = new Rectangle(0, 0, this.toolStrip1.Width, this.toolStrip1.Height - 2);
+                e.Graphics.SetClip(rect);
+            }
+        }  
     }
 }
