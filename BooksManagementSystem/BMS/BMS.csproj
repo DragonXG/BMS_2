@@ -32,6 +32,10 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>
+    </StartupObject>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="MySql.Data, Version=8.0.11.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
     <Reference Include="System" />
@@ -57,6 +61,36 @@
     </Compile>
     <Compile Include="BookManage.Designer.cs">
       <DependentUpon>BookManage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BorrowReturn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BorrowReturn.Designer.cs">
+      <DependentUpon>BorrowReturn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PayForOverdue.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PayForOverdue.Designer.cs">
+      <DependentUpon>PayForOverdue.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PayMoney.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PayMoney.Designer.cs">
+      <DependentUpon>PayMoney.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QueryBeforeLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QueryBeforeLogin.Designer.cs">
+      <DependentUpon>QueryBeforeLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReaderManage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReaderManage.Designer.cs">
+      <DependentUpon>ReaderManage.cs</DependentUpon>
     </Compile>
     <Compile Include="PwdChange.cs">
       <SubType>Form</SubType>
@@ -96,8 +130,20 @@
     <EmbeddedResource Include="BookManage.resx">
       <DependentUpon>BookManage.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="BorrowReturn.resx">
+      <DependentUpon>BorrowReturn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PayForOverdue.resx">
+      <DependentUpon>PayForOverdue.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PayMoney.resx">
+      <DependentUpon>PayMoney.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="PwdChange.resx">
       <DependentUpon>PwdChange.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QueryBeforeLogin.resx">
+      <DependentUpon>QueryBeforeLogin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ReaderInfo.resx">
       <DependentUpon>ReaderInfo.cs</DependentUpon>
@@ -121,6 +167,9 @@
     <EmbeddedResource Include="ReaderMain.resx">
       <DependentUpon>ReaderMain.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ReaderManage.resx">
+      <DependentUpon>ReaderManage.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -132,7 +181,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\2.jpg" />
@@ -145,6 +196,18 @@
       <Project>{7e6faf4a-718a-4119-b040-23f4cc51cc65}</Project>
       <Name>DataInfo</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\timg %282%29.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\timg %283%29.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\59794f0c203ce.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\5.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
