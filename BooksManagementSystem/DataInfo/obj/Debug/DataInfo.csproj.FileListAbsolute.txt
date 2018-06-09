@@ -22,3 +22,4 @@ G:\BMS_2\BooksManagementSystem\DataInfo\bin\Debug\DataInfo.pdb
 G:\BMS_2\BooksManagementSystem\DataInfo\obj\Debug\DataInfo.csprojResolveAssemblyReference.cache
 G:\BMS_2\BooksManagementSystem\DataInfo\obj\Debug\DataInfo.dll
 G:\BMS_2\BooksManagementSystem\DataInfo\obj\Debug\DataInfo.pdb
+D:\GitHub\Works\BMS_2\BooksManagementSystem\DataInfo\obj\Debug\DataInfo.csprojResolveAssemblyReference.cache
