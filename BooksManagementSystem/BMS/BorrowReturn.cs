@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 
+//*************************** 注：需要一个cardnum，请添加到，open_mysql_llm那里面的get_number_llm的borrow_cardnum********
 
 namespace BMS
 {
@@ -17,10 +18,11 @@ namespace BMS
         public BorrowReturn()
         {
             InitializeComponent();
+            button6_Click_run();
         }
 
         bool if_can_borrow = true;     //是否能够借书
-        int if_get_bookid = 0;   //如果为零，则不能输入图书id
+        int if_get_bookid = 0;   //如果为零，则不能输入图书id，为1才能够
         int maxmouth = 0;   //如果当前日期比预定日期早一个月，为1，否则为0，不能够借书。
         int mouth_max = 1;      //最大借书日期
         int num_book_max = 5;     //最多可借书数
@@ -309,117 +311,90 @@ namespace BMS
         {
             if_get_bookid = 0;
             if_can_borrow = true;
-            int people = 0;     //有该借阅证号的人数
+            //int people = 1;     //有该借阅证号的人数
             int text8moder = 0;   //textBox8显示的内容
+
+            textBox1.Text = get_number_llm.borrow_cardnum;  //获得节约证号
 
             textBox2.Text = "";
             textBox3.Text = "";
             try
             {
-                if (textBox1.Text.Count() == 0)
+
+
+                int booknum = 0; //借书的数量
+                open_mysql_llm.conn.Open();
+                String cardnum = textBox1.Text.Trim();
+
+                DataSet dslibrary = new DataSet();
+
+                String str1 = "图书ID           借阅证号           借阅日期                图书名" + "\r\n\r\n";
+                String str2 = "该学生有书逾期没还，不能够借书。信息如下：\r\n";                      //不能借书，以及未归还书籍信息
+                str2 = str2 + "书名               " + "还书日期                  " + "当前日期" + "\r\n";
+                System.DateTime now = new System.DateTime();   //获取系统时间
+                now = System.DateTime.Now;
+
+
+                String strmy_recorder = "Select * From recorder Where CardNum = '" + cardnum + "'";
+                MySqlDataAdapter darecorder = new MySqlDataAdapter(strmy_recorder, open_mysql_llm.conn);
+                MySqlCommandBuilder bdrecorder = new MySqlCommandBuilder(darecorder);
+                darecorder.Fill(dslibrary, "recorder");
+
+
+                foreach (DataRow row1 in dslibrary.Tables["recorder"].Rows)
                 {
-                    textBox8.Text = "请读入借阅证号！";
-                    if_get_bookid = 2;
+
+                    text8moder = 1;
+                    //textBox8.Text = "无借阅信息！";
+
+
+                    str1 = str1 + row1["BookID"].ToString() + "              " + row1["CardNum"].ToString() + "         " +
+                    row1["BorrowDate"].ToString() + "      " + row1["BookName"].ToString() + "\r\n\r\n";
+                    booknum += 1;  //借的书的数量
+
+                    System.DateTime borrowdate = Convert.ToDateTime(row1["BorrowDate"]); //获取借阅时间
+                    borrowdate = borrowdate.AddMonths(mouth_max);       //截止日期
+                    if (System.DateTime.Compare(now, borrowdate) > 0)
+                    {
+                        str2 = str2 + row1["BookName"].ToString() + "    " + borrowdate.ToString() + "   " + now.ToString() + "\r\n";
+                        if_can_borrow = false;
+                    }
+
+                }
+                if (text8moder == 0)
+                {
+                    textBox8.Text = "无借阅信息！";
+                    if_get_bookid = 1;
                 }
                 else
                 {
-
-                    int booknum = 0; //借书的数量
-                    open_mysql_llm.conn.Open();
-                    String cardnum = textBox1.Text.Trim();
-                    String strmy_reader = "Select * From reader Where CardNum = '" + cardnum + "'";  //根据借阅证号查找借书记录
-
-                    DataSet dslibrary = new DataSet();
-
-                    MySqlDataAdapter dareader = new MySqlDataAdapter(strmy_reader, open_mysql_llm.conn);
-                    MySqlCommandBuilder bdreader = new MySqlCommandBuilder(dareader);
-                    dareader.Fill(dslibrary, "reader");
-                    foreach (DataRow row in dslibrary.Tables["reader"].Rows)
-                    {
-                        if (row["CardNum"].ToString() != null)
-                        {
-                            //MessageBox.Show("有该学生！");
-                            people += 1;
-                        }
-                    }
-                    if (people == 0)
-                    {
-                        textBox8.Text = "没有该借阅证号！请重新读取！";
-                        if_get_bookid = 2;
-                    }
-                    else
-                    {
-                        String str1 = "图书ID           借阅证号           借阅日期                图书名" + "\r\n\r\n";
-                        String str2 = "该学生有书逾期没还，不能够借书。信息如下：\r\n";                      //不能借书，以及未归还书籍信息
-                        str2 = str2 + "书名               " + "还书日期                  " + "当前日期" + "\r\n";
-                        System.DateTime now = new System.DateTime();   //获取系统时间
-                        now = System.DateTime.Now;
-
-
-                        String strmy_recorder = "Select * From recorder Where CardNum = '" + cardnum + "'";
-                        MySqlDataAdapter darecorder = new MySqlDataAdapter(strmy_recorder, open_mysql_llm.conn);
-                        MySqlCommandBuilder bdrecorder = new MySqlCommandBuilder(darecorder);
-                        darecorder.Fill(dslibrary, "recorder");
-
-
-                        foreach (DataRow row1 in dslibrary.Tables["recorder"].Rows)
-                        {
-
-                            text8moder = 1;
-                            //textBox8.Text = "无借阅信息！";
-
-
-                            str1 = str1 + row1["BookID"].ToString() + "              " + row1["CardNum"].ToString() + "         " +
-                            row1["BorrowDate"].ToString() + "      " + row1["BookName"].ToString() + "\r\n\r\n";
-                            booknum += 1;  //借的书的数量
-
-                            System.DateTime borrowdate = Convert.ToDateTime(row1["BorrowDate"]); //获取借阅时间
-                            borrowdate = borrowdate.AddMonths(mouth_max);       //截止日期
-                            if (System.DateTime.Compare(now, borrowdate) > 0)
-                            {
-                                str2 = str2 + row1["BookName"].ToString() + "    " + borrowdate.ToString() + "   " + now.ToString() + "\r\n";
-                                if_can_borrow = false;
-                            }
-
-                        }
-                        if (text8moder == 0)
-                        {
-                            textBox8.Text = "无借阅信息！";
-                            if_get_bookid = 1;
-                        }
-                        else
-                        {
-                            textBox8.Text = str1;
-                            if_get_bookid = 1;
-                        }
-                        textBox2.Text = booknum.ToString();
-                        textBox3.Text = num_book_max.ToString();      //最多可借书数
-
-                        if (if_can_borrow == false)    //显示不能借书原因
-                        {
-                            MessageBox.Show(str2);
-                        }
-                        if (booknum >= num_book_max)   // 判断是否超过最多借书量
-                        {
-                            MessageBox.Show("不能够借书，原因：已达到最大借书量！");
-                            if_can_borrow = false;
-                        }
-
-                    }
-
-                    open_mysql_llm.conn.Close();
+                    textBox8.Text = str1;
+                    if_get_bookid = 1;
                 }
-            }
+                textBox2.Text = booknum.ToString();
+                textBox3.Text = num_book_max.ToString();      //最多可借书数
 
+                if (if_can_borrow == false)    //显示不能借书原因
+                {
+                    MessageBox.Show(str2);
+                }
+                if (booknum >= num_book_max)   // 判断是否超过最多借书量
+                {
+                    MessageBox.Show("不能够借书，原因：已达到最大借书量！");
+                    if_can_borrow = false;
+                }
+
+                open_mysql_llm.conn.Close();
+            }
             catch (Exception ex)
             {
                 MessageBox.Show("打开数据库失败！");
             }
 
         }
-        private void button6_Click(object sender, EventArgs e)       //借书确认按钮
+        private void button6_Click(object sender, EventArgs e)       
         {
-            button6_Click_run();    //执行该函数。
+
         }
 
         private void button7_Click(object sender, EventArgs e)    //图书id确认按钮
