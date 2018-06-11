@@ -171,3 +171,6 @@ G:\BooksManagementSystem\BMS_2-cpy\BooksManagementSystem\BMS\obj\Debug\BMS.Reade
 G:\BooksManagementSystem\BMS_2-cpy\BooksManagementSystem\BMS\obj\Debug\BMS.ReaderManage.resources
 G:\BooksManagementSystem\BMS_2-cpy\BooksManagementSystem\BMS\obj\Debug\BMS.csproj.GenerateResource.Cache
 G:\BooksManagementSystem\BMS_2-cpy\BooksManagementSystem\BMS\obj\Debug\BMS.PayMoney.resources
+G:\BMS_2\BooksManagementSystem\BMS\obj\Debug\BMS.PayForOverdue.resources
+G:\BMS_2\BooksManagementSystem\BMS\obj\Debug\BMS.PayMoney.resources
+G:\BMS_2\BooksManagementSystem\BMS\obj\Debug\BMS.QueryBeforeLogin.resources

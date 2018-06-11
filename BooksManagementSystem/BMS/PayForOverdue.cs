@@ -35,6 +35,7 @@ namespace BMS
             Dictionary<string, string> my_dic_3 = new Dictionary<string, string>();     //存图书名
             textBox1.Text = str_cardnum;
             textBox1.ReadOnly = true;
+            //MessageBox.Show("1\n");
             //添加列表头
             listView1.Columns.Add("图书ID", 120, HorizontalAlignment.Left);
             listView1.Columns.Add("图书名", 120, HorizontalAlignment.Left);
@@ -49,6 +50,8 @@ namespace BMS
             string str_bookname = "";                                   //记录图书名
             DateTime dt_borrdate = new DateTime();
             DateTime dt_redate = new DateTime();
+
+            //MessageBox.Show("2\n");
             String str = "Server=localhost;Database=bms;Uid=root;password=123456;sslmode=none;";
             MySqlConnection conn = new MySqlConnection(str);
             conn.Open();
@@ -72,6 +75,8 @@ namespace BMS
                     my_dic_3.Add(str_bookid, str_bookname);
                 }
             }
+
+            //MessageBox.Show("3\n");
             if((my_dic_1 == null) || (my_dic_2 == null))
             {
                 MessageBox.Show("您目前没有需要缴的费用哦!");
@@ -102,12 +107,15 @@ namespace BMS
                                       book.SubItems.Add(Convert.ToString(overdate));
                                       book.SubItems.Add("");
                                       listView1.Items.Add(book);
+                                     
                                   }
                               }
                           }
                       }
                   }
             }
+
+            //MessageBox.Show("4\n");
             btn.Visible = false;
             btn.Text = "缴费";                                                   //添加缴费操作事件
             btn.Click += button_Click;

@@ -68,6 +68,7 @@
     <Compile Include="BorrowReturn.Designer.cs">
       <DependentUpon>BorrowReturn.cs</DependentUpon>
     </Compile>
+    <Compile Include="open_mysql_llm.cs" />
     <Compile Include="PayForOverdue.cs">
       <SubType>Form</SubType>
     </Compile>
