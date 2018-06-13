@@ -109,8 +109,18 @@ namespace BMS
             try
             {
                 open_mysql_llm.conn.Open();
-
                 DataSet dsmydata = new DataSet();
+                string Selectstring = "Select * from reader where CardNum = '" + CardNum + "'";
+                MySqlDataAdapter da = new MySqlDataAdapter(Selectstring, open_mysql_llm.conn);
+                MySqlCommandBuilder bd = new MySqlCommandBuilder(da);
+                da.Fill(dsmydata, "reader");
+                if (dsmydata.Tables.Count ==1 && dsmydata.Tables[0].Rows.Count != 0)
+                {
+                    MessageBox.Show("该借阅号已经存在，请重新输入借阅号");
+                    open_mysql_llm.conn.Close();
+                    return;
+                }
+
                 //将信息填入tbookclass表中并将其显示在DataGridView中
                 string Commandstring = "Insert into reader(CardNum,ReaderName,College,Profession,TelNumber,Lodinkey,ReaderType)Values('" +
                     CardNum + "','" + ReaderName + "','" + College + "','" + Profession + "','" +
@@ -131,6 +141,7 @@ namespace BMS
             }
             catch (Exception ex)
             {
+                open_mysql_llm.conn.Close();
                 MessageBox.Show(ex.Message.ToString()+"打开数据库失败!");
             }
         }
@@ -156,6 +167,7 @@ namespace BMS
             }
             catch (Exception ex)
             {
+                open_mysql_llm.conn.Close();
                 MessageBox.Show(ex.Message.ToString() + "打开数据库失败！");
             }
         }
@@ -227,6 +239,7 @@ namespace BMS
             }
             catch(Exception ex)
             {
+                open_mysql_llm.conn.Close();
                 MessageBox.Show(ex.Message.ToString() + "打开数据库失败");
             }
 
@@ -255,6 +268,7 @@ namespace BMS
             }
             catch (Exception ex)
             {
+                open_mysql_llm.conn.Close();
                 MessageBox.Show(ex.Message.ToString() + "数据库打开失败!");
             }
         }
@@ -312,6 +326,7 @@ namespace BMS
             }
             catch (Exception ex)
             {
+                open_mysql_llm.conn.Close();
                 MessageBox.Show(ex.Message.ToString() + "打开数据库失败");
             }
         }
