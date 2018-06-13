@@ -43,7 +43,7 @@ namespace BMS
 
         private void ClearStrings()
         {
-            textBox6.Text = "";
+            /*textBox6.Text = "";
             textBox5.Text = "";
             textBox4.Text = "";
             textBox3.Text = "";
@@ -52,9 +52,9 @@ namespace BMS
             textBox14.Text = "";
             textBox15.Text = "";
             listBox1.Text = "";
-            ListBoxText = "";
+            ListBoxText = "";*/
 
-            /*textBox6.Text = "01010110203";
+            textBox6.Text = "01010110203";
             textBox5.Text = "ACM国际大学生程序设计竞赛-题目与解读";
             textBox4.Text = "俞勇";
             textBox3.Text = "清华大学出版社";
@@ -63,7 +63,7 @@ namespace BMS
             textBox14.Text = "谨以此书献给上海交通大学获得ACM-ICPC世界冠军十周年";
             textBox15.Text = "计算机类";
             listBox1.Text = "";
-            ListBoxText = "";*/
+            ListBoxText = "";
         }
 
         private void ClearStrings2()
@@ -324,12 +324,29 @@ namespace BMS
                 }
                 else
                 {
-                    string tem="";
+
+                    DataSet dsmydata2 = new DataSet();
+                    MySqlCommand cmd31 = new MySqlCommand("select * from booking where BookID = '" + BookID + "'", open_mysql_llm.conn);
+                    MySqlDataAdapter da2 = new MySqlDataAdapter();
+                    da2.SelectCommand = cmd31;
+                    da2.Fill(dsmydata2, "booking");
+                    foreach (DataRow row in dsmydata2.Tables["booking"].Rows)
+                    {
+                        if (row[0].ToString() == BookID)
+                        {
+                            string commandtem = "Insert into systemprompt(CardNum,PromptMessage)values('" + row[2].ToString() + "','您于" +
+                                row[3].ToString() + "对" + row[1].ToString() + "(" + row[0].ToString() + ")的预定由于书籍信息删除而被取消，我们为给您造成的不便而抱歉。" + " ')";
+                            MySqlCommand cmd6 = new MySqlCommand();
+                            cmd6.Connection = open_mysql_llm.conn;
+                            cmd6.CommandText = commandtem;
+                            cmd6.ExecuteNonQuery();
+                            break;
+                        }
+                    }
+
                     MySqlCommand cmd3 = new MySqlCommand();
                     cmd3.Connection = open_mysql_llm.conn;
-                    cmd3.CommandText = "delete from Booking where BookID = '" + BookID + "'";
-                    //这里要给用户发送信息
-
+                    cmd3.CommandText = "delete from booking where BookID = '" + BookID + "'";
                     cmd3.ExecuteNonQuery();
 
                     MySqlCommand cmd2 = new MySqlCommand();
@@ -342,12 +359,12 @@ namespace BMS
                     cmd4.CommandText = "delete from tbookclass where BookClassID = '" + commandstring + "'";
                     cmd4.ExecuteNonQuery();
 
+                    string tem = "";
                     tem = "删除 编号为: " + commandstring+" ID号为: "+BookID +" 的书籍\n";
                     listBox1.Items.Add(tem);
 
                     open_mysql_llm.conn.Close();
                     MessageBox.Show("删除成功");
-                                
                 }
 
             }

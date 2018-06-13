@@ -29,21 +29,21 @@ namespace BMS
 
         private void Clearstrings()
         {
-            textBox6.Text = "";
+            /*textBox6.Text = "";
             textBox5.Text = "";
             textBox4.Text = "";
             textBox3.Text = "";
             textBox2.Text = "";
             textBox1.Text = "";
-            textBox14.Text = "";
+            textBox14.Text = "";*/
 
-            /*textBox6.Text = "2016080808";
+            textBox6.Text = "2016080808";
             textBox5.Text = "张三";
             textBox4.Text = "成都信息工程大学";
             textBox3.Text = "大数据";
             textBox2.Text = "13267678989";
             textBox1.Text = "111111";
-            textBox14.Text = "本科生";*/
+            textBox14.Text = "本科生";
         }
 
         private void Clearstrings2()
@@ -289,7 +289,6 @@ namespace BMS
                 }
                 else
                 {
-                    string tem = "";
                     MySqlCommand cmd3 = new MySqlCommand();
                     cmd3.Connection = open_mysql_llm.conn;
                     cmd3.CommandText = "delete from recorder where CardNum = '" + commandstring + "'";
