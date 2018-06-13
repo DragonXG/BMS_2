@@ -34,11 +34,11 @@ namespace BMS
             da1.Fill(dsmydata, "administrator");
             open_mysql_llm.conn.Close();
 
-            if (dsmydata.Tables[0].Rows[0][6].ToString() == "Read")
+            if (dsmydata.Tables[0].Rows[0][6].ToString() == "系统管理员")
             {
                 Authority = 1;
             }
-            else if (dsmydata.Tables[0].Rows[0][6].ToString() == "Read\\Write")
+            else if (dsmydata.Tables[0].Rows[0][6].ToString() == "图书管理员")
             {
                 Authority = 2;
             }
