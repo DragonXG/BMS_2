@@ -18,20 +18,21 @@ namespace BMS
         public BorrowReturn()
         {
             InitializeComponent();
-            button6_Click_run();
         }
 
         bool if_can_borrow = true;     //是否能够借书
-        int if_get_bookid = 0;   //如果为零，则不能输入图书id，为1才能够
-        int maxmouth = 0;   //如果当前日期比预定日期早一个月，为1，否则为0，不能够借书。
-        int mouth_max = 1;      //最大借书日期
-        int num_book_max = 5;     //最多可借书数
-        int xujie = 0;     //是否可以续借，0，不可续借，1，可借
-        int huanshu = 0;    //是否可以进行还书操作，0，不可，1，可。
-        int butten1_times = 0;    //是否可以执行butten1，0可以执行。
-        int butten3_times = 0;    //是否可以执行butten3，butten4,0为可以执行
-        int butten7_butten6_click_run = 0; //该int型让最初始的那个butten6——click_run执行一次，（在butten7_click函数里）
-        //System.DateTime daoqi_book = new System.DateTime();
+        int if_get_bookid = 0;         //如果为零，则不能输入图书id，为1才能够
+        int maxmouth = 0;              //如果当前日期比预定日期早一个月，为1，否则为0，不能够借书。
+        int mouth_max = 30;            //最大借书日期,修改，这里为天数。
+        int num_book_max = 5;          //最多可借书数
+        int xujie = 0;                 //是否可以续借，0，不可续借，1，可借
+        int huanshu = 0;               //是否可以进行还书操作，0，不可，1，可。
+        int butten1_times = 0;         //是否可以执行butten1，0可以执行。
+        int butten3_times = 0;         //是否可以执行butten3，butten4,0为可以执行
+        int mouse_leave = 0;           //窗体建好后，鼠标移动则执行一次butten6_Click_run（）注：这个窗体只执行一次。
+        int delet_booking = 0;         //执行借书时，是否删除booking里面的数据。
+        int if_message = 0;        //是否弹出提示还款信息，0，为不提醒，1为提醒。
+       
 
         private void button2_Click(object sender, EventArgs e)   //退出
         {
@@ -78,8 +79,7 @@ namespace BMS
                         {
                             if (maxmouth == 0)
                             {
-                                MessageBox.Show("不能借，因为该书预定在一个月以内！");
-                                //this.Close();
+                                MessageBox.Show("不能借，因为该书预定在" + mouth_max.ToString() + "天以内！");
                             }
                             else
                             {
@@ -92,6 +92,22 @@ namespace BMS
                                 MySqlDataAdapter dabookinformation = new MySqlDataAdapter(strmy_bookinformation, open_mysql_llm.conn);
                                 MySqlCommandBuilder bdbookinformation = new MySqlCommandBuilder(dabookinformation);
                                 dabookinformation.Fill(dsmydata, "bookinformation");
+
+                                //删除预定书的记录
+                                if (delet_booking == 1)
+                                {
+                                    String strmy_booking = "Select * From booking Where BookID = '" + bookid + "'";
+                                    MySqlDataAdapter dabooking = new MySqlDataAdapter(strmy_booking, open_mysql_llm.conn);
+                                    MySqlCommandBuilder bdbooking = new MySqlCommandBuilder(dabooking);
+                                    dabooking.Fill(dsmydata, "booking");
+
+                                    dsmydata.Tables["booking"].Rows[0].Delete();
+                                    dabooking.Update(dsmydata, "booking");
+                                    dsmydata.Tables["booking"].AcceptChanges();
+
+                                }
+
+                                //到此结束
 
                                 String bookclassid = "";  //获得编码
                                 foreach (DataRow row5 in dsmydata.Tables["bookinformation"].Rows)
@@ -142,6 +158,8 @@ namespace BMS
                                 increase_returnedbook(bookid, cardnum, name, "借阅", ref  dsmydata);
 
                                 MessageBox.Show("借书成功！");
+                                textBox4.Text = "";
+                                textBox9.Text = "";
                                 open_mysql_llm.conn.Close();
                                 button6_Click_run();      //再次执行该函数，进行刷新。
                                 
@@ -150,6 +168,8 @@ namespace BMS
                         else
                         {
                             MessageBox.Show("不能够借书！");
+                            textBox4.Text = "";
+                            textBox9.Text = "";
                         }
                     }
                     else
@@ -161,7 +181,7 @@ namespace BMS
             }
             catch (Exception ex)
             {
-                MessageBox.Show("打开数据库失败！");
+                MessageBox.Show(ex.Message.ToString() + "打开数据库失败！");
             }
         }
 
@@ -199,8 +219,8 @@ namespace BMS
                             name = row["BookName"].ToString();
                             cardnum = row["CardNum"].ToString();
                         }
-
-                        dsmydata.Tables["recorder"].Rows[0].Delete();
+                        //删除recorder记录
+                        dsmydata.Tables["recorder"].Rows[0].Delete();   
 
                         darecorder.Update(dsmydata, "recorder");
                         dsmydata.Tables["recorder"].AcceptChanges();
@@ -218,16 +238,30 @@ namespace BMS
 
                         //为returnedbook添加数据
                         increase_returnedbook(bookid, cardnum, name, "已还", ref  dsmydata);
-
-                        MessageBox.Show("还书成功！");
+                        
                         open_mysql_llm.conn.Close();
-
+                       
+                        textBox5.Text = "";
+                        textBox10.Text = "";
+                        textBox6.Text = "";
+                        textBox7.Text = "";
+                        
+                        if (if_message == 0)
+                        {
+                            MessageBox.Show("还书成功！");
+                        }
+                        if (if_message == 1)
+                        {
+                            if_message_pay f2 = new if_message_pay();
+                            f2.Show();
+                        }
+                        button6_Click_run();
                     }
                 }
             }
             catch(Exception ex)
             {
-                MessageBox.Show("打开数据库失败！");
+                MessageBox.Show(ex.Message.ToString() + "打开数据库失败！");
             }
         }
 
@@ -245,6 +279,7 @@ namespace BMS
                     else if (xujie == 0)
                     {
                         MessageBox.Show("书逾期归还，不能够续借！");
+                        butten3_times = 0;
                     }
                     else
                     {
@@ -267,8 +302,8 @@ namespace BMS
                         }
 
                         int days = (now - bookingtime).Days;
-                   
-                        if (havebook == 1 && days < 60 && days > -31)  //书被预定，且预定时间不早于现在两个月,迟于现在一个月，不能借
+
+                        if (havebook == 1 && days < 30 && days > -(mouth_max))  //书被预定，且预定时间不早于现在一个月,迟于现在一个月，不能借
                         {
                             MessageBox.Show("不能够续借，该书已被预定！");
                         }
@@ -295,6 +330,10 @@ namespace BMS
                             increase_returnedbook(bookid, cardnum, name, "借阅", ref  dsmydata);
 
                             MessageBox.Show("续借成功！");
+                            textBox5.Text = "";
+                            textBox10.Text = "";
+                            textBox6.Text = "";
+                            textBox7.Text = "";
                             
                         }
 
@@ -304,7 +343,7 @@ namespace BMS
             }
             catch(Exception ex)
             {
-                MessageBox.Show("打开数据库失败！");
+                MessageBox.Show(ex.Message.ToString() + "打开数据库失败！");
             }
         }
         private void button6_Click_run()
@@ -353,7 +392,7 @@ namespace BMS
                     booknum += 1;  //借的书的数量
 
                     System.DateTime borrowdate = Convert.ToDateTime(row1["BorrowDate"]); //获取借阅时间
-                    borrowdate = borrowdate.AddMonths(mouth_max);       //截止日期
+                    borrowdate = borrowdate.AddDays(mouth_max);       //截止日期
                     if (System.DateTime.Compare(now, borrowdate) > 0)
                     {
                         str2 = str2 + row1["BookName"].ToString() + "    " + borrowdate.ToString() + "   " + now.ToString() + "\r\n";
@@ -388,7 +427,7 @@ namespace BMS
             }
             catch (Exception ex)
             {
-                MessageBox.Show("打开数据库失败！");
+                MessageBox.Show(ex.Message.ToString() + "打开数据库失败！");
             }
 
         }
@@ -400,6 +439,7 @@ namespace BMS
         private void button7_Click(object sender, EventArgs e)    //图书id确认按钮
         {
             maxmouth = 0;
+            delet_booking = 0;
             try
             {
                 if (if_get_bookid == 1)    //判断是否可以执行这个函数,为1才能后执行
@@ -474,18 +514,35 @@ namespace BMS
                             }
 
                             int bookoder = 0; //看书是否被预定。1为预定    
+                            int delete = 0; //是否删除booking记录，1，删除，0不删除。
                             foreach (DataRow row1 in dsmydata.Tables["booking"].Rows)
                             {
                                 bookoder = 1;
                                 System.DateTime borrowdate = Convert.ToDateTime(row1["BookDate"]);  //获取预定时间
                                 System.DateTime latemouse = new System.DateTime();
-                                latemouse = now.AddMonths(mouth_max);    //一个月以后的现在
+                                latemouse = now.AddDays(mouth_max);    //一个月以后的现在
                                 int Days = (now - borrowdate).Days;   //计算现在与预定日之间的天数。
-                                if (System.DateTime.Compare(latemouse, borrowdate) < 0 || Days > 59)  // 一个月后的现在小于预定日期或者预定日期在两个月以前，借，否则不借。
+                                if (System.DateTime.Compare(latemouse, borrowdate) < 0 || Days > 30) // 一个月后的现在小于预定日期或者预定日期在两个月以前，借，否则不借。
                                 {
                                     maxmouth = 1;
+                                    if (Days > 30)   //如果长时间不取消预定，早于当前日期一个月，则删除该预定记录。
+                                    {
+                                        delete = 1;
+                                    }
+                                }
+                                if (delete == 0 && row1["CardNum"].ToString() == get_number_llm.borrow_cardnum)
+                                {
+                                    maxmouth = 1;  //可以借书
+                                    delet_booking = 1;   //该学生预定了此书，要接该书，在借书时应删除预定记录。
                                 }
 
+                            }
+                            if (delete == 1)  //删除预定记录
+                            {
+                                bookoder = 0;
+                                dsmydata.Tables["booking"].Rows[0].Delete();
+                                dabooking.Update(dsmydata, "booking");
+                                dsmydata.Tables["booking"].AcceptChanges();
                             }
                             if (bookoder == 1)
                             {
@@ -518,7 +575,7 @@ namespace BMS
             }
             catch (Exception ex)
             {
-                MessageBox.Show("打开数据库失败！");
+                MessageBox.Show(ex.Message.ToString() + "打开数据库失败！");
             }
 
         }
@@ -530,6 +587,7 @@ namespace BMS
             {
                 xujie = 0;
                 huanshu = 0;
+                if_message = 0;    //重置该函数。
                 if (textBox5.Text.Count() == 0)
                 {
                     textBox10.Text = "请读入图书ID！";
@@ -557,7 +615,7 @@ namespace BMS
                         str1_out = str1_out + row6["CardNum"].ToString() + "             " + row6["BookID"].ToString() +
                         "               " + row6["BorrowDate"].ToString() + "    " + row6["BookName"].ToString() + "\r\n";
                         borrowdata = Convert.ToDateTime(row6["BorrowDate"]);
-                        borrowdata = borrowdata.AddMonths(mouth_max);     //截止日期
+                        borrowdata = borrowdata.AddDays(mouth_max);     //截止日期
 
                     }
                     if (havebook == 0)
@@ -568,20 +626,24 @@ namespace BMS
                     {
                         textBox10.Text = str1_out;   //输出相关信息
 
+                        //*********************需要改***************************
+
                         System.DateTime now = new System.DateTime();   //获取系统时间
                         now = System.DateTime.Now;
-                        int days = (now - borrowdata).Days;
-                        if (days < 1)
+                        double days = ((TimeSpan)(now - borrowdata)).Days;   
+                        if (days <= 0)
                         {
-                            int daoday = days * (-1);
+                            double daoday = days * (-1);
                             textBox6.Text = "0";
                             textBox7.Text = daoday.ToString();
                             xujie = 1;                   //是否可以续借
                         }
                         else
                         {
-                            textBox6.Text = days.ToString() + "元";
+                            double money = days * 0.5;
+                            textBox6.Text = money.ToString() + "元";
                             textBox7.Text = "超过还书日期：" + days.ToString() + "天";
+                            if_message = 1;   //在还书时提示还款。
                         }
                         huanshu = 1;
                         butten3_times = 0;   //可以执行还书按钮。
@@ -592,7 +654,36 @@ namespace BMS
             }
             catch (Exception ex)
             {
-                MessageBox.Show("打开数据库失败！");
+                MessageBox.Show(ex.Message.ToString() + "打开数据库失败！");
+            }
+        }
+
+
+        //以下为了让butten6_click_run函数执行一次
+        private void BorrowReturn_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (mouse_leave == 0)
+            {
+                button6_Click_run();
+                mouse_leave = 1;
+            }
+        }
+
+        private void tabPage1_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (mouse_leave == 0)
+            {
+                button6_Click_run();
+                mouse_leave = 1;
+            }
+        }
+
+        private void textBox8_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (mouse_leave == 0)
+            {
+                button6_Click_run();
+                mouse_leave = 1;
             }
         }
 

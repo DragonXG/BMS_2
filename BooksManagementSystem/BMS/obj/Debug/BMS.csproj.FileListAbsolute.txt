@@ -105,3 +105,4 @@ F:\git下载\BMS_2\BooksManagementSystem\BMS\obj\Debug\BMS.csproj.GenerateResour
 F:\BMS_2-15d06305c3488b70c2961fc6d1b1aa9776d59a91\BooksManagementSystem\BMS\bin\Debug\BMS.exe.config
 F:\BMS_2-15d06305c3488b70c2961fc6d1b1aa9776d59a91\BooksManagementSystem\BMS\obj\Debug\BMS.exe
 F:\BMS_2-15d06305c3488b70c2961fc6d1b1aa9776d59a91\BooksManagementSystem\BMS\obj\Debug\BMS.pdb
+F:\git下载\BMS_2\BooksManagementSystem\BMS\obj\Debug\BMS.if_message_pay.resources
