@@ -73,7 +73,9 @@ namespace BMS
                 {
                     ReaderMain readmain = new ReaderMain(str3, textBox1.Text);
                     Program.checkin_reader = true;
+                    get_number_llm.borrow_cardnum = textBox1.Text;
                     this.Close();
+                    
                 }
                 else
                 {

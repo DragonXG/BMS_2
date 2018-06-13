@@ -9,10 +9,10 @@ namespace DataInfo
     //借阅记录表
     class BorrowRecord
     {
-        public String boolId;
-        public String bookName;
-        public String cardNum;
-        public String borrowDate;
+        public String boolId = "";
+        public String bookName = "";
+        public String cardNum = "";
+        public String borrowDate = "";
 
     }
 }
