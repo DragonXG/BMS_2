@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
 
 namespace BMS
 {
@@ -16,6 +17,24 @@ namespace BMS
         public ReaderMain()
         {
             InitializeComponent();
+            open_mysql_llm.conn.Open();
+            DataSet dsmydata = new DataSet();
+            MySqlCommand cmd = new MySqlCommand("select * from systemprompt where CardNum ='" + str_cardnum + "'", open_mysql_llm.conn);
+            MySqlDataAdapter da1 = new MySqlDataAdapter();
+            da1.SelectCommand = cmd;
+            da1.Fill(dsmydata, "systemprompt");
+            foreach (DataRow row in dsmydata.Tables["systemprompt"].Rows)
+            {
+                if (row[0].ToString() == str_cardnum)
+                {
+                    MessageBox.Show(row[1].ToString());
+                }
+            }
+            MySqlCommand cmd3 = new MySqlCommand();
+            cmd3.Connection = open_mysql_llm.conn;
+            cmd3.CommandText = "delete from systemprompt where CardNum = '" + str_cardnum + "'";
+            cmd3.ExecuteNonQuery();
+            open_mysql_llm.conn.Close();
         }
         public ReaderMain(string text_name, string text_num)
             :this()
