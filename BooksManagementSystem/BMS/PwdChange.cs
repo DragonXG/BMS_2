@@ -108,7 +108,7 @@ namespace BMS
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show("打开数据库失败！");
+                        MessageBox.Show(ex.Message.ToString() + "打开数据库失败！");
                     }
                 }
               
