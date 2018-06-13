@@ -75,7 +75,6 @@ namespace BMS
                     Program.checkin_reader = true;
                     get_number_llm.borrow_cardnum = textBox1.Text;
                     this.Close();
-                    
                 }
                 else
                 {

@@ -28,13 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
+
             this.label3 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.listView1 = new System.Windows.Forms.ListView();
             this.label5 = new System.Windows.Forms.Label();
+
             this.SuspendLayout();
             // 
+
             // label3
             // 
             this.label3.AutoSize = true;
@@ -99,6 +102,7 @@
             this.Name = "PayForOverdue";
             this.Text = "过期还款";
             this.Load += new System.EventHandler(this.PayForOverdue_Load);
+
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -106,10 +110,12 @@
 
         #endregion
 
+
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ListView listView1;
         private System.Windows.Forms.Label label5;
+
     }
 }
