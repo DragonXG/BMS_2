@@ -124,7 +124,7 @@ namespace BMS
                 }
                 if (admin_flag3 == true)
                 {
-                    AdminMain readmain = new AdminMain();
+                    AdminMain readmain = new AdminMain(admin_name);
                     Program.checkin_admin = true;
                     this.Close();
                 }
