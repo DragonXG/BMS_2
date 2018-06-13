@@ -34,7 +34,10 @@ namespace BMS
             {
                 errorProvider1.Clear();
                 this.Close();
-                MessageBox.Show("缴费成功!");
+                string success = "缴费成功!";
+                MessageBox.Show(success);
+                PayForOverdue PayOver = new PayForOverdue();
+                PayOver.Success(success);
             }
             else
             {

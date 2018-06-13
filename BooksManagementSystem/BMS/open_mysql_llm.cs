@@ -19,5 +19,6 @@ namespace BMS
         public static int reader_admin = 0;  //看到底是什么要修改密码，0为读者，1为管理员
         public static String cardnum = "0";  //获得账号
         public static String denlumima = "0";  //获得登录密码
+        public static String borrow_cardnum = "2016081002";  //获得借书的CardNum
     }
 }
