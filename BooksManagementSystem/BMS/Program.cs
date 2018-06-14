@@ -19,6 +19,7 @@ namespace BMS
             //Application.Run(new Login());
             Application.Run(new AdminMain());
            // Application.Run(new ReaderMain());
+            //Application.Run(new PwdChange());
         }
     }
 }
