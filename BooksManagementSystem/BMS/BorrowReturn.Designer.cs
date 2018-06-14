@@ -77,6 +77,7 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.BackgroundImage = global::BMS.Properties.Resources._1_161230153012;
             this.tabPage1.Controls.Add(this.button7);
             this.tabPage1.Controls.Add(this.textBox9);
             this.tabPage1.Controls.Add(this.textBox8);
@@ -252,6 +253,7 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.BackgroundImage = global::BMS.Properties.Resources.ecc56dc89db401f6ebf4c1b997b3610b5d41023f;
             this.tabPage2.Controls.Add(this.button8);
             this.tabPage2.Controls.Add(this.textBox10);
             this.tabPage2.Controls.Add(this.button5);

@@ -189,6 +189,18 @@
       <Name>DataInfo</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\llm.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ecc56dc89db401f6ebf4c1b997b3610b5d41023f.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\25cefce1a962583f.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1-161230153012.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
