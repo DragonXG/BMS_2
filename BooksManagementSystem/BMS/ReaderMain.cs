@@ -57,6 +57,8 @@ namespace BMS
         private void button5_Click(object sender, EventArgs e)
         {
             ReaderInfo readinfo = new ReaderInfo(label2.Text);
+            string logstring = "借阅证号：" + str_cardnum +"\t"+ "读者：" + label2.Text + "查询了自己的信息.\n";
+            Log.WriteLog(logstring);
             readinfo.Show();
         }
 
@@ -69,13 +71,16 @@ namespace BMS
         private void button1_Click_1(object sender, EventArgs e)
         {
             BorrowHistory borrowhistory = new BorrowHistory(str_cardnum);
+            string logstring = "借阅证号：" + str_cardnum + "\t"+"读者：" + label2.Text + "进入了个人图书信息页面.\n";
+            Log.WriteLog(logstring);
             borrowhistory.Show();
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-
             PayForOverdue form = new PayForOverdue(str_cardnum);
+            string logstring = "借阅证号：" + str_cardnum + "\t" + "读者：" + label2.Text + "进入了缴费页面.\n";
+            Log.WriteLog(logstring);
             form.ShowDialog();
         }
 

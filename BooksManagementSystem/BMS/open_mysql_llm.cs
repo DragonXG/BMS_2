@@ -11,7 +11,9 @@ namespace BMS
     {
         //记着改密码，用户名
 
+
         public static String strConn = "Server = localhost;Database = BMS;Uid = root;password = 123456; sslmode = none; Charset = utf8";
+
 
         public static MySqlConnection conn = new MySqlConnection(strConn);
 
@@ -22,7 +24,9 @@ namespace BMS
         public static String cardnum = "0";  //获得账号
         public static String denlumima = "0";  //获得登录密码
 
+
         public static String borrow_cardnum = "2016081002";  //获得借书的CardNum
+
 
     }
 }

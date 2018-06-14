@@ -130,6 +130,7 @@
             this.toolStripButton2.Text = "借还记录";
             this.toolStripButton2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.toolStripButton2.Click += new System.EventHandler(this.toolStripButton2_Click);
+
             // 
             // 维护ToolStripMenuItem
             // 
@@ -157,6 +158,7 @@
             this.修改密码ToolStripMenuItem.Name = "修改密码ToolStripMenuItem";
             this.修改密码ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.修改密码ToolStripMenuItem.Text = "修改密码";
+
             // 
             // AdminMain
             // 
@@ -171,7 +173,9 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "AdminMain";
             this.Text = "管理员界面";
+
             this.Load += new System.EventHandler(this.AdminMain_Load);
+
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.toolStrip1.ResumeLayout(false);

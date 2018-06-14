@@ -101,6 +101,9 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "借书处理";
             this.tabPage1.UseVisualStyleBackColor = true;
+
+            this.tabPage1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.tabPage1_MouseMove);
+
             // 
             // button7
             // 
@@ -127,6 +130,9 @@
             this.textBox8.Name = "textBox8";
             this.textBox8.Size = new System.Drawing.Size(720, 177);
             this.textBox8.TabIndex = 16;
+
+            this.textBox8.MouseMove += new System.Windows.Forms.MouseEventHandler(this.textBox8_MouseMove);
+
             // 
             // button2
             // 
@@ -385,6 +391,9 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "BorrowReturn";
             this.Text = "借还图书";
+
+            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.BorrowReturn_MouseMove);
+
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();

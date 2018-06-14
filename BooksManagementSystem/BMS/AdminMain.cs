@@ -45,17 +45,20 @@ namespace BMS
 
         private void toolStripButton3_Click(object sender, EventArgs e)
         {
+
             if (Authority == 1)
             {
                 MessageBox.Show("您没有权限查看此部分");
                 return;
             }
+
             BookManage form = new BookManage();
             form.ShowDialog();
         }
 
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
+
             if (Authority == 2)
             {
                 MessageBox.Show("您没有权限查看此部分");
@@ -69,7 +72,8 @@ namespace BMS
         {
             BorrowHistory borrowForm = new BorrowHistory();
             borrowForm.ShowDialog();
-        }
+        } 
+
 
         private void toolStripButton4_Click(object sender, EventArgs e)
         {

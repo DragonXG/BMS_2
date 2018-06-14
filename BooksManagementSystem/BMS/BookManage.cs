@@ -105,6 +105,29 @@ namespace BMS
                 open_mysql_llm.conn.Open();
 
                 DataSet dsmydata = new DataSet();
+                string Selectstring = "Select * from tbookclass where BookClassID = '" + BookClassID + "'";
+                MySqlDataAdapter da = new MySqlDataAdapter(Selectstring, open_mysql_llm.conn);
+                MySqlCommandBuilder bd = new MySqlCommandBuilder(da);
+                da.Fill(dsmydata, "tbookclass");
+                if (dsmydata.Tables.Count == 1 && dsmydata.Tables[0].Rows.Count != 0)
+                {
+                    MessageBox.Show("该编号已经存在，请重新输入编号！");
+                    open_mysql_llm.conn.Close();
+                    return;
+                }
+
+                dsmydata = new DataSet();
+                Selectstring = "Select * from bookinformation where BookID = '" + Bookid + "'";
+                da = new MySqlDataAdapter(Selectstring, open_mysql_llm.conn);
+                bd = new MySqlCommandBuilder(da);
+                da.Fill(dsmydata, "bookinformation");
+                if (dsmydata.Tables.Count == 1 && dsmydata.Tables[0].Rows.Count != 0)
+                {
+                    MessageBox.Show("该ID号已经存在，请重新输入ID号！");
+                    open_mysql_llm.conn.Close();
+                    return;
+                }
+
                 //将信息填入tbookclass表中并将其显示在DataGridView中
                 string Commandstring = "Insert into tbookclass(BookClassID,BookName,BookAuthor,BookPress,BookPrice,BookSummary,BookClass)Values('" +
                     BookClassID + "','" + Bookname + "','" + Writername + "','" + Publishname + "','" +
@@ -189,7 +212,6 @@ namespace BMS
             {
                 open_mysql_llm.conn.Open();
                 DataSet dsmydata = new DataSet();
-
                 MySqlCommand cmd = new MySqlCommand("select * from tbookclass", open_mysql_llm.conn);
                 MySqlDataAdapter da1 = new MySqlDataAdapter();
                 dsmydata = new DataSet();
@@ -378,5 +400,7 @@ namespace BMS
         {
 
         }
+
+       
     }
 }

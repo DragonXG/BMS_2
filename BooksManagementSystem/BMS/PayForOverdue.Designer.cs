@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
 
+
             this.label3 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -116,6 +117,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ListView listView1;
         private System.Windows.Forms.Label label5;
+
 
     }
 }

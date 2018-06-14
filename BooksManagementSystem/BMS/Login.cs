@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
-
+using System.IO;
 namespace BMS
 {
     public partial class Login : Form
@@ -29,6 +29,7 @@ namespace BMS
             String str = "Server=localhost;Database=bms;Uid=root;password=123456;sslmode=none;";
             MySqlConnection conn = new MySqlConnection(str);
             conn.Open();
+            //读者登陆
             if (comboBox1.Text == "读者")
             {
                 bool flag_1 = false, flag_2 = false, flag_3 = false;
@@ -126,6 +127,7 @@ namespace BMS
                 {
                     AdminMain readmain = new AdminMain(textBox1.Text);
                     Program.checkin_admin = true;
+                    Log f = new Log();                   
                     this.Close();
                 }
                 else
