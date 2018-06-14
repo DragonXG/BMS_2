@@ -235,7 +235,7 @@ namespace BMS
             {
                 string BookClassID = textBox12.Text;
                 string BookName = textBox11.Text;
-                string BookAuthor = "";
+                string BookAuthor = textBox10.Text;
                 int len = textBox10.Text.Length;
                 for(int i = 0; i < len; i++)
                 {
@@ -260,6 +260,7 @@ namespace BMS
                 MySqlCommand cmd = new MySqlCommand();
                 cmd.Connection = open_mysql_llm.conn;
                 //修改书本
+
                 cmd.CommandText = "UPDATE tbookclass SET BookName = '" + BookName +
                     "', BookAuthor ='" + BookAuthor +
                     "', BookPress = '" + BookPress +

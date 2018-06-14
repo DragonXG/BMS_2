@@ -13,6 +13,9 @@ namespace BMS
 {
     public partial class Login : Form
     {
+        public static string LOGTYPE;
+        public static string LOGNAME;
+
         public Login()
         {
             InitializeComponent();
@@ -71,6 +74,9 @@ namespace BMS
                 }
                 if (flag_3 == true)
                 {
+                    Log.WriteLog("\n"+comboBox1.Text + ":" + textBox1.Text + "登录成功：\n");
+                    LOGTYPE = comboBox1.Text;
+                    LOGNAME = textBox1.Text;
                     ReaderMain readmain = new ReaderMain(str3, textBox1.Text);
                     Program.checkin_reader = true;
                     get_number_llm.borrow_cardnum = textBox1.Text;
@@ -124,6 +130,9 @@ namespace BMS
                 }
                 if (admin_flag3 == true)
                 {
+                    Log.WriteLog("\n" + comboBox1.Text + ":" + textBox1.Text + "登录成功：\n");
+                    LOGTYPE = comboBox1.Text;
+                    LOGNAME = textBox1.Text;
                     AdminMain readmain = new AdminMain(textBox1.Text);
                     Program.checkin_admin = true;
                     this.Close();
