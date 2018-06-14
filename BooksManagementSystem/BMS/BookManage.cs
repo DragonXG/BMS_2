@@ -143,9 +143,10 @@ namespace BMS
                 da1.Fill(dsmydata, "tbookclass");
 
                 dataGridView1.DataSource = dsmydata.Tables["tbookclass"];
-                ListBoxText = "添加 " + BookClassID + " " + Bookname + " " + Writername + " " + Publishname +
+                string Logstring = "添加 " + BookClassID + " " + Bookname + " " + Writername + " " + Publishname +
                     " " + Price.ToString() + " " + Bookid + " " + Classification;
-                listBox1.Items.Add(ListBoxText);
+                listBox1.Items.Add(Logstring);
+                Log.WriteLog(Logstring);
 
                 MessageBox.Show("添加成功");
                 ClearStrings();
@@ -267,9 +268,10 @@ namespace BMS
                     "', BookClass ='" + BookClass+"'"+
                     "where BookClassID = '" + BookClassID +"'";
 
-                string commandText = "修改 "+ BookClassID + " " + BookName + " " + textBox10.Text + " " + BookPress +
+                string Logstring = "修改 "+ BookClassID + " " + BookName + " " + textBox10.Text + " " + BookPress +
                     " " + BookPrice + " " + Bookid + " " + BookClass;
-                listBox1.Items.Add(commandText);
+                listBox1.Items.Add(Logstring);
+                Log.WriteLog(Logstring);
                 cmd.ExecuteNonQuery();
 
                 MySqlCommand cmd2 = new MySqlCommand("select * from tbookclass", open_mysql_llm.conn);
@@ -380,10 +382,10 @@ namespace BMS
                     cmd4.Connection = open_mysql_llm.conn;
                     cmd4.CommandText = "delete from tbookclass where BookClassID = '" + commandstring + "'";
                     cmd4.ExecuteNonQuery();
-
-                    string tem = "";
-                    tem = "删除 编号为: " + commandstring+" ID号为: "+BookID +" 的书籍\n";
-                    listBox1.Items.Add(tem);
+                    
+                    string Logstring = "删除 编号为: " + commandstring+" ID号为: "+BookID +" 的书籍\n";
+                    listBox1.Items.Add(Logstring);
+                    Log.WriteLog(Logstring);
 
                     open_mysql_llm.conn.Close();
                     MessageBox.Show("删除成功");
