@@ -203,12 +203,6 @@
     <None Include="Resources\1.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DataInfo\DataInfo.csproj">
-      <Project>{7e6faf4a-718a-4119-b040-23f4cc51cc65}</Project>
-      <Name>DataInfo</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\timg %282%29.jpg" />
   </ItemGroup>
   <ItemGroup>

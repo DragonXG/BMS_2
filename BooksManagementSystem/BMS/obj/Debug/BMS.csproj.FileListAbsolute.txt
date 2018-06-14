@@ -68,8 +68,6 @@ G:\BMS备份\BooksManagementSystem\BMS\obj\Debug\BMS.pdb
 D:\GitHub\Works\BMS_2\BooksManagementSystem\BMS\bin\Debug\BMS.exe.config
 D:\GitHub\Works\BMS_2\BooksManagementSystem\BMS\bin\Debug\BMS.exe
 D:\GitHub\Works\BMS_2\BooksManagementSystem\BMS\bin\Debug\BMS.pdb
-D:\GitHub\Works\BMS_2\BooksManagementSystem\BMS\bin\Debug\DataInfo.dll
-D:\GitHub\Works\BMS_2\BooksManagementSystem\BMS\bin\Debug\DataInfo.pdb
 D:\GitHub\Works\BMS_2\BooksManagementSystem\BMS\obj\Debug\BMS.csprojResolveAssemblyReference.cache
 D:\GitHub\Works\BMS_2\BooksManagementSystem\BMS\obj\Debug\BMS.BorrowHistory.resources
 D:\GitHub\Works\BMS_2\BooksManagementSystem\BMS\obj\Debug\BMS.BookManage.resources
