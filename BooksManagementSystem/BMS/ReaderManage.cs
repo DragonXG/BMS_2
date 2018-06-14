@@ -139,6 +139,9 @@ namespace BMS
                 da1.SelectCommand = cmd;
                 da1.Fill(dsmydata, "reader");
 
+                string Logstring = "添加 用户:" + ReaderName + "(" + CardNum + ") " + College + " " + Profession + " " + TelNumber + " " + LodinKey + " " + ReaderType + "\n";
+                Log.WriteLog(Logstring);
+
                 dataGridView1.DataSource = dsmydata.Tables["reader"];
                 MessageBox.Show("添加用户成功");
                 open_mysql_llm.conn.Close();
@@ -146,7 +149,8 @@ namespace BMS
             catch (Exception ex)
             {
                 open_mysql_llm.conn.Close();
-                MessageBox.Show(ex.Message.ToString()+"打开数据库失败!");
+                MessageBox.Show(ex.Message.ToString());
+                Log.WriteLog(ex.Message.ToString());
             }
         }
 
@@ -172,7 +176,8 @@ namespace BMS
             catch (Exception ex)
             {
                 open_mysql_llm.conn.Close();
-                MessageBox.Show(ex.Message.ToString() + "打开数据库失败！");
+                MessageBox.Show(ex.Message.ToString());
+                Log.WriteLog(ex.Message.ToString());
             }
         }
 
@@ -238,13 +243,18 @@ namespace BMS
                 da1.Fill(dsmydata, "reader");
                 dataGridView1.DataSource = dsmydata.Tables["reader"];
 
+
+                string Logstring = "修改 用户:" + ReaderName + "(" + CardNum + ") " + College + " " + Profession + " " + TelNumber + " " + LodinKey + " " + ReaderType + "\n";
+                Log.WriteLog(Logstring);
+
                 MessageBox.Show("修改成功");
                 open_mysql_llm.conn.Close();
             }
             catch(Exception ex)
             {
                 open_mysql_llm.conn.Close();
-                MessageBox.Show(ex.Message.ToString() + "打开数据库失败");
+                MessageBox.Show(ex.Message.ToString());
+                Log.WriteLog(ex.Message.ToString());
             }
 
         }
@@ -273,7 +283,8 @@ namespace BMS
             catch (Exception ex)
             {
                 open_mysql_llm.conn.Close();
-                MessageBox.Show(ex.Message.ToString() + "数据库打开失败!");
+                MessageBox.Show(ex.Message.ToString());
+                Log.WriteLog(ex.Message.ToString());
             }
         }
 
@@ -307,6 +318,9 @@ namespace BMS
                 }
                 else
                 {
+                    string Logstring = "删除 借阅号为："+ commandstring + "的用户\n";
+                    Log.WriteLog(Logstring);
+
                     MySqlCommand cmd3 = new MySqlCommand();
                     cmd3.Connection = open_mysql_llm.conn;
                     cmd3.CommandText = "delete from recorder where CardNum = '" + commandstring + "'";

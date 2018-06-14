@@ -143,9 +143,10 @@ namespace BMS
                 da1.Fill(dsmydata, "tbookclass");
 
                 dataGridView1.DataSource = dsmydata.Tables["tbookclass"];
-                ListBoxText = "添加 " + BookClassID + " " + Bookname + " " + Writername + " " + Publishname +
+                string Logstring = "添加 " + BookClassID + " " + Bookname + " " + Writername + " " + Publishname +
                     " " + Price.ToString() + " " + Bookid + " " + Classification;
-                listBox1.Items.Add(ListBoxText);
+                listBox1.Items.Add(Logstring);
+                Log.WriteLog(Logstring);
 
                 MessageBox.Show("添加成功");
                 ClearStrings();
@@ -161,7 +162,9 @@ namespace BMS
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message.ToString() + "打开数据库失败！");
+                open_mysql_llm.conn.Close();
+                MessageBox.Show(ex.Message.ToString());
+                Log.WriteLog(ex.Message.ToString());
             }
         }
 
@@ -194,7 +197,9 @@ namespace BMS
             }
             catch(Exception ex)
             {
-                MessageBox.Show(ex.Message.ToString() + "打开数据库失败!");
+                open_mysql_llm.conn.Close();
+                MessageBox.Show(ex.Message.ToString());
+                Log.WriteLog(ex.Message.ToString());
             }
         }
         private void label16_Click(object sender, EventArgs e) { }
@@ -222,7 +227,9 @@ namespace BMS
             }
             catch(Exception ex)
             {
-                MessageBox.Show(ex.Message.ToString() + "打开数据库失败！");
+                open_mysql_llm.conn.Close();
+                MessageBox.Show(ex.Message.ToString());
+                Log.WriteLog(ex.Message.ToString());
             }            
         }
 
@@ -234,7 +241,7 @@ namespace BMS
             {
                 string BookClassID = textBox12.Text;
                 string BookName = textBox11.Text;
-                string BookAuthor = "";
+                string BookAuthor = textBox10.Text;
                 int len = textBox10.Text.Length;
                 for(int i = 0; i < len; i++)
                 {
@@ -259,6 +266,7 @@ namespace BMS
                 MySqlCommand cmd = new MySqlCommand();
                 cmd.Connection = open_mysql_llm.conn;
                 //修改书本
+
                 cmd.CommandText = "UPDATE tbookclass SET BookName = '" + BookName +
                     "', BookAuthor ='" + BookAuthor +
                     "', BookPress = '" + BookPress +
@@ -267,9 +275,10 @@ namespace BMS
                     "', BookClass ='" + BookClass+"'"+
                     "where BookClassID = '" + BookClassID +"'";
 
-                string commandText = "修改 "+ BookClassID + " " + BookName + " " + textBox10.Text + " " + BookPress +
+                string Logstring = "修改 "+ BookClassID + " " + BookName + " " + textBox10.Text + " " + BookPress +
                     " " + BookPrice + " " + Bookid + " " + BookClass;
-                listBox1.Items.Add(commandText);
+                listBox1.Items.Add(Logstring);
+                Log.WriteLog(Logstring);
                 cmd.ExecuteNonQuery();
 
                 MySqlCommand cmd2 = new MySqlCommand("select * from tbookclass", open_mysql_llm.conn);
@@ -283,7 +292,9 @@ namespace BMS
             }
             catch(Exception ex)
             {
-                MessageBox.Show(ex.Message.ToString() + "打开数据库失败！");
+                open_mysql_llm.conn.Close();
+                MessageBox.Show(ex.Message.ToString());
+                Log.WriteLog(ex.Message.ToString());
             }
         }
 
@@ -309,7 +320,9 @@ namespace BMS
             }
             catch(Exception ex)
             {
-                MessageBox.Show(ex.Message.ToString() + "数据库打开失败!");
+                open_mysql_llm.conn.Close();
+                MessageBox.Show(ex.Message.ToString());
+                Log.WriteLog(ex.Message.ToString());
             }
         }
 
@@ -380,10 +393,10 @@ namespace BMS
                     cmd4.Connection = open_mysql_llm.conn;
                     cmd4.CommandText = "delete from tbookclass where BookClassID = '" + commandstring + "'";
                     cmd4.ExecuteNonQuery();
-
-                    string tem = "";
-                    tem = "删除 编号为: " + commandstring+" ID号为: "+BookID +" 的书籍\n";
-                    listBox1.Items.Add(tem);
+                    
+                    string Logstring = "删除 编号为: " + commandstring+" ID号为: "+BookID +" 的书籍\n";
+                    listBox1.Items.Add(Logstring);
+                    Log.WriteLog(Logstring);
 
                     open_mysql_llm.conn.Close();
                     MessageBox.Show("删除成功");
@@ -392,6 +405,7 @@ namespace BMS
             }
             catch (Exception ex)
             {
+                open_mysql_llm.conn.Close();
                 MessageBox.Show(ex.Message.ToString() + "打开数据库失败");
             }
         }
