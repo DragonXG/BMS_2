@@ -162,7 +162,9 @@ namespace BMS
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message.ToString() + "打开数据库失败！");
+                open_mysql_llm.conn.Close();
+                MessageBox.Show(ex.Message.ToString());
+                Log.WriteLog(ex.Message.ToString());
             }
         }
 
@@ -195,7 +197,9 @@ namespace BMS
             }
             catch(Exception ex)
             {
-                MessageBox.Show(ex.Message.ToString() + "打开数据库失败!");
+                open_mysql_llm.conn.Close();
+                MessageBox.Show(ex.Message.ToString());
+                Log.WriteLog(ex.Message.ToString());
             }
         }
         private void label16_Click(object sender, EventArgs e) { }
@@ -223,7 +227,9 @@ namespace BMS
             }
             catch(Exception ex)
             {
-                MessageBox.Show(ex.Message.ToString() + "打开数据库失败！");
+                open_mysql_llm.conn.Close();
+                MessageBox.Show(ex.Message.ToString());
+                Log.WriteLog(ex.Message.ToString());
             }            
         }
 
@@ -286,7 +292,9 @@ namespace BMS
             }
             catch(Exception ex)
             {
-                MessageBox.Show(ex.Message.ToString() + "打开数据库失败！");
+                open_mysql_llm.conn.Close();
+                MessageBox.Show(ex.Message.ToString());
+                Log.WriteLog(ex.Message.ToString());
             }
         }
 
@@ -312,7 +320,9 @@ namespace BMS
             }
             catch(Exception ex)
             {
-                MessageBox.Show(ex.Message.ToString() + "数据库打开失败!");
+                open_mysql_llm.conn.Close();
+                MessageBox.Show(ex.Message.ToString());
+                Log.WriteLog(ex.Message.ToString());
             }
         }
 
@@ -395,6 +405,7 @@ namespace BMS
             }
             catch (Exception ex)
             {
+                open_mysql_llm.conn.Close();
                 MessageBox.Show(ex.Message.ToString() + "打开数据库失败");
             }
         }
