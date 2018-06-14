@@ -32,15 +32,17 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.编辑ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.修改密码ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.图书管理ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.维护ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.日志维护ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.数据维护ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.帮助ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.关于此软件ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
-            this.帮助ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.关于此软件ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.图书管理ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -73,6 +75,13 @@
             this.修改密码ToolStripMenuItem.Text = "读者管理";
             this.修改密码ToolStripMenuItem.Click += new System.EventHandler(this.toolStripButton1_Click);
             // 
+            // 图书管理ToolStripMenuItem
+            // 
+            this.图书管理ToolStripMenuItem.Name = "图书管理ToolStripMenuItem";
+            this.图书管理ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.图书管理ToolStripMenuItem.Text = "图书管理";
+            this.图书管理ToolStripMenuItem.Click += new System.EventHandler(this.toolStripButton3_Click);
+            // 
             // 维护ToolStripMenuItem
             // 
             this.维护ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -85,14 +94,29 @@
             // 日志维护ToolStripMenuItem
             // 
             this.日志维护ToolStripMenuItem.Name = "日志维护ToolStripMenuItem";
-            this.日志维护ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.日志维护ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.日志维护ToolStripMenuItem.Text = "日志维护";
             // 
             // 数据维护ToolStripMenuItem
             // 
             this.数据维护ToolStripMenuItem.Name = "数据维护ToolStripMenuItem";
-            this.数据维护ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.数据维护ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.数据维护ToolStripMenuItem.Text = "数据维护";
+            // 
+            // 帮助ToolStripMenuItem
+            // 
+            this.帮助ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.关于此软件ToolStripMenuItem});
+            this.帮助ToolStripMenuItem.Name = "帮助ToolStripMenuItem";
+            this.帮助ToolStripMenuItem.Size = new System.Drawing.Size(44, 21);
+            this.帮助ToolStripMenuItem.Text = "帮助";
+            // 
+            // 关于此软件ToolStripMenuItem
+            // 
+            this.关于此软件ToolStripMenuItem.Name = "关于此软件ToolStripMenuItem";
+            this.关于此软件ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.关于此软件ToolStripMenuItem.Text = "关于此软件";
+            this.关于此软件ToolStripMenuItem.Click += new System.EventHandler(this.关于此软件ToolStripMenuItem_Click);
             // 
             // toolStrip1
             // 
@@ -100,7 +124,9 @@
             this.toolStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripButton1,
-            this.toolStripButton3});
+            this.toolStripButton3,
+            this.toolStripButton2,
+            this.toolStripButton4});
             this.toolStrip1.Location = new System.Drawing.Point(0, 25);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(791, 84);
@@ -134,26 +160,28 @@
             this.toolStripButton3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.toolStripButton3.Click += new System.EventHandler(this.toolStripButton3_Click);
             // 
-            // 帮助ToolStripMenuItem
+            // toolStripButton2
             // 
-            this.帮助ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.关于此软件ToolStripMenuItem});
-            this.帮助ToolStripMenuItem.Name = "帮助ToolStripMenuItem";
-            this.帮助ToolStripMenuItem.Size = new System.Drawing.Size(44, 21);
-            this.帮助ToolStripMenuItem.Text = "帮助";
+            this.toolStripButton2.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.toolStripButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton2.Image")));
+            this.toolStripButton2.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton2.Margin = new System.Windows.Forms.Padding(0, 1, 5, 2);
+            this.toolStripButton2.Name = "toolStripButton2";
+            this.toolStripButton2.Size = new System.Drawing.Size(74, 81);
+            this.toolStripButton2.Text = "日志维护";
+            this.toolStripButton2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             // 
-            // 关于此软件ToolStripMenuItem
+            // toolStripButton4
             // 
-            this.关于此软件ToolStripMenuItem.Name = "关于此软件ToolStripMenuItem";
-            this.关于此软件ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.关于此软件ToolStripMenuItem.Text = "关于此软件";
-            // 
-            // 图书管理ToolStripMenuItem
-            // 
-            this.图书管理ToolStripMenuItem.Name = "图书管理ToolStripMenuItem";
-            this.图书管理ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.图书管理ToolStripMenuItem.Text = "图书管理";
-            this.图书管理ToolStripMenuItem.Click += new System.EventHandler(this.toolStripButton3_Click);
+            this.toolStripButton4.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.toolStripButton4.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton4.Image")));
+            this.toolStripButton4.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton4.Name = "toolStripButton4";
+            this.toolStripButton4.Size = new System.Drawing.Size(74, 81);
+            this.toolStripButton4.Text = "数据维护";
+            this.toolStripButton4.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             // 
             // AdminMain
             // 
@@ -192,5 +220,7 @@
         private System.Windows.Forms.ToolStripMenuItem 帮助ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 关于此软件ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 图书管理ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripButton toolStripButton2;
+        private System.Windows.Forms.ToolStripButton toolStripButton4;
     }
 }
