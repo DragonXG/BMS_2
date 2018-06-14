@@ -7,8 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
 using MySql.Data.MySqlClient;
+
 
 
 namespace BMS
@@ -16,14 +16,17 @@ namespace BMS
     public partial class PayForOverdue : Form
     {
 
+
         public static string overdays = "";
         public static string str_cardnum = "";                   //从读者主要的信息表中读取借阅证号
         public static string str_success = "";
+
 
         public PayForOverdue()
         {
             InitializeComponent();
         }
+
 
         public PayForOverdue(string cardnum)
             :this()
@@ -204,6 +207,7 @@ namespace BMS
                 btn.Visible = true;
             }
         }
+
 
     }
 }

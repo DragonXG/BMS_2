@@ -7,12 +7,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+
 using MySql.Data.MySqlClient;
+
 
 namespace BMS
 {
     public partial class ReaderManage : Form
     {
+
         public string CardNum;
         public string ReaderName;
         public string College;
@@ -61,6 +64,7 @@ namespace BMS
         {
             this.Close();
         }
+
 
         private void ReaderManage_Load(object sender, EventArgs e)
         {
@@ -330,5 +334,6 @@ namespace BMS
                 MessageBox.Show(ex.Message.ToString() + "打开数据库失败");
             }
         }
+
     }
 }

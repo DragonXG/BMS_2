@@ -50,10 +50,8 @@
             // label1
             // 
             this.label1.AutoSize = true;
-
             this.label1.Location = new System.Drawing.Point(24, 20);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(65, 12);
             this.label1.TabIndex = 0;
@@ -62,10 +60,8 @@
             // textBox1
             // 
             this.textBox1.Cursor = System.Windows.Forms.Cursors.No;
-
             this.textBox1.Location = new System.Drawing.Point(120, 14);
             this.textBox1.Margin = new System.Windows.Forms.Padding(5);
-
             this.textBox1.Name = "textBox1";
             this.textBox1.ReadOnly = true;
             this.textBox1.Size = new System.Drawing.Size(100, 21);
@@ -73,26 +69,22 @@
             // 
             // dateTimePicker1
             // 
-
             this.dateTimePicker1.CalendarFont = new System.Drawing.Font("微软雅黑", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.dateTimePicker1.CalendarForeColor = System.Drawing.Color.Red;
             this.dateTimePicker1.Font = new System.Drawing.Font("微软雅黑", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(658, 14);
+            this.dateTimePicker1.Location = new System.Drawing.Point(410, 14);
             this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(5);
             this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(176, 31);
-
+            this.dateTimePicker1.Size = new System.Drawing.Size(176, 27);
             this.dateTimePicker1.TabIndex = 4;
             this.dateTimePicker1.Value = new System.DateTime(2018, 1, 1, 18, 12, 0, 0);
             // 
             // checkBox1
             // 
             this.checkBox1.AutoSize = true;
-
-            this.checkBox1.Location = new System.Drawing.Point(1063, 22);
+            this.checkBox1.Location = new System.Drawing.Point(815, 22);
             this.checkBox1.Margin = new System.Windows.Forms.Padding(5);
-
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(15, 14);
             this.checkBox1.TabIndex = 5;
@@ -100,15 +92,13 @@
             // 
             // dateTimePicker2
             // 
-
             this.dateTimePicker2.CalendarForeColor = System.Drawing.Color.Red;
             this.dateTimePicker2.Font = new System.Drawing.Font("微软雅黑", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker2.Location = new System.Drawing.Point(876, 14);
+            this.dateTimePicker2.Location = new System.Drawing.Point(628, 14);
             this.dateTimePicker2.Margin = new System.Windows.Forms.Padding(5);
             this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(175, 31);
-
+            this.dateTimePicker2.Size = new System.Drawing.Size(175, 27);
             this.dateTimePicker2.TabIndex = 6;
             this.dateTimePicker2.Value = new System.DateTime(2020, 12, 31, 18, 12, 0, 0);
             // 
@@ -116,26 +106,22 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Cursor = System.Windows.Forms.Cursors.No;
-
             this.label3.Font = new System.Drawing.Font("幼圆", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label3.ForeColor = System.Drawing.Color.Red;
-            this.label3.Location = new System.Drawing.Point(844, 16);
+            this.label3.Location = new System.Drawing.Point(596, 16);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(24, 15);
-
+            this.label3.Size = new System.Drawing.Size(18, 12);
             this.label3.TabIndex = 7;
             this.label3.Text = "至";
             // 
             // button1
             // 
-
             this.button1.Font = new System.Drawing.Font("微软雅黑", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button1.Location = new System.Drawing.Point(1109, 14);
+            this.button1.Location = new System.Drawing.Point(861, 14);
             this.button1.Margin = new System.Windows.Forms.Padding(5);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(115, 32);
-
             this.button1.TabIndex = 8;
             this.button1.Text = "查询";
             this.button1.UseVisualStyleBackColor = true;
@@ -143,18 +129,16 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.groupBox1.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.groupBox1.Controls.Add(this.radioButton4);
             this.groupBox1.Controls.Add(this.radioButton3);
             this.groupBox1.Controls.Add(this.radioButton2);
             this.groupBox1.Controls.Add(this.radioButton1);
-
             this.groupBox1.Location = new System.Drawing.Point(27, 56);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(5);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(5);
-            this.groupBox1.Size = new System.Drawing.Size(1265, 69);
-
+            this.groupBox1.Size = new System.Drawing.Size(949, 69);
             this.groupBox1.TabIndex = 9;
             this.groupBox1.TabStop = false;
             // 
@@ -174,10 +158,8 @@
             // radioButton3
             // 
             this.radioButton3.AutoSize = true;
-
             this.radioButton3.Location = new System.Drawing.Point(236, 26);
             this.radioButton3.Margin = new System.Windows.Forms.Padding(5);
-
             this.radioButton3.Name = "radioButton3";
             this.radioButton3.Size = new System.Drawing.Size(47, 16);
             this.radioButton3.TabIndex = 2;
@@ -189,10 +171,8 @@
             // radioButton2
             // 
             this.radioButton2.AutoSize = true;
-
             this.radioButton2.Location = new System.Drawing.Point(123, 26);
             this.radioButton2.Margin = new System.Windows.Forms.Padding(5);
-
             this.radioButton2.Name = "radioButton2";
             this.radioButton2.Size = new System.Drawing.Size(47, 16);
             this.radioButton2.TabIndex = 1;
@@ -204,10 +184,8 @@
             // radioButton1
             // 
             this.radioButton1.AutoSize = true;
-
             this.radioButton1.Location = new System.Drawing.Point(11, 26);
             this.radioButton1.Margin = new System.Windows.Forms.Padding(5);
-
             this.radioButton1.Name = "radioButton1";
             this.radioButton1.Size = new System.Drawing.Size(47, 16);
             this.radioButton1.TabIndex = 0;
@@ -220,10 +198,8 @@
             // 
             this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-
             this.dataGridView1.Location = new System.Drawing.Point(27, 135);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(5);
-
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 23;
             this.dataGridView1.Size = new System.Drawing.Size(949, 445);
@@ -254,9 +230,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-
-            this.ClientSize = new System.Drawing.Size(1308, 718);
-
+            this.ClientSize = new System.Drawing.Size(998, 604);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.button1);
@@ -267,9 +241,7 @@
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-
             this.Margin = new System.Windows.Forms.Padding(5);
-
             this.Name = "BorrowHistory";
             this.Text = "借书历史";
             this.Load += new System.EventHandler(this.BorrowHistory_Load);
