@@ -516,13 +516,17 @@
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 23;
-            this.dataGridView1.Size = new System.Drawing.Size(804, 282);
+
+            this.dataGridView1.Size = new System.Drawing.Size(1271, 282);
+
             this.dataGridView1.TabIndex = 2;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // button7
             // 
-            this.button7.Location = new System.Drawing.Point(700, 486);
+
+            this.button7.Location = new System.Drawing.Point(1181, 490);
+
             this.button7.Margin = new System.Windows.Forms.Padding(4);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(100, 29);
@@ -535,7 +539,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(805, 518);
+
+            this.ClientSize = new System.Drawing.Size(1358, 518);
+
             this.Controls.Add(this.button7);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.tabControl1);

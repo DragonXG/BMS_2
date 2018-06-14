@@ -12,6 +12,8 @@ namespace BMS
 {
     public partial class BorrowHistory : Form
     {
+        public static string str_startime = "2018/1/1";         //选择的开始时间
+        public static string str_endtime = "2020/12/31";        //选择的结束时间
         public BorrowHistory()
         {
             InitializeComponent();
@@ -49,31 +51,39 @@ namespace BMS
             String str = "Server=localhost;Database=bms;Uid=root;password=123456;sslmode=none;";
             MySqlConnection conn = new MySqlConnection(str);
             conn.Open();
-            string cardnum = textBox1.Text;
-            MySqlCommand cmd_1 = new MySqlCommand("select BookID, BookName, BorrowDate, BorrowingStatus from recorder where CardNum = '" + cardnum + "' union select BookID, BookName, BorrowDate, BorrowingStatus from returnedbook where CardNum = '" + cardnum + "' and BorrowingStatus = '"+"已还"+"' order by BorrowDate ASC;", conn);
-            DataTable dataread = new DataTable();
-            dataread.Load(cmd_1.ExecuteReader());
-            dataGridView1.DataSource = dataread;
-            //设置dataGridView1控件第一列的列头文字
-            dataGridView1.Columns[0].HeaderText = "图书ID";
-            //设置dataGridView1控件第一列的列宽
-            dataGridView1.Columns[0].Width = 100;
-            //设置dataGridView1控件第二列的列头文字
-            dataGridView1.Columns[1].HeaderText = "图书名";
-            //设置dataGridView1控件第二列的列宽
-            dataGridView1.Columns[1].Width = 300;
+            try
+            {
+                string cardnum = textBox1.Text;
+                MySqlCommand cmd_1 = new MySqlCommand("select BookID, BookName, BorrowDate, BorrowingStatus from recorder where CardNum = '" + cardnum + "' and BorrowDate between '" + str_startime + "' and '" + str_endtime + "' union select BookID, BookName, BorrowDate, BorrowingStatus from returnedbook where CardNum = '" + cardnum + "' and BorrowingStatus = '" + "已还" + "' and BorrowDate between '" + str_startime + "' and '" + str_endtime + "'  order by BorrowDate ASC;", conn);
+                DataTable dataread = new DataTable();
+                dataread.Load(cmd_1.ExecuteReader());
+                dataGridView1.DataSource = dataread;
+                //设置dataGridView1控件第一列的列头文字
+                dataGridView1.Columns[0].HeaderText = "图书ID";
+                //设置dataGridView1控件第一列的列宽
+                dataGridView1.Columns[0].Width = 100;
+                //设置dataGridView1控件第二列的列头文字
+                dataGridView1.Columns[1].HeaderText = "图书名";
+                //设置dataGridView1控件第二列的列宽
+                dataGridView1.Columns[1].Width = 300;
 
-            //设置dataGridView1控件第三列的列头文字
-            dataGridView1.Columns[2].HeaderText = "借阅日期";
-            //设置dataGridView1控件第三列的列宽
-            dataGridView1.Columns[2].Width = 200;
+                //设置dataGridView1控件第三列的列头文字
+                dataGridView1.Columns[2].HeaderText = "借阅日期";
+                //设置dataGridView1控件第三列的列宽
+                dataGridView1.Columns[2].Width = 200;
 
-            //设置dataGridView1控件第四列的列头文字
-            dataGridView1.Columns[3].HeaderText = "借阅状态";
-            //设置dataGridView1控件第四列的列宽
-            dataGridView1.Columns[3].Width = 200;
-            conn.Close();
-            dataGridView1.ReadOnly = true;
+                //设置dataGridView1控件第四列的列头文字
+                dataGridView1.Columns[3].HeaderText = "借阅状态";
+                //设置dataGridView1控件第四列的列宽
+                dataGridView1.Columns[3].Width = 200;
+                conn.Close();
+                dataGridView1.ReadOnly = true;
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString() + "查询出现错误,请重试!");
+            }
+
             
         }
 
@@ -90,7 +100,7 @@ namespace BMS
             MySqlConnection conn = new MySqlConnection(str);
             conn.Open();
             string  cardnum = textBox1.Text;
-            MySqlCommand cmd = new MySqlCommand("select BookID, BookName, BorrowDate, BorrowingStatus from recorder where CardNum = '" + cardnum + "';", conn);
+            MySqlCommand cmd = new MySqlCommand("select BookID, BookName, BorrowDate, BorrowingStatus from recorder where CardNum = '" + cardnum + "'and BorrowDate between '" + str_startime + "' and '" + str_endtime + "';", conn);
             DataTable dataread = new DataTable();
             dataread.Load(cmd.ExecuteReader());
             dataGridView1.DataSource = dataread;
@@ -125,7 +135,7 @@ namespace BMS
             MySqlConnection conn = new MySqlConnection(str);
             conn.Open();
             string cardnum = textBox1.Text;
-            MySqlCommand cmd = new MySqlCommand("select BookID,BookName,BorrowDate,Borrowingstatus from returnedbook where CardNum = '" + cardnum + "' and BorrowingStatus = '"+"已还"+"';", conn);
+            MySqlCommand cmd = new MySqlCommand("select BookID,BookName,BorrowDate,Borrowingstatus from returnedbook where CardNum = '" + cardnum + "' and BorrowingStatus = '" + "已还" + "' and BorrowDate between '" + str_startime + "' and '" + str_endtime + "';", conn);
             DataTable dataread = new DataTable();
             dataread.Load(cmd.ExecuteReader());
             dataGridView1.DataSource = dataread;
@@ -168,5 +178,50 @@ namespace BMS
             this.dataGridView1.Refresh();
         }
 
+        private void radioButton4_CheckedChanged(object sender, EventArgs e)
+        {
+            dataGridView1.DataSource = null;
+            String str = "Server=localhost;Database=bms;Uid=root;password=123456;sslmode=none;";
+            MySqlConnection conn = new MySqlConnection(str);
+            conn.Open();
+            try
+            {
+                string cardnum = textBox1.Text;
+                MySqlCommand cmd = new MySqlCommand("select BookID,BookName,BookDate from booking where CardNum = '" + cardnum + "' and BookDate between '" + str_startime + "' and '" + str_endtime + "';", conn);
+                DataTable dataread = new DataTable();
+                dataread.Load(cmd.ExecuteReader());
+                dataGridView1.DataSource = dataread;
+                //设置dataGridView1控件第一列的列头文字
+                dataGridView1.Columns[0].HeaderText = "图书ID";
+                //设置dataGridView1控件第一列的列宽
+                dataGridView1.Columns[0].Width = 100;
+
+                //设置dataGridView1控件第二列的列头文字
+                dataGridView1.Columns[1].HeaderText = "图书名";
+                //设置dataGridView1控件第二列的列宽
+                dataGridView1.Columns[1].Width = 300;
+
+                //设置dataGridView1控件第三列的列头文字
+                dataGridView1.Columns[2].HeaderText = "预定日期";
+                //设置dataGridView1控件第三列的列宽
+                dataGridView1.Columns[2].Width = 200;
+ 
+                dataGridView1.ReadOnly = true;
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString() + "查询预定信息出现错误，请重试！");
+            }
+            conn.Close();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if(checkBox1.CheckState == CheckState.Checked)
+            {
+                str_startime = dateTimePicker1.Text;
+                str_endtime = dateTimePicker2.Text;
+            }
+        }
     }
 }

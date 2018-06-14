@@ -561,7 +561,9 @@
             // 
             // button7
             // 
-            this.button7.Location = new System.Drawing.Point(692, 631);
+
+            this.button7.Location = new System.Drawing.Point(949, 712);
+
             this.button7.Margin = new System.Windows.Forms.Padding(4);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(100, 29);
@@ -573,7 +575,9 @@
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(1, 476);
+
+            this.label16.Location = new System.Drawing.Point(1, 563);
+
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(67, 15);
             this.label16.TabIndex = 7;
@@ -584,9 +588,11 @@
             // 
             this.listBox1.FormattingEnabled = true;
             this.listBox1.ItemHeight = 15;
-            this.listBox1.Location = new System.Drawing.Point(4, 498);
+
+            this.listBox1.Location = new System.Drawing.Point(4, 581);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(796, 124);
+            this.listBox1.Size = new System.Drawing.Size(1045, 124);
+
             this.listBox1.TabIndex = 8;
             // 
             // dataGridView1
@@ -597,7 +603,9 @@
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 23;
-            this.dataGridView1.Size = new System.Drawing.Size(799, 247);
+
+            this.dataGridView1.Size = new System.Drawing.Size(1048, 326);
+
             this.dataGridView1.TabIndex = 1;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
@@ -605,7 +613,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(805, 673);
+
+            this.ClientSize = new System.Drawing.Size(1121, 767);
+
             this.Controls.Add(this.listBox1);
             this.Controls.Add(this.label16);
             this.Controls.Add(this.button7);
