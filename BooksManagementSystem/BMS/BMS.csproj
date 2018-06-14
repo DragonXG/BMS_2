@@ -74,6 +74,7 @@
     <Compile Include="if_message_pay.Designer.cs">
       <DependentUpon>if_message_pay.cs</DependentUpon>
     </Compile>
+    <Compile Include="Log.cs" />
     <Compile Include="open_mysql_llm.cs" />
     <Compile Include="PayForOverdue.cs">
       <SubType>Form</SubType>
