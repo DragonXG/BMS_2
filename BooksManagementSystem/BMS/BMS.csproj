@@ -70,12 +70,6 @@
     <Compile Include="if_message_1.Designer.cs">
       <DependentUpon>if_message_1.cs</DependentUpon>
     </Compile>
-    <Compile Include="if_message_pay.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="if_message_pay.Designer.cs">
-      <DependentUpon>if_message_pay.cs</DependentUpon>
-    </Compile>
     <Compile Include="open_mysql_llm.cs" />
     <Compile Include="PayForOverdue.cs">
       <SubType>Form</SubType>
@@ -133,8 +127,8 @@
     <EmbeddedResource Include="if_message_1.resx">
       <DependentUpon>if_message_1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="if_message_pay.resx">
-      <DependentUpon>if_message_pay.cs</DependentUpon>
+    <EmbeddedResource Include="PayForOverdue.resx">
+      <DependentUpon>PayForOverdue.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PwdChange.resx">
       <DependentUpon>PwdChange.cs</DependentUpon>

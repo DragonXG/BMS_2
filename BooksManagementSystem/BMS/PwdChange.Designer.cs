@@ -36,6 +36,7 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -61,7 +62,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(82, 217);
+            this.label3.Location = new System.Drawing.Point(82, 195);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(97, 15);
@@ -94,16 +95,17 @@
             // 
             this.textBox1.Location = new System.Drawing.Point(223, 71);
             this.textBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.textBox1.MaxLength = 6;
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(167, 25);
             this.textBox1.TabIndex = 5;
             this.textBox1.UseSystemPasswordChar = true;
-            this.textBox1.MouseLeave += new System.EventHandler(this.textBox1_MouseLeave);
             // 
             // textBox2
             // 
             this.textBox2.Location = new System.Drawing.Point(223, 131);
             this.textBox2.Margin = new System.Windows.Forms.Padding(4);
+            this.textBox2.MaxLength = 6;
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(167, 25);
             this.textBox2.TabIndex = 6;
@@ -111,19 +113,28 @@
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(223, 207);
+            this.textBox3.Location = new System.Drawing.Point(223, 195);
             this.textBox3.Margin = new System.Windows.Forms.Padding(4);
+            this.textBox3.MaxLength = 6;
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(167, 25);
             this.textBox3.TabIndex = 7;
             this.textBox3.UseSystemPasswordChar = true;
-            this.textBox3.MouseLeave += new System.EventHandler(this.textBox3_MouseLeave);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(112, 21);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(0, 15);
+            this.label4.TabIndex = 8;
             // 
             // PwdChange
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(487, 366);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.textBox3);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.textBox1);
@@ -151,5 +162,6 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.Label label4;
     }
 }

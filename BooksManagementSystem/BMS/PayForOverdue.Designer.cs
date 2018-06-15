@@ -28,11 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.SuspendLayout();
+            // 
+            // PayForOverdue
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(462, 253);
+            this.Name = "PayForOverdue";
             this.Text = "PayForOverdue";
+            this.ResumeLayout(false);
+
         }
 
         #endregion
+
+
     }
 }
