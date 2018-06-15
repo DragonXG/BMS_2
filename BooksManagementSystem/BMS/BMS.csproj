@@ -68,14 +68,6 @@
     <Compile Include="BorrowReturn.Designer.cs">
       <DependentUpon>BorrowReturn.cs</DependentUpon>
     </Compile>
-    <Compile Include="if_message_pay.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="if_message_pay.Designer.cs">
-      <DependentUpon>if_message_pay.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Log.cs" />
-    <Compile Include="open_mysql_llm.cs" />
     <Compile Include="PayForOverdue.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -87,6 +79,12 @@
     </Compile>
     <Compile Include="PayMoney.Designer.cs">
       <DependentUpon>PayMoney.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QueryAfterLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QueryAfterLogin.Designer.cs">
+      <DependentUpon>QueryAfterLogin.cs</DependentUpon>
     </Compile>
     <Compile Include="QueryBeforeLogin.cs">
       <SubType>Form</SubType>
@@ -147,11 +145,11 @@
     <EmbeddedResource Include="PayMoney.resx">
       <DependentUpon>PayMoney.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="if_message_pay.resx">
-      <DependentUpon>if_message_pay.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="PwdChange.resx">
       <DependentUpon>PwdChange.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QueryAfterLogin.resx">
+      <DependentUpon>QueryAfterLogin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="QueryBeforeLogin.resx">
       <DependentUpon>QueryBeforeLogin.cs</DependentUpon>
@@ -203,6 +201,12 @@
     <None Include="Resources\1.jpg" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\DataInfo\DataInfo.csproj">
+      <Project>{7e6faf4a-718a-4119-b040-23f4cc51cc65}</Project>
+      <Name>DataInfo</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
     <None Include="Resources\timg %282%29.jpg" />
   </ItemGroup>
   <ItemGroup>
@@ -213,6 +217,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\5.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\11.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\6.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\21.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\12.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\8.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

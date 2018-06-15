@@ -9,8 +9,6 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 
-
-//####################################   注意在open_mysql_llm类里添加reader_admin，cardnum，denlumima相关信息
 namespace BMS
 {
     public partial class PwdChange : Form
@@ -28,9 +26,7 @@ namespace BMS
 
         private void textBox1_MouseLeave(object sender, EventArgs e)
         {
-
-            
-
+            /*
             String yumima = textBox1.Text.Trim();
             
            
@@ -43,16 +39,13 @@ namespace BMS
              {
                  next = 1;
              }
-
-          
-
+          */
             
         }
 
         private void textBox3_MouseLeave(object sender, EventArgs e)
         {
-
-
+            /*
             if (next != 1)
             {
                 MessageBox.Show("请重新输入原密码！");
@@ -94,9 +87,7 @@ namespace BMS
                         {
                             DataSet dsmydata = new DataSet();
                             //String cardnum = "0";//类里获取账号哪一类
-
-                            String strmy_administrator = "Select * From administrator Where LoginName = '" + get_number_llm.cardnum + "'";
-
+                            String strmy_administrator = "Select * From administrator Where AdministerID = '" + get_number_llm.cardnum + "'";
                             MySqlDataAdapter daadministrator = new MySqlDataAdapter(strmy_administrator, open_mysql_llm.conn);
                             MySqlCommandBuilder bdadministrator = new MySqlCommandBuilder(daadministrator);
                             daadministrator.Fill(dsmydata, "administrator");
@@ -115,13 +106,11 @@ namespace BMS
                     }
                     catch (Exception ex)
                     {
-
-                        MessageBox.Show(ex.Message.ToString() + "打开数据库失败！");
+                        MessageBox.Show("打开数据库失败！");
                     }
                 }
               
-            }
-
+            }*/
         }
     }
 }

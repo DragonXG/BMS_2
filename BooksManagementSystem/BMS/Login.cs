@@ -8,11 +8,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
-using System.IO;
+
 namespace BMS
 {
     public partial class Login : Form
     {
+        
         public Login()
         {
             InitializeComponent();
@@ -26,16 +27,20 @@ namespace BMS
 
         private void button1_Click(object sender, EventArgs e)
         {
-            String str = "Server=localhost;Database=bms;Uid=root;password=123456;sslmode=none;";
+            
+            String str = "Server=localhost;Database=bms;Uid=root;password=123456sslmode=none;";
             MySqlConnection conn = new MySqlConnection(str);
             conn.Open();
-            //读者登陆
             if (comboBox1.Text == "读者")
             {
                 bool flag_1 = false, flag_2 = false, flag_3 = false;
                 string str1 = "";         //用来记录读取数据库的用户名
                 string str2 = "";        //用来记录读取数据库的密码
                 string str3 = "";       //用来记录读取数据库的姓名
+                
+                //QueryBeforeLogin form1 = new QueryBeforeLogin(str1);
+                
+
                 MySqlCommand cmd = new MySqlCommand("select * from reader;", conn);
                 MySqlDataReader read_info;
                 read_info = cmd.ExecuteReader();
@@ -44,7 +49,8 @@ namespace BMS
                 {
                     str1 = Convert.ToString(read_info["CardNum"]);
                     str2 = Convert.ToString(read_info["LodinKey"]);
-                    
+
+
                     if ((textBox1.Text == str1))
                     {
                         flag_1 = true;
@@ -74,7 +80,6 @@ namespace BMS
                 {
                     ReaderMain readmain = new ReaderMain(str3, textBox1.Text);
                     Program.checkin_reader = true;
-                    get_number_llm.borrow_cardnum = textBox1.Text;
                     this.Close();
                 }
                 else
@@ -84,6 +89,7 @@ namespace BMS
                 }
                 read_info.Close();
                 conn.Close();
+                
             }
             //管理员登录
             if (comboBox1.Text == "超级管理员")
@@ -125,9 +131,8 @@ namespace BMS
                 }
                 if (admin_flag3 == true)
                 {
-                    AdminMain readmain = new AdminMain(textBox1.Text);
+                    AdminMain readmain = new AdminMain();
                     Program.checkin_admin = true;
-                    Log f = new Log();                   
                     this.Close();
                 }
                 else
@@ -160,6 +165,11 @@ namespace BMS
         {
             QueryBeforeLogin form = new QueryBeforeLogin();
             form.ShowDialog();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

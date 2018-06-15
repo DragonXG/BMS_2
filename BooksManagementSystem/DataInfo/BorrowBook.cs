@@ -9,9 +9,9 @@ namespace DataInfo
     //预定图书记录表
     class BorrowBook
     {
-        public String boolId = "";
-        public String bookName = "";
-        public String cardNum = "";
-        public String bookDate = "";
+        public String boolId;
+        public String bookName;
+        public String cardNum;
+        public String bookDate;
     }
 }
