@@ -70,9 +70,9 @@ namespace BMS
 
         private void toolStripButton2_Click(object sender, EventArgs e)
         {
-            BorrowHistory borrowForm = new BorrowHistory();
-            borrowForm.ShowDialog();
+ 
         } 
+
 
 
         private void toolStripButton4_Click(object sender, EventArgs e)
@@ -92,6 +92,12 @@ namespace BMS
                 Rectangle rect = new Rectangle(0, 0, this.toolStrip1.Width, this.toolStrip1.Height - 2);
                 e.Graphics.SetClip(rect);
             }
+        }
+
+        private void 关于此软件ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            About form = new About();
+            form.Show();
         }  
     }
 }

@@ -89,7 +89,11 @@
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage3);
+
+            this.tabControl1.Location = new System.Drawing.Point(1, 0);
+
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
+
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(603, 172);
@@ -117,7 +121,9 @@
             this.tabPage1.Controls.Add(this.label6);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+
             this.tabPage1.Size = new System.Drawing.Size(595, 146);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "增加图书";
@@ -296,8 +302,12 @@
             this.tabPage2.Controls.Add(this.label12);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+
+
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(2);
+
             this.tabPage2.Size = new System.Drawing.Size(595, 146);
+
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "修改信息";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -306,7 +316,9 @@
             // button8
             // 
             this.button8.Location = new System.Drawing.Point(257, 113);
-            this.button8.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+
+            this.button8.Margin = new System.Windows.Forms.Padding(2);
+
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(75, 23);
             this.button8.TabIndex = 32;
@@ -474,8 +486,12 @@
             this.tabPage3.Controls.Add(this.button5);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+
+
             this.tabPage3.Size = new System.Drawing.Size(595, 146);
+
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "删除图书";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -542,13 +558,16 @@
             this.listBox1.FormattingEnabled = true;
             this.listBox1.ItemHeight = 12;
             this.listBox1.Location = new System.Drawing.Point(3, 465);
-            this.listBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+
+            this.listBox1.Margin = new System.Windows.Forms.Padding(2);
+
             this.listBox1.Name = "listBox1";
             this.listBox1.Size = new System.Drawing.Size(596, 100);
             this.listBox1.TabIndex = 8;
             // 
             // dataGridView1
             // 
+
             this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.Window;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(1, 178);
@@ -557,12 +576,22 @@
             this.dataGridView1.Size = new System.Drawing.Size(598, 261);
             this.dataGridView1.TabIndex = 1;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+
+         /*   this.tabPage4.Location = new System.Drawing.Point(4, 22);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Size = new System.Drawing.Size(595, 132);
+            this.tabPage4.TabIndex = 3;
+            this.tabPage4.Text = "图书信息";
+            this.tabPage4.UseVisualStyleBackColor = true;*/
+
             // 
             // BookManage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(841, 614);
+
+            this.ClientSize = new System.Drawing.Size(614, 614);
+
             this.Controls.Add(this.listBox1);
             this.Controls.Add(this.label16);
             this.Controls.Add(this.button7);

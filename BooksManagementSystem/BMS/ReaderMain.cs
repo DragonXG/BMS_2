@@ -44,6 +44,9 @@ namespace BMS
         }
         private void button2_Click(object sender, EventArgs e)
         {
+            /************日志*********************/
+            string strlog = "进入修改密码界面.\n";
+            Log.WriteLog(strlog);
             PwdChange Form = new PwdChange();
             Form.ShowDialog();
         }
@@ -57,6 +60,7 @@ namespace BMS
         private void button5_Click(object sender, EventArgs e)
         {
             ReaderInfo readinfo = new ReaderInfo(label2.Text);
+            /************日志*********************/
             string logstring = "借阅证号：" + str_cardnum +"\t"+ "读者：" + label2.Text + "查询了自己的信息.\n";
             Log.WriteLog(logstring);
             readinfo.Show();
@@ -71,6 +75,7 @@ namespace BMS
         private void button1_Click_1(object sender, EventArgs e)
         {
             BorrowHistory borrowhistory = new BorrowHistory(str_cardnum);
+            /************日志*********************/
             string logstring = "借阅证号：" + str_cardnum + "\t"+"读者：" + label2.Text + "进入了个人图书信息页面.\n";
             Log.WriteLog(logstring);
             borrowhistory.Show();
@@ -79,6 +84,7 @@ namespace BMS
         private void button4_Click(object sender, EventArgs e)
         {
             PayForOverdue form = new PayForOverdue(str_cardnum);
+            /************日志*********************/
             string logstring = "借阅证号：" + str_cardnum + "\t" + "读者：" + label2.Text + "进入了缴费页面.\n";
             Log.WriteLog(logstring);
             form.ShowDialog();

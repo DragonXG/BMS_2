@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+using System.IO;
 
 //*************************** 注：需要一个cardnum，请添加到，open_mysql_llm那里面的get_number_llm的borrow_cardnum********
 
@@ -42,6 +43,10 @@ namespace BMS
             this.Close();
         }
 
+        private void if_go_lendbook()
+        {
+
+        }
 
         //为returnedbook添加代码，
 
@@ -76,7 +81,7 @@ namespace BMS
             }
         }
 
-        private void xiugai(String borrow_time)
+        private void xiugai(String borrow_time)    //returnedbook 是与否的修改。
         {
             try
             {
@@ -89,10 +94,10 @@ namespace BMS
                 MySqlCommandBuilder bdreturnedbook = new MySqlCommandBuilder(dareturnedbook);
                 dareturnedbook.Fill(dsmydata, "returnedbook");
 
-                MessageBox.Show("执行2");
+                //MessageBox.Show("执行2");
                 foreach (DataRow row in dsmydata.Tables["returnedbook"].Rows)
                 {
-                    MessageBox.Show(row["BorrowDate"].ToString());
+                    //MessageBox.Show(row["BorrowDate"].ToString());
                     row["Arrearage"] = "是";
                 }
                 dareturnedbook.Update(dsmydata, "returnedbook");
@@ -123,12 +128,12 @@ namespace BMS
                 dareturnedbook.Fill(dsmydata, "returnedbook");
 
                
-                MessageBox.Show("执行");
+                //MessageBox.Show("执行");
                 String borrow_time = "";    //获得借书时间。
 
                 foreach (DataRow row in dsmydata.Tables["returnedbook"].Rows)
                 {
-                    MessageBox.Show(row["BorrowDate"].ToString());
+                    //MessageBox.Show(row["BorrowDate"].ToString());
                     borrow_time = row["BorrowDate"].ToString();
                 }
                 open_mysql_llm.conn.Close();
@@ -242,16 +247,32 @@ namespace BMS
                                 textBox9.Text = "";
 
                                 open_mysql_llm.conn.Close();
+                                
+                                //******************日志代码******************
+                                //********************************************************************************************
+                                string  str_log ="借阅证号：" + cardnum.ToString() + " 于 " + now.ToString() + "  借阅ID为：" + bookid.ToString() + "  的图书.\n";
+                                Log.WriteLog(str_log);
+                                //********************************************
                                 button6_Click_run();      //再次执行该函数，进行刷新。
                                 
                             }
                         }
                         else
                         {
+
                             MessageBox.Show("不能够借书！");
 
                             textBox4.Text = "";
                             textBox9.Text = "";
+
+
+                            //MessageBox.Show("不能够借书！");
+                            textBox4.Text = "";
+                            textBox9.Text = "";
+
+                            get_number_llm.str_message = "要交完费用，才能借书哦！";
+                            if_message_1 f1 = new if_message_1();
+                            f1.Show();
 
                         }
                     }
@@ -341,7 +362,21 @@ namespace BMS
                         textBox10.Text = "";
                         textBox6.Text = "";
                         textBox7.Text = "";
-                        
+
+                        //******************日志代码******************
+                        //**************************************************************************************************
+
+                        System.DateTime now = new System.DateTime();   //获取系统时间
+                        now = System.DateTime.Now;
+                        FileStream file = new FileStream(@"F:\log.txt", FileMode.Append);
+                        StreamWriter sw = new StreamWriter(file, System.Text.Encoding.GetEncoding("GB2312"));
+                        String str_log = "";
+                        str_log = "借阅证号：" + cardnum.ToString() + " 于 " + now.ToString() + "  归还ID为：" + bookid.ToString() + "  的图书,";
+                        sw.WriteLine();
+                        sw.Write(str_log);
+                        sw.Close();
+                        file.Close();
+                        //*************************************************
                         if (if_message == 0)
                         {
                             MessageBox.Show("还书成功！");
@@ -432,6 +467,18 @@ namespace BMS
 
                             increase_returnedbook(bookid, cardnum, name, "借阅", "否", ref  dsmydata);
 
+                            //******************日志代码******************
+                            //******************************************************************************************
+                            
+                            FileStream file = new FileStream(@"F:\log.txt", FileMode.Append);
+                            StreamWriter sw = new StreamWriter(file, System.Text.Encoding.GetEncoding("GB2312"));
+                            String str_log = "";
+                            str_log = "借阅证号：" + cardnum.ToString() + " 于 " + now.ToString() + "  续借ID为：" + bookid.ToString() + "  的图书,";
+                            sw.WriteLine();
+                            sw.Write(str_log);
+                            sw.Close();
+                            file.Close();
+                            //***********************************************************************
                             MessageBox.Show("续借成功！");
                             textBox5.Text = "";
                             textBox10.Text = "";
@@ -474,8 +521,8 @@ namespace BMS
                 DataSet dslibrary = new DataSet();
 
                 String str1 = "图书ID           借阅证号           借阅日期                图书名" + "\r\n\r\n";
-                String str2 = "该学生有书逾期没还，不能够借书。信息如下：\r\n";                      //不能借书，以及未归还书籍信息
-                str2 = str2 + "书名               " + "还书日期                  " + "当前日期" + "\r\n";
+                String str2 = "您有书逾期没还，不能够借书。信息如下：\r\n\r\n";                      //不能借书，以及未归还书籍信息
+                str2 = str2 + "书名               " + "还书日期                  " + "当前日期" + "\r\n\r\n";
                 System.DateTime now = new System.DateTime();   //获取系统时间
                 now = System.DateTime.Now;
 
@@ -491,7 +538,6 @@ namespace BMS
 
                     text8moder = 1;
                     //textBox8.Text = "无借阅信息！";
-
 
                     str1 = str1 + row1["BookID"].ToString() + "              " + row1["CardNum"].ToString() + "         " +
                     row1["BorrowDate"].ToString() + "      " + row1["BookName"].ToString() + "\r\n\r\n";
@@ -521,9 +567,37 @@ namespace BMS
                 textBox2.Text = booknum.ToString();
                 textBox3.Text = num_book_max.ToString();      //最多可借书数
 
+
+                //判断是否可以借书，，查看是否有欠费记录。
+                if (if_can_borrow == true)
+                {
+                    int t = 0;
+                    String arr = "是";
+                    String strmy_returnedbook = "Select * From returnedbook Where CardNum = '" + cardnum + "' and Arrearage = '" + arr + "'";
+                    MySqlDataAdapter dareturnedbook = new MySqlDataAdapter(strmy_returnedbook, open_mysql_llm.conn);
+                    MySqlCommandBuilder bdreturnedbook = new MySqlCommandBuilder(dareturnedbook);
+                    dareturnedbook.Fill(dslibrary, "returnedbook");
+
+                    foreach (DataRow row in dslibrary.Tables["returnedbook"].Rows)
+                    {
+                        t++;
+                    }
+                    if (t != 0)
+                    {
+                        if_can_borrow = false;
+                        str2 = "您有费用没交，不能够借书哦！";
+                    }
+                }
+
+
                 if (if_can_borrow == false)    //显示不能借书原因
                 {
-                    MessageBox.Show(str2);
+                    //MessageBox.Show(str2);
+                    get_number_llm.str_message = str2;
+                    if_message_1 f1 = new if_message_1();
+                    f1.Show();
+                    //if_message_pay f2 = new if_message_pay();
+                    //f2.Show();
                 }
                 if (booknum >= num_book_max)   // 判断是否超过最多借书量
                 {
@@ -695,6 +769,7 @@ namespace BMS
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message.ToString() + "打开数据库失败！");
+                Log.WriteLog(ex.Message.ToString() + "输入图书ID错误.\n");
             }
 
         }
@@ -821,6 +896,23 @@ namespace BMS
                 button6_Click_run();
                 mouse_leave = 1;
             }
+        }
+
+        private void textBox4_TextChanged(object sender, EventArgs e)
+        {
+            string strlog = "输入借阅书的ID.\n";
+            Log.WriteLog(strlog);
+        }
+
+        private void textBox5_TextChanged(object sender, EventArgs e)
+        {
+            string strlog = "输入还书的图书ID.\n";
+            Log.WriteLog(strlog);
+        }
+
+        private void BorrowReturn_Load(object sender, EventArgs e)
+        {
+
         }
 
 

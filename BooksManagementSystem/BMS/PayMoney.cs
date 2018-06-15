@@ -38,12 +38,14 @@ namespace BMS
                 MessageBox.Show(success);
                 PayForOverdue PayOver = new PayForOverdue();
                 PayOver.Success(success);
+                /************日志*********************/
                 string logstring = "缴费成功.\n";
                 Log.WriteLog(logstring);
             }
             else
             {
                 errorProvider1.SetError(textBox1, "请输入正确的缴费金额");
+                /************日志*********************/
                 string logstring = "缴费失败.\n";
                 Log.WriteLog(logstring);
             }
@@ -58,11 +60,13 @@ namespace BMS
         {
             if(textBox1.Text == label1.Text)
             {
+                /************日志*********************/
                 string logstring = "输入正确的缴费金额!\n";
                 Log.WriteLog(logstring);
             }
             else
             {
+                /************日志*********************/
                 string logstring = "输入错误的缴费金额!\n";
                 Log.WriteLog(logstring);
             }
