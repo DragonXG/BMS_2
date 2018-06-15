@@ -73,9 +73,29 @@ namespace BMS.Properties {
         /// <summary>
         ///   查找 System.Drawing.Bitmap 类型的本地化资源。
         /// </summary>
+        internal static System.Drawing.Bitmap _1_161230153012 {
+            get {
+                object obj = ResourceManager.GetObject("1-161230153012", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
         internal static System.Drawing.Bitmap _2 {
             get {
                 object obj = ResourceManager.GetObject("2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap _25cefce1a962583f {
+            get {
+                object obj = ResourceManager.GetObject("25cefce1a962583f", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -96,6 +116,26 @@ namespace BMS.Properties {
         internal static System.Drawing.Bitmap _59794f0c203ce {
             get {
                 object obj = ResourceManager.GetObject("59794f0c203ce", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap ecc56dc89db401f6ebf4c1b997b3610b5d41023f {
+            get {
+                object obj = ResourceManager.GetObject("ecc56dc89db401f6ebf4c1b997b3610b5d41023f", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap llm {
+            get {
+                object obj = ResourceManager.GetObject("llm", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

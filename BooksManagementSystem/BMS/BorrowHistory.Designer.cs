@@ -60,11 +60,11 @@
             // textBox1
             // 
             this.textBox1.Cursor = System.Windows.Forms.Cursors.No;
-            this.textBox1.Location = new System.Drawing.Point(160, 18);
+            this.textBox1.Location = new System.Drawing.Point(109, 18);
             this.textBox1.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.textBox1.Name = "textBox1";
             this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(100, 21);
+            this.textBox1.Size = new System.Drawing.Size(151, 21);
             this.textBox1.TabIndex = 1;
             // 
             // dateTimePicker1
@@ -73,22 +73,18 @@
             this.dateTimePicker1.CalendarForeColor = System.Drawing.Color.Red;
             this.dateTimePicker1.Font = new System.Drawing.Font("微软雅黑", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-
             this.dateTimePicker1.Location = new System.Drawing.Point(410, 14);
             this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(5);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(176, 27);
-
             this.dateTimePicker1.TabIndex = 4;
             this.dateTimePicker1.Value = new System.DateTime(2018, 1, 1, 18, 12, 0, 0);
             // 
             // checkBox1
             // 
             this.checkBox1.AutoSize = true;
-
             this.checkBox1.Location = new System.Drawing.Point(815, 22);
             this.checkBox1.Margin = new System.Windows.Forms.Padding(5);
-
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(15, 14);
             this.checkBox1.TabIndex = 5;
@@ -99,12 +95,10 @@
             this.dateTimePicker2.CalendarForeColor = System.Drawing.Color.Red;
             this.dateTimePicker2.Font = new System.Drawing.Font("微软雅黑", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-
             this.dateTimePicker2.Location = new System.Drawing.Point(628, 14);
             this.dateTimePicker2.Margin = new System.Windows.Forms.Padding(5);
             this.dateTimePicker2.Name = "dateTimePicker2";
             this.dateTimePicker2.Size = new System.Drawing.Size(175, 27);
-
             this.dateTimePicker2.TabIndex = 6;
             this.dateTimePicker2.Value = new System.DateTime(2020, 12, 31, 18, 12, 0, 0);
             // 
@@ -114,10 +108,8 @@
             this.label3.Cursor = System.Windows.Forms.Cursors.No;
             this.label3.Font = new System.Drawing.Font("幼圆", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label3.ForeColor = System.Drawing.Color.Red;
-
             this.label3.Location = new System.Drawing.Point(596, 16);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(18, 12);
             this.label3.TabIndex = 7;
@@ -126,10 +118,8 @@
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("微软雅黑", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-
-            this.button1.Location = new System.Drawing.Point(861, 14);
+            this.button1.Location = new System.Drawing.Point(840, 9);
             this.button1.Margin = new System.Windows.Forms.Padding(5);
-
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(153, 40);
             this.button1.TabIndex = 8;
@@ -147,10 +137,8 @@
             this.groupBox1.Location = new System.Drawing.Point(36, 70);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.groupBox1.Name = "groupBox1";
-
             this.groupBox1.Padding = new System.Windows.Forms.Padding(5);
             this.groupBox1.Size = new System.Drawing.Size(949, 69);
-
             this.groupBox1.TabIndex = 9;
             this.groupBox1.TabStop = false;
             // 
@@ -242,9 +230,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-
             this.ClientSize = new System.Drawing.Size(998, 604);
-
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.button1);

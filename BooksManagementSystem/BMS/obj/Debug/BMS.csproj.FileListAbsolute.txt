@@ -306,3 +306,6 @@ G:\BMS备份\备份（8）\BMS_2-cpy\BooksManagementSystem\BMS\obj\Debug\BMS.Pro
 G:\BMS备份\备份（8）\BMS_2-cpy\BooksManagementSystem\BMS\obj\Debug\BMS.ReaderMain.resources
 G:\BMS备份\备份（8）\BMS_2-cpy\BooksManagementSystem\BMS\obj\Debug\BMS.ReaderManage.resources
 G:\BMS备份\备份（8）\BMS_2-cpy\BooksManagementSystem\BMS\obj\Debug\BMS.csproj.GenerateResource.Cache
+F:\git下载\BMS_2\BooksManagementSystem\BMS\obj\Debug\BMS.if_message_1.resources
+D:\GitHub\Works\BMS_2\BooksManagementSystem\BMS\obj\Debug\BMS.csprojResolveAssemblyReference.cache
+D:\GitHub\Works\BMS_2\BooksManagementSystem\BMS\obj\Debug\BMS.if_message_1.resources
