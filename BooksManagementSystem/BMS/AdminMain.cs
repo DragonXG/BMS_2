@@ -72,7 +72,8 @@ namespace BMS
         {
             BorrowHistory borrowForm = new BorrowHistory();
             borrowForm.ShowDialog();
-        }
+        } 
+
 
 
         private void toolStripButton4_Click(object sender, EventArgs e)

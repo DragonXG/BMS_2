@@ -171,9 +171,31 @@
             this.toolStripButton2.Size = new System.Drawing.Size(74, 81);
             this.toolStripButton2.Text = "日志维护";
             this.toolStripButton2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+
+            this.toolStripButton2.Click += new System.EventHandler(this.toolStripButton2_Click);
+
+            // 
+            // 维护ToolStripMenuItem
+            // 
+            this.维护ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.日志维护ToolStripMenuItem,
+            this.数据维护ToolStripMenuItem});
+            this.维护ToolStripMenuItem.Name = "维护ToolStripMenuItem";
+            this.维护ToolStripMenuItem.Size = new System.Drawing.Size(44, 21);
+            this.维护ToolStripMenuItem.Text = "维护";
+            // 
+            // 日志维护ToolStripMenuItem
+            // 
+            this.日志维护ToolStripMenuItem.Name = "日志维护ToolStripMenuItem";
+            this.日志维护ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.日志维护ToolStripMenuItem.Text = "日志维护";
+            // 
+            // 数据维护ToolStripMenuItem
+
             // 
             // toolStripButton4
             // 
+
             this.toolStripButton4.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.toolStripButton4.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton4.Image")));
             this.toolStripButton4.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
@@ -182,6 +204,12 @@
             this.toolStripButton4.Size = new System.Drawing.Size(74, 81);
             this.toolStripButton4.Text = "数据维护";
             this.toolStripButton4.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+
+            this.修改密码ToolStripMenuItem.Name = "修改密码ToolStripMenuItem";
+            this.修改密码ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.修改密码ToolStripMenuItem.Text = "修改密码";
+
+
             // 
             // AdminMain
             // 
@@ -196,7 +224,9 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "AdminMain";
             this.Text = "管理员界面";
+
             this.Load += new System.EventHandler(this.AdminMain_Load);
+
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.toolStrip1.ResumeLayout(false);
