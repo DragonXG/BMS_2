@@ -105,6 +105,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="QueryAfterLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QueryAfterLogin.Designer.cs">
+      <DependentUpon>QueryAfterLogin.cs</DependentUpon>
+    </Compile>
     <Compile Include="QueryBeforeLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -176,6 +182,9 @@
     <EmbeddedResource Include="PwdChange.resx">
       <DependentUpon>PwdChange.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="QueryAfterLogin.resx">
+      <DependentUpon>QueryAfterLogin.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="QueryBeforeLogin.resx">
       <DependentUpon>QueryBeforeLogin.cs</DependentUpon>
     </EmbeddedResource>
@@ -246,6 +255,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\12.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\8.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

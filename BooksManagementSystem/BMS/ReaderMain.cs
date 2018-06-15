@@ -17,6 +17,7 @@ namespace BMS
         public ReaderMain()
         {
             InitializeComponent();
+          
             open_mysql_llm.conn.Open();
             DataSet dsmydata = new DataSet();
             MySqlCommand cmd = new MySqlCommand("select * from systemprompt where CardNum ='" + str_cardnum + "'", open_mysql_llm.conn);
@@ -94,6 +95,12 @@ namespace BMS
         {
             BorrowReturn borrowreturn = new BorrowReturn();
             borrowreturn.ShowDialog();
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            QueryAfterLogin form = new QueryAfterLogin(str_cardnum);
+            form.ShowDialog();
         }
 
     }

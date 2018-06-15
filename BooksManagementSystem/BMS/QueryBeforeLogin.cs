@@ -30,7 +30,7 @@ namespace BMS
         private void button5_Click(object sender, EventArgs e)
         {
             listView1.Items.Clear();
-            String strConn = "Server = localhost;Database = bms;Uid = root;password = 123456;sslmode = none;";
+            String strConn = "Server = localhost;Database = bms;Uid = root;password = mmysql1600;sslmode = none;";
             MySqlConnection conn = new MySqlConnection(strConn);
             conn.Open();
             MySqlCommand cmd = conn.CreateCommand();
@@ -56,7 +56,7 @@ namespace BMS
             s = listView1.FocusedItem.SubItems[0].Text;
             if (s != "")
             {
-                String strConn = "Server = localhost;Database = bms;Uid = root;password = 123456;sslmode = none;";
+                String strConn = "Server = localhost;Database = bms;Uid = root;password = mmysql1600;sslmode = none;";
                 MySqlConnection conn = new MySqlConnection(strConn);
                 conn.Open();
                 String strSql = "Select * from bookinformation where BookClassID = '" + s + "'";

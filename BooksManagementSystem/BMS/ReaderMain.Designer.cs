@@ -36,6 +36,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
+            this.button6 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button2
@@ -151,6 +152,16 @@
             this.label3.TabIndex = 8;
             this.label3.Text = "借阅历史信息及当前借阅状态";
             // 
+            // button6
+            // 
+            this.button6.Location = new System.Drawing.Point(237, 412);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(97, 49);
+            this.button6.TabIndex = 9;
+            this.button6.Text = "预定";
+            this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
+            // 
             // ReaderMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -158,6 +169,7 @@
             this.BackgroundImage = global::BMS.Properties.Resources._5;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1271, 752);
+            this.Controls.Add(this.button6);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label2);
@@ -186,6 +198,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button button6;
 
     }
 }
