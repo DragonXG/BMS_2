@@ -366,16 +366,9 @@ namespace BMS
                         //******************日志代码******************
                         //**************************************************************************************************
 
-                        System.DateTime now = new System.DateTime();   //获取系统时间
-                        now = System.DateTime.Now;
-                        FileStream file = new FileStream(@"F:\log.txt", FileMode.Append);
-                        StreamWriter sw = new StreamWriter(file, System.Text.Encoding.GetEncoding("GB2312"));
-                        String str_log = "";
-                        str_log = "借阅证号：" + cardnum.ToString() + " 于 " + now.ToString() + "  归还ID为：" + bookid.ToString() + "  的图书,";
-                        sw.WriteLine();
-                        sw.Write(str_log);
-                        sw.Close();
-                        file.Close();
+                        String str_log = "借阅证号：" + cardnum.ToString() + "  归还ID为：" + bookid.ToString() + "  的图书." + "\n";
+                        Log.WriteLog( str_log);
+ 
                         //*************************************************
                         if (if_message == 0)
                         {
@@ -470,14 +463,10 @@ namespace BMS
                             //******************日志代码******************
                             //******************************************************************************************
                             
-                            FileStream file = new FileStream(@"F:\log.txt", FileMode.Append);
-                            StreamWriter sw = new StreamWriter(file, System.Text.Encoding.GetEncoding("GB2312"));
+                          
                             String str_log = "";
-                            str_log = "借阅证号：" + cardnum.ToString() + " 于 " + now.ToString() + "  续借ID为：" + bookid.ToString() + "  的图书,";
-                            sw.WriteLine();
-                            sw.Write(str_log);
-                            sw.Close();
-                            file.Close();
+                            str_log = "借阅证号：" + cardnum.ToString() + "  续借ID为：" + bookid.ToString() + "  的图书." + "\n";
+                            Log.WriteLog(str_log);
                             //***********************************************************************
                             MessageBox.Show("续借成功！");
                             textBox5.Text = "";
@@ -769,7 +758,8 @@ namespace BMS
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message.ToString() + "打开数据库失败！");
-                Log.WriteLog(ex.Message.ToString() + "输入图书ID错误.\n");
+                /************日志*************/
+                Log.WriteLog(ex.Message.ToString() + "输入图书ID错误." + "\n");
             }
 
         }
@@ -900,13 +890,13 @@ namespace BMS
 
         private void textBox4_TextChanged(object sender, EventArgs e)
         {
-            string strlog = "输入借阅书的ID.\n";
+            string strlog = "输入借阅书的ID."+"\n";
             Log.WriteLog(strlog);
         }
 
         private void textBox5_TextChanged(object sender, EventArgs e)
         {
-            string strlog = "输入还书的图书ID.\n";
+            string strlog = "输入还书的图书ID."+"\n";
             Log.WriteLog(strlog);
         }
 

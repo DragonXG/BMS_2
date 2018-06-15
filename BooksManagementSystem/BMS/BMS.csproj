@@ -87,6 +87,12 @@
       <DependentUpon>if_message_pay.cs</DependentUpon>
     </Compile>
     <Compile Include="Log.cs" />
+    <Compile Include="Logmaintain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Logmaintain.Designer.cs">
+      <DependentUpon>Logmaintain.cs</DependentUpon>
+    </Compile>
     <Compile Include="open_mysql_llm.cs" />
     <Compile Include="PayForOverdue.cs">
       <SubType>Form</SubType>
@@ -104,6 +110,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="QueryAfterLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QueryAfterLogin.Designer.cs">
+      <DependentUpon>QueryAfterLogin.cs</DependentUpon>
     </Compile>
     <Compile Include="QueryBeforeLogin.cs">
       <SubType>Form</SubType>
@@ -161,6 +173,9 @@
     <EmbeddedResource Include="About.resx">
       <DependentUpon>About.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Logmaintain.resx">
+      <DependentUpon>Logmaintain.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="PayForOverdue.resx">
       <DependentUpon>PayForOverdue.cs</DependentUpon>
     </EmbeddedResource>
@@ -175,6 +190,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="PwdChange.resx">
       <DependentUpon>PwdChange.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QueryAfterLogin.resx">
+      <DependentUpon>QueryAfterLogin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="QueryBeforeLogin.resx">
       <DependentUpon>QueryBeforeLogin.cs</DependentUpon>
@@ -246,6 +264,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\12.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\8.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

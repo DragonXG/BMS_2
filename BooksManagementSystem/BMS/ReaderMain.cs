@@ -17,6 +17,7 @@ namespace BMS
         public ReaderMain()
         {
             InitializeComponent();
+          
             open_mysql_llm.conn.Open();
             DataSet dsmydata = new DataSet();
             MySqlCommand cmd = new MySqlCommand("select * from systemprompt where CardNum ='" + str_cardnum + "'", open_mysql_llm.conn);
@@ -45,7 +46,7 @@ namespace BMS
         private void button2_Click(object sender, EventArgs e)
         {
             /************日志*********************/
-            string strlog = "进入修改密码界面.\n";
+            string strlog = "进入修改密码界面." + "\n";
             Log.WriteLog(strlog);
             PwdChange Form = new PwdChange();
             Form.ShowDialog();
@@ -61,7 +62,7 @@ namespace BMS
         {
             ReaderInfo readinfo = new ReaderInfo(label2.Text);
             /************日志*********************/
-            string logstring = "借阅证号：" + str_cardnum +"\t"+ "读者：" + label2.Text + "查询了自己的信息.\n";
+            string logstring = "借阅证号：" + str_cardnum +"\t"+ "读者：" + label2.Text + "查询了自己的信息." + "\n";
             Log.WriteLog(logstring);
             readinfo.Show();
         }
@@ -76,7 +77,7 @@ namespace BMS
         {
             BorrowHistory borrowhistory = new BorrowHistory(str_cardnum);
             /************日志*********************/
-            string logstring = "借阅证号：" + str_cardnum + "\t"+"读者：" + label2.Text + "进入了个人图书信息页面.\n";
+            string logstring = "借阅证号：" + str_cardnum + "\t"+"读者：" + label2.Text + "进入了个人图书信息页面." + "\n";
             Log.WriteLog(logstring);
             borrowhistory.Show();
         }
@@ -85,7 +86,7 @@ namespace BMS
         {
             PayForOverdue form = new PayForOverdue(str_cardnum);
             /************日志*********************/
-            string logstring = "借阅证号：" + str_cardnum + "\t" + "读者：" + label2.Text + "进入了缴费页面.\n";
+            string logstring = "借阅证号：" + str_cardnum + "\t" + "读者：" + label2.Text + "进入了缴费页面." + "\n";
             Log.WriteLog(logstring);
             form.ShowDialog();
         }
@@ -94,6 +95,14 @@ namespace BMS
         {
             BorrowReturn borrowreturn = new BorrowReturn();
             borrowreturn.ShowDialog();
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            string strlog = "进入预定图书界面." + "\n";
+            Log.WriteLog(strlog);
+            QueryAfterLogin form = new QueryAfterLogin(str_cardnum);
+            form.ShowDialog();
         }
 
     }

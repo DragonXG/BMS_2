@@ -25,7 +25,7 @@ namespace BMS
         private void button5_Click(object sender, EventArgs e)
         {
             listView1.Items.Clear();
-            String strConn = "Server = localhost;Database = bms;Uid = root;password = mmysql1600;sslmode = none;";
+            String strConn = "Server = localhost;Database = bms;Uid = root;password = 123456;sslmode = none;";
             MySqlConnection conn = new MySqlConnection(strConn);
             conn.Open();
             MySqlCommand cmd = conn.CreateCommand();
@@ -56,7 +56,7 @@ namespace BMS
             s = listView1.FocusedItem.SubItems[0].Text;
             if (s != "")
             {
-                String strConn = "Server = localhost;Database = bms;Uid = root;password = mmysql1600;sslmode = none;";
+                String strConn = "Server = localhost;Database = bms;Uid = root;password = 123456;sslmode = none;";
                 MySqlConnection conn = new MySqlConnection(strConn);
                 conn.Open();
                 String strSql = "Select * from bookinformation where BookClassID = '" + s + "'";
@@ -131,7 +131,7 @@ namespace BMS
 
             //MessageBox.Show(strnum);
 
-            String strConn = "Server = localhost;Database = bms;Uid = root;password = mmysql1600;sslmode = none;";
+            String strConn = "Server = localhost;Database = bms;Uid = root;password = 123456;sslmode = none;";
             MySqlConnection conn = new MySqlConnection(strConn);
             conn.Open();
 
@@ -149,9 +149,15 @@ namespace BMS
                 String strSql3 = "Select * from booking where CardNum = '" + strnum + "'";
                 MySqlDataAdapter da3 = new MySqlDataAdapter(strSql3, strConn);
                 DataSet ds3 = new DataSet();
-                //da3.Fill(ds3, "booking");
-                int t = ds3.Tables[0].Rows.Count;
+                int t;
+                da3.Fill(ds3, "booking");
+                //if(ds3 != null && ds3.Tables.Count > 0)
+                
+                t = ds3.Tables[0].Rows.Count;
                 //MessageBox.Show(t);
+                
+                
+                
 
                 if (t < 3)
                 {

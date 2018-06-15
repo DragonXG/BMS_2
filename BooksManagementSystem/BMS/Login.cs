@@ -8,14 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
-using System.IO;
+
 namespace BMS
 {
     public partial class Login : Form
     {
         public static string LOGTYPE;
         public static string LOGNAME;
-
         public Login()
         {
             InitializeComponent();
@@ -47,7 +46,7 @@ namespace BMS
                 {
                     str1 = Convert.ToString(read_info["CardNum"]);
                     str2 = Convert.ToString(read_info["LodinKey"]);
-                    
+
                     if ((textBox1.Text == str1))
                     {
                         flag_1 = true;
@@ -57,14 +56,14 @@ namespace BMS
                     {
                         flag_2 = true;
                     }
-                    if((textBox1.Text == str1) && (textBox2.Text == str2))
+                    if ((textBox1.Text == str1) && (textBox2.Text == str2))
                     {
                         flag_3 = true;
                     }
                 }
                 if (flag_1 == false)        //用户名不正确，给出提示
                 {
-                    errorProvider1.SetError(textBox1, "用户名不存在，请重新输入!");     
+                    errorProvider1.SetError(textBox1, "用户名不存在，请重新输入!");
                     textBox1.Clear();
                     textBox2.Clear();
                 }
@@ -75,7 +74,7 @@ namespace BMS
                 }
                 if (flag_3 == true)
                 {
-                    Log.WriteLog("\n"+comboBox1.Text + ":" + textBox1.Text + "登录成功：\n");
+                    Log.WriteLog("\n" + comboBox1.Text + ":" + textBox1.Text + "登录成功：" + "\n");
                     LOGTYPE = comboBox1.Text;
                     LOGNAME = textBox1.Text;
                     ReaderMain readmain = new ReaderMain(str3, textBox1.Text);
@@ -103,13 +102,13 @@ namespace BMS
                 string admin_name = "";                 //记录管理员的用户名
                 string admin_pwd = "";                   //记录管理员的密码
                 MySqlCommand admin = new MySqlCommand("select * from administrator;", conn);
-                MySqlDataReader admin_info; 
+                MySqlDataReader admin_info;
                 admin_info = admin.ExecuteReader();
-                while(admin_info.Read())                        //从数据库中扫描匹配的用户名和密码
+                while (admin_info.Read())                        //从数据库中扫描匹配的用户名和密码
                 {
                     admin_name = Convert.ToString(admin_info["LoginName"]);
-                    admin_pwd  = Convert.ToString(admin_info["LodinKey"]);
-                    if(textBox1.Text == admin_name)
+                    admin_pwd = Convert.ToString(admin_info["LodinKey"]);
+                    if (textBox1.Text == admin_name)
                     {
                         admin_flag1 = true;
                     }
@@ -117,25 +116,25 @@ namespace BMS
                     {
                         admin_flag2 = true;
                     }
-                    if((textBox1.Text == admin_name) && (textBox2.Text == admin_pwd))
+                    if ((textBox1.Text == admin_name) && (textBox2.Text == admin_pwd))
                     {
                         admin_flag3 = true;
                     }
                 }
-                if(admin_flag1 == false)            //用户名不正确，给出提示
+                if (admin_flag1 == false)            //用户名不正确，给出提示
                 {
                     errorProvider1.SetError(textBox1, "用户名不存在，请重新输入!");
                     textBox1.Clear();
                     textBox2.Clear();
-                } 
-                if(admin_flag2 == false)            //密码不正确，给出提示
+                }
+                if (admin_flag2 == false)            //密码不正确，给出提示
                 {
                     errorProvider2.SetError(textBox2, "密码不正确，请重新输入！");
                     textBox2.Clear();
                 }
                 if (admin_flag3 == true)
                 {
-                    Log.WriteLog("\n" + comboBox1.Text + ":" + textBox1.Text + "登录成功：\n");
+                    Log.WriteLog( comboBox1.Text + ":" + textBox1.Text + "登录成功：\n");
                     LOGTYPE = comboBox1.Text;
                     LOGNAME = textBox1.Text;
                     AdminMain readmain = new AdminMain(textBox1.Text);
@@ -176,7 +175,13 @@ namespace BMS
         private void button2_Click(object sender, EventArgs e)
         {
             QueryBeforeLogin form = new QueryBeforeLogin();
-            form.ShowDialog();
+            Program.checkin_querybefore = true;
+            this.Close();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

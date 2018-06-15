@@ -70,7 +70,8 @@ namespace BMS
 
         private void toolStripButton2_Click(object sender, EventArgs e)
         {
- 
+            Logmaintain logmain = new Logmaintain();
+            logmain.ShowDialog();
         } 
 
 

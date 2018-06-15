@@ -163,8 +163,9 @@ namespace BMS
             }
             catch(Exception ex)
             {
+                /****************日志*******************/
                 MessageBox.Show(ex.Message.ToString() + "显示缴费信息出错，请重试!\n");
-                Log.WriteLog(ex.Message.ToString() + "显示缴费信息出错!\n");
+                Log.WriteLog(ex.Message.ToString() + "显示缴费信息出错!" + "\n");
             }
            
         }
@@ -204,7 +205,8 @@ namespace BMS
                    catch(Exception ex)
                    {
                        MessageBox.Show(ex.Message.ToString() + "系统错误，请重试！");
-                       string logstring = "借阅证号："+ str_cardnum + "选择缴费时出错!\n";
+                       /****************日志*******************/
+                       string logstring = "借阅证号："+ str_cardnum + "选择缴费时出错!" + "\n";
                        Log.WriteLog(ex.Message.ToString() +logstring);
                    }
                }

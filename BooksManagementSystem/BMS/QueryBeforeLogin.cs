@@ -133,7 +133,9 @@ namespace BMS
             DialogResult dr = MessageBox.Show("您还未登录，是否返回登录界面","提示", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
             if(dr == DialogResult.OK)
             {
-                this.Close();
+                Login login = new Login();
+                Program.checkin_login = true;
+                this.Close();                              
             }
         }
 
