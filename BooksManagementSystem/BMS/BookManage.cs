@@ -41,6 +41,7 @@ namespace BMS
 
         }
 
+
         private void ClearStrings()
         {
             /*textBox6.Text = "";
@@ -416,5 +417,8 @@ namespace BMS
         }
 
        
+
+  
+
     }
 }

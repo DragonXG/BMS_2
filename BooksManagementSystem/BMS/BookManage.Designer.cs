@@ -303,9 +303,11 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
 
+
             this.tabPage2.Padding = new System.Windows.Forms.Padding(2);
 
             this.tabPage2.Size = new System.Drawing.Size(595, 146);
+
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "修改信息";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -487,7 +489,9 @@
 
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
 
+
             this.tabPage3.Size = new System.Drawing.Size(595, 146);
+
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "删除图书";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -563,6 +567,7 @@
             // 
             // dataGridView1
             // 
+
             this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.Window;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(1, 178);
@@ -571,6 +576,14 @@
             this.dataGridView1.Size = new System.Drawing.Size(598, 261);
             this.dataGridView1.TabIndex = 1;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+
+         /*   this.tabPage4.Location = new System.Drawing.Point(4, 22);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Size = new System.Drawing.Size(595, 132);
+            this.tabPage4.TabIndex = 3;
+            this.tabPage4.Text = "图书信息";
+            this.tabPage4.UseVisualStyleBackColor = true;*/
+
             // 
             // BookManage
             // 
