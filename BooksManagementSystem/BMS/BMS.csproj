@@ -97,7 +97,7 @@
     <Compile Include="PayForOverdue.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PayForOverdue.Designer.cs">
+    <Compile Include="PayForOverdue.designer.cs">
       <DependentUpon>PayForOverdue.cs</DependentUpon>
     </Compile>
     <Compile Include="PayMoney.cs">
@@ -184,9 +184,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="if_message_1.resx">
       <DependentUpon>if_message_1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="if_message_pay.resx">
-      <DependentUpon>if_message_pay.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PwdChange.resx">
       <DependentUpon>PwdChange.cs</DependentUpon>
