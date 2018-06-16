@@ -111,8 +111,6 @@ G:\BMS_2\BooksManagementSystem\BMS\obj\Debug\BMS.exe
 G:\BMS_2\BooksManagementSystem\BMS\obj\Debug\BMS.pdb
 G:\BMS_2\BooksManagementSystem\BMS\bin\Debug\BMS.exe
 G:\BMS_2\BooksManagementSystem\BMS\bin\Debug\BMS.pdb
-G:\BMS_2\BooksManagementSystem\BMS\bin\Debug\DataInfo.dll
-G:\BMS_2\BooksManagementSystem\BMS\bin\Debug\DataInfo.pdb
 G:\BMS_2\BooksManagementSystem\BMS\obj\Debug\BMS.csprojResolveAssemblyReference.cache
 G:\BMS_2\BooksManagementSystem\BMS\obj\Debug\BMS.BorrowHistory.resources
 G:\BMS_2\BooksManagementSystem\BMS\obj\Debug\BMS.BookManage.resources
@@ -381,3 +379,8 @@ G:\Groupbms\BMS_2-mwq_1\BooksManagementSystem\BMS\obj\Debug\BMS.ReaderMain.resou
 G:\Groupbms\BMS_2-mwq_1\BooksManagementSystem\BMS\obj\Debug\BMS.ReaderManage.resources
 G:\Groupbms\BMS_2-mwq_1\BooksManagementSystem\BMS\obj\Debug\BMS.csproj.GenerateResource.Cache
 G:\Groupbms\BMS_2-mwq_1\BooksManagementSystem\BMS\obj\Debug\BMS.Logmaintain.resources
+G:\BMS_2\BooksManagementSystem\BMS\obj\Debug\BMS.About.resources
+G:\BMS_2\BooksManagementSystem\BMS\obj\Debug\BMS.Logmaintain.resources
+G:\BMS_2\BooksManagementSystem\BMS\obj\Debug\BMS.if_message_1.resources
+G:\BMS_2\BooksManagementSystem\BMS\obj\Debug\BMS.if_message_pay.resources
+G:\BMS_2\BooksManagementSystem\BMS\obj\Debug\BMS.QueryAfterLogin.resources

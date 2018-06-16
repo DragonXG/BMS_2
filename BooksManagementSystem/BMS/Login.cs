@@ -74,7 +74,7 @@ namespace BMS
                 }
                 if (flag_3 == true)
                 {
-                    Log.WriteLog("\n" + comboBox1.Text + ":" + textBox1.Text + "登录成功：" + "\n");
+                    Log.WriteLog( "借阅证号"+ ":" + textBox1.Text + comboBox1.Text + ":" + str3 + "登录成功!" + "\n");
                     LOGTYPE = comboBox1.Text;
                     LOGNAME = textBox1.Text;
                     ReaderMain readmain = new ReaderMain(str3, textBox1.Text);
@@ -134,7 +134,7 @@ namespace BMS
                 }
                 if (admin_flag3 == true)
                 {
-                    Log.WriteLog( comboBox1.Text + ":" + textBox1.Text + "登录成功：\n");
+                    Log.WriteLog(comboBox1.Text + ":" + textBox1.Text + "登录成功!" + "\n");
                     LOGTYPE = comboBox1.Text;
                     LOGNAME = textBox1.Text;
                     AdminMain readmain = new AdminMain(textBox1.Text);
