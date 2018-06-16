@@ -24,6 +24,11 @@ namespace BMS
         private void Form1_Load(object sender, EventArgs e)
         {
             comboBox1.SelectedIndex = 0;
+            Login login = new Login();       //退出登陆界面
+            if(login.IsDisposed == true)
+            {
+                Program.check = 0;
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)

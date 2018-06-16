@@ -71,6 +71,11 @@ namespace BMS
         {
             label2.Text = str_cardname;
             str_cardname = "";
+            ReaderMain reader = new ReaderMain();
+            if(reader.IsDisposed == true)
+            {
+                Program.check = 0;
+            }
         }
 
         private void button1_Click_1(object sender, EventArgs e)
@@ -103,6 +108,18 @@ namespace BMS
             Log.WriteLog(strlog);
             QueryAfterLogin form = new QueryAfterLogin(str_cardnum);
             form.ShowDialog();
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            Program.checkin_relogin = true;
+            this.Close();
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            Program.check = 0;
+            this.Close();
         }
 
     }
