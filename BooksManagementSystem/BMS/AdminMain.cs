@@ -70,8 +70,11 @@ namespace BMS
 
         private void toolStripButton2_Click(object sender, EventArgs e)
         {
-            BorrowHistory borrowForm = new BorrowHistory();
-            borrowForm.ShowDialog();
+            /***************日志******************/
+            string strlog = "查看了日志." + "\n";
+            Log.WriteLog(strlog);
+            Logmaintain logmain = new Logmaintain();
+            logmain.ShowDialog();
         } 
 
 

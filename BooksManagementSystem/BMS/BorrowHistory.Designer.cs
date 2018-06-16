@@ -50,8 +50,8 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(32, 25);
-            this.label1.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.label1.Location = new System.Drawing.Point(43, 31);
+            this.label1.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(65, 12);
             this.label1.TabIndex = 0;
@@ -60,11 +60,14 @@
             // textBox1
             // 
             this.textBox1.Cursor = System.Windows.Forms.Cursors.No;
+
             this.textBox1.Location = new System.Drawing.Point(109, 18);
             this.textBox1.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.textBox1.Name = "textBox1";
             this.textBox1.ReadOnly = true;
             this.textBox1.Size = new System.Drawing.Size(151, 21);
+
+
             this.textBox1.TabIndex = 1;
             // 
             // dateTimePicker1
@@ -118,10 +121,12 @@
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("微软雅黑", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+
             this.button1.Location = new System.Drawing.Point(840, 9);
             this.button1.Margin = new System.Windows.Forms.Padding(5);
+
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(153, 40);
+            this.button1.Size = new System.Drawing.Size(204, 50);
             this.button1.TabIndex = 8;
             this.button1.Text = "查询";
             this.button1.UseVisualStyleBackColor = true;
@@ -134,8 +139,8 @@
             this.groupBox1.Controls.Add(this.radioButton3);
             this.groupBox1.Controls.Add(this.radioButton2);
             this.groupBox1.Controls.Add(this.radioButton1);
-            this.groupBox1.Location = new System.Drawing.Point(36, 70);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
+            this.groupBox1.Location = new System.Drawing.Point(48, 88);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(9, 8, 9, 8);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(5);
             this.groupBox1.Size = new System.Drawing.Size(949, 69);
@@ -145,8 +150,8 @@
             // radioButton4
             // 
             this.radioButton4.AutoSize = true;
-            this.radioButton4.Location = new System.Drawing.Point(439, 32);
-            this.radioButton4.Margin = new System.Windows.Forms.Padding(5, 2, 5, 2);
+            this.radioButton4.Location = new System.Drawing.Point(585, 40);
+            this.radioButton4.Margin = new System.Windows.Forms.Padding(7, 2, 7, 2);
             this.radioButton4.Name = "radioButton4";
             this.radioButton4.Size = new System.Drawing.Size(47, 16);
             this.radioButton4.TabIndex = 3;
@@ -158,8 +163,8 @@
             // radioButton3
             // 
             this.radioButton3.AutoSize = true;
-            this.radioButton3.Location = new System.Drawing.Point(315, 32);
-            this.radioButton3.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
+            this.radioButton3.Location = new System.Drawing.Point(420, 40);
+            this.radioButton3.Margin = new System.Windows.Forms.Padding(9, 8, 9, 8);
             this.radioButton3.Name = "radioButton3";
             this.radioButton3.Size = new System.Drawing.Size(47, 16);
             this.radioButton3.TabIndex = 2;
@@ -171,8 +176,8 @@
             // radioButton2
             // 
             this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(164, 32);
-            this.radioButton2.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
+            this.radioButton2.Location = new System.Drawing.Point(219, 40);
+            this.radioButton2.Margin = new System.Windows.Forms.Padding(9, 8, 9, 8);
             this.radioButton2.Name = "radioButton2";
             this.radioButton2.Size = new System.Drawing.Size(47, 16);
             this.radioButton2.TabIndex = 1;
@@ -184,8 +189,8 @@
             // radioButton1
             // 
             this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(15, 32);
-            this.radioButton1.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
+            this.radioButton1.Location = new System.Drawing.Point(20, 40);
+            this.radioButton1.Margin = new System.Windows.Forms.Padding(9, 8, 9, 8);
             this.radioButton1.Name = "radioButton1";
             this.radioButton1.Size = new System.Drawing.Size(47, 16);
             this.radioButton1.TabIndex = 0;
@@ -198,13 +203,15 @@
             // 
             this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(36, 169);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
+            this.dataGridView1.Location = new System.Drawing.Point(48, 211);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(9, 8, 9, 8);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             this.dataGridView1.RowTemplate.Height = 23;
             this.dataGridView1.Size = new System.Drawing.Size(949, 445);
             this.dataGridView1.TabIndex = 10;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.dataGridView1.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dataGridView1_RowPostPaint);
             this.dataGridView1.RowStateChanged += new System.Windows.Forms.DataGridViewRowStateChangedEventHandler(this.dataGridView1_RowStateChanged);
             // 
             // textBox2
@@ -241,7 +248,7 @@
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
+            this.Margin = new System.Windows.Forms.Padding(9, 8, 9, 8);
             this.Name = "BorrowHistory";
             this.Text = "借书历史";
             this.Load += new System.EventHandler(this.BorrowHistory_Load);

@@ -251,14 +251,8 @@ namespace BMS
                                 //******************日志代码******************
                                 //********************************************************************************************
 
-                                FileStream file = new FileStream(@"F:\log.txt", FileMode.Append);
-                                StreamWriter sw = new StreamWriter(file, System.Text.Encoding.GetEncoding("GB2312"));
-                                String str_log = "";
-                                str_log ="借阅证号：" + cardnum.ToString() + " 于 " + now.ToString() + "  借阅ID为：" + bookid.ToString() + "  的图书,";
-                                sw.WriteLine();
-                                sw.Write(str_log);
-                                sw.Close();
-                                file.Close();
+                                string  str_log ="借阅证号：" + cardnum.ToString() + " 于 " + now.ToString() + "  借阅ID为：" + bookid.ToString() + "  的图书.\n";
+                                Log.WriteLog(str_log);
 
                                 //********************************************
                                 button6_Click_run();      //再次执行该函数，进行刷新。
@@ -299,11 +293,17 @@ namespace BMS
 
         private void button5_Click(object sender, EventArgs e)  //还书退出
         {
+            /*************日志*************/
+            string strlog = "退出借还书界面." + "\n";
+            Log.WriteLog(strlog);
             this.Close();
         }
 
         private void button3_Click(object sender, EventArgs e)   //还书按钮
         {
+            /***************日志************/
+            string strlog = "进行还书操作." + "\n";
+            Log.WriteLog(strlog);
             try
             {
                 if (butten3_times == 0)
@@ -374,16 +374,11 @@ namespace BMS
                         //******************日志代码******************
                         //**************************************************************************************************
 
-                        System.DateTime now = new System.DateTime();   //获取系统时间
-                        now = System.DateTime.Now;
-                        FileStream file = new FileStream(@"F:\log.txt", FileMode.Append);
-                        StreamWriter sw = new StreamWriter(file, System.Text.Encoding.GetEncoding("GB2312"));
-                        String str_log = "";
-                        str_log = "借阅证号：" + cardnum.ToString() + " 于 " + now.ToString() + "  归还ID为：" + bookid.ToString() + "  的图书,";
-                        sw.WriteLine();
-                        sw.Write(str_log);
-                        sw.Close();
-                        file.Close();
+
+                        String str_log = "借阅证号：" + cardnum.ToString() + "  归还ID为：" + bookid.ToString() + "  的图书." + "\n";
+                        Log.WriteLog( str_log);
+ 
+
                         //*************************************************
                         if (if_message == 0)
                         {
@@ -408,6 +403,9 @@ namespace BMS
 
         private void button4_Click(object sender, EventArgs e)   //续借
         {
+            /****************日志*************/
+            string strlog = "进行续借操作." + "\n";
+            Log.WriteLog(strlog);
             try
             {
                 if (butten3_times == 0)
@@ -478,14 +476,12 @@ namespace BMS
                             //******************日志代码******************
                             //******************************************************************************************
                             
-                            FileStream file = new FileStream(@"F:\log.txt", FileMode.Append);
-                            StreamWriter sw = new StreamWriter(file, System.Text.Encoding.GetEncoding("GB2312"));
+
+                          
                             String str_log = "";
-                            str_log = "借阅证号：" + cardnum.ToString() + " 于 " + now.ToString() + "  续借ID为：" + bookid.ToString() + "  的图书,";
-                            sw.WriteLine();
-                            sw.Write(str_log);
-                            sw.Close();
-                            file.Close();
+                            str_log = "借阅证号：" + cardnum.ToString() + "  续借ID为：" + bookid.ToString() + "  的图书." + "\n";
+                            Log.WriteLog(str_log);
+
                             //***********************************************************************
                             MessageBox.Show("续借成功！");
                             textBox5.Text = "";
@@ -638,6 +634,9 @@ namespace BMS
                 {
                     if (textBox4.Text.Count() == 0)
                     {
+                        /************日志*******************/
+                        string strlog = "输入空的图书ID."+"\n";
+                        Log.WriteLog(strlog);
                         textBox9.Text = "请读入图书ID！";
                     }
                     else
@@ -671,14 +670,23 @@ namespace BMS
                         }
                         if (book == 0)
                         {
+                            /************日志*******************/
+                            string strlog = "输入没有的图书ID."+ "\n";
+                            Log.WriteLog(strlog);
                             textBox9.Text = "没有该图书！请重新读取ID！";
                         }
                         else if (jiechu == 1)     //判断该书是否借出，借出则不进行下步动作。
                         {
+                            /************日志*******************/
+                            string strlog = "输入图书ID." + "\n";
+                            Log.WriteLog(strlog);
                             textBox9.Text = "该书已借出，请重新读入ID！";
                         }
                         else
                         {
+                            /************日志*******************/
+                            string strlog = "输入图书ID." + "\n";
+                            Log.WriteLog(strlog);
                             String str1 = "图书ID           订阅标记           借阅日期                图书名" + "\r\n\r\n";
 
                             System.DateTime now = new System.DateTime();   //获取系统时间
@@ -777,6 +785,8 @@ namespace BMS
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message.ToString() + "打开数据库失败！");
+                /************日志*************/
+                Log.WriteLog(ex.Message.ToString() + "输入图书ID错误." + "\n");
             }
 
         }
@@ -794,6 +804,9 @@ namespace BMS
 
                 if (textBox5.Text.Count() == 0)
                 {
+                    /************日志*******************/
+                    string strlog = "输入空的还书ID." + "\n";
+                    Log.WriteLog(strlog);
                     textBox10.Text = "请读入图书ID！";
                 }
                 else
@@ -831,6 +844,9 @@ namespace BMS
                     {
                         if (havebook == 0)
                         {
+                            /************日志*******************/
+                            string strlog = "输入错误的图书ID." + "\n";
+                            Log.WriteLog(strlog);
                             textBox10.Text = "该书没有被借出，重新输入！";
                         }
                         else
@@ -862,6 +878,9 @@ namespace BMS
                     }
                     else
                     {
+                        /***************日志************/
+                        string strlog = "输入错误的图书ID." + "\n";
+                        Log.WriteLog(strlog);
                         MessageBox.Show("该书不为当前借阅证号所借，不能执行还书及续借操作！");
 
                     }
@@ -872,6 +891,9 @@ namespace BMS
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message.ToString() + "打开数据库失败！");
+                /***************日志************/
+                string strlog = ex.Message.ToString() + "输入错误的图书ID." + "\n";
+                Log.WriteLog(strlog);
             }
         }
 
@@ -903,6 +925,21 @@ namespace BMS
                 button6_Click_run();
                 mouse_leave = 1;
             }
+        }
+
+        private void textBox4_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox5_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BorrowReturn_Load(object sender, EventArgs e)
+        {
+
         }
 
 

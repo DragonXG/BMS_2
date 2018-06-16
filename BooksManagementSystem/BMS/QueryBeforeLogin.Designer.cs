@@ -67,7 +67,9 @@
             this.label2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label2.Font = new System.Drawing.Font("宋体", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label2.ForeColor = System.Drawing.Color.White;
+
             this.label2.Location = new System.Drawing.Point(40, 88);
+
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(100, 29);
             this.label2.TabIndex = 1;
@@ -80,7 +82,9 @@
             this.label3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label3.Font = new System.Drawing.Font("宋体", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label3.ForeColor = System.Drawing.Color.White;
+
             this.label3.Location = new System.Drawing.Point(311, 86);
+
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(100, 29);
             this.label3.TabIndex = 2;
@@ -89,7 +93,9 @@
             // textBox1
             // 
             this.textBox1.Font = new System.Drawing.Font("宋体", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+
             this.textBox1.Location = new System.Drawing.Point(155, 86);
+
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(150, 31);
@@ -98,7 +104,9 @@
             // textBox4
             // 
             this.textBox4.Font = new System.Drawing.Font("宋体", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+
             this.textBox4.Location = new System.Drawing.Point(417, 86);
+
             this.textBox4.Multiline = true;
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(100, 31);
@@ -107,7 +115,9 @@
             // button5
             // 
             this.button5.Font = new System.Drawing.Font("宋体", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+
             this.button5.Location = new System.Drawing.Point(540, 84);
+
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(75, 31);
             this.button5.TabIndex = 16;
@@ -125,7 +135,9 @@
             this.类别});
             this.listView1.FullRowSelect = true;
             this.listView1.GridLines = true;
+
             this.listView1.Location = new System.Drawing.Point(43, 123);
+
             this.listView1.Name = "listView1";
             this.listView1.Size = new System.Drawing.Size(570, 200);
             this.listView1.TabIndex = 17;
@@ -161,17 +173,21 @@
             // 
             this.textBox3.Enabled = false;
             this.textBox3.Font = new System.Drawing.Font("宋体", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+
             this.textBox3.Location = new System.Drawing.Point(167, 443);
             this.textBox3.Multiline = true;
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(244, 30);
+
             this.textBox3.TabIndex = 22;
             // 
             // textBox2
             // 
             this.textBox2.Enabled = false;
             this.textBox2.Font = new System.Drawing.Font("宋体", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+
             this.textBox2.Location = new System.Drawing.Point(167, 345);
+
             this.textBox2.Multiline = true;
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(350, 70);
@@ -183,7 +199,9 @@
             this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button4.Font = new System.Drawing.Font("宋体", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.button4.ForeColor = System.Drawing.Color.DarkRed;
+
             this.button4.Location = new System.Drawing.Point(442, 508);
+
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(88, 41);
             this.button4.TabIndex = 20;
@@ -195,8 +213,10 @@
             // 
             this.button3.BackColor = System.Drawing.Color.White;
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+
             this.button3.Font = new System.Drawing.Font("宋体", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.button3.Location = new System.Drawing.Point(437, 443);
+
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(80, 30);
             this.button3.TabIndex = 19;
@@ -208,8 +228,10 @@
             // 
             this.button2.BackColor = System.Drawing.Color.White;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+
             this.button2.Font = new System.Drawing.Font("宋体", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.button2.Location = new System.Drawing.Point(43, 345);
+
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(107, 31);
             this.button2.TabIndex = 18;
@@ -223,7 +245,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::BMS.Properties.Resources._12;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+
             this.ClientSize = new System.Drawing.Size(646, 561);
+
             this.Controls.Add(this.textBox3);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.button4);

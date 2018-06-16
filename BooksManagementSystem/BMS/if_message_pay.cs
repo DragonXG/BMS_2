@@ -24,7 +24,9 @@ namespace BMS
 
         private void button1_Click(object sender, EventArgs e)
         {
-            PayForOverdue f1 = new PayForOverdue();
+            PayForOverdue f1 = new PayForOverdue(get_number_llm.cardnum);
+            string strlog = "还书成功并进入缴费页面.\n";
+            Log.WriteLog(strlog);
             f1.Show();
             this.Close();
         }

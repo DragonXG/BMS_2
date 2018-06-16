@@ -30,7 +30,9 @@ namespace BMS
         private void button5_Click(object sender, EventArgs e)
         {
             listView1.Items.Clear();
-            String strConn = "Server = localhost;Database = bms;Uid = root;password = mmysql1600;sslmode = none;";
+
+            String strConn = "Server = localhost;Database = bms;Uid = root;password = 123456;sslmode = none;";
+
             MySqlConnection conn = new MySqlConnection(strConn);
             conn.Open();
             MySqlCommand cmd = conn.CreateCommand();
@@ -56,7 +58,9 @@ namespace BMS
             s = listView1.FocusedItem.SubItems[0].Text;
             if (s != "")
             {
-                String strConn = "Server = localhost;Database = bms;Uid = root;password = mmysql1600;sslmode = none;";
+
+                String strConn = "Server = localhost;Database = bms;Uid = root;password = 123456;sslmode = none;";
+
                 MySqlConnection conn = new MySqlConnection(strConn);
                 conn.Open();
                 String strSql = "Select * from bookinformation where BookClassID = '" + s + "'";
@@ -133,7 +137,11 @@ namespace BMS
             DialogResult dr = MessageBox.Show("您还未登录，是否返回登录界面","提示", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
             if(dr == DialogResult.OK)
             {
-                this.Close();
+
+                Login login = new Login();
+                Program.checkin_login = true;
+                this.Close();                              
+
             }
         }
 

@@ -20,7 +20,9 @@ namespace BMS
 
         private void button1_Click(object sender, EventArgs e)
         {
-            PayForOverdue f1 = new PayForOverdue();
+
+            PayForOverdue f1 = new PayForOverdue(get_number_llm.cardnum);
+
             f1.Show();
             this.Close();
         }

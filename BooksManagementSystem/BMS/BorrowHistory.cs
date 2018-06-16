@@ -81,7 +81,9 @@ namespace BMS
             }
             catch(Exception ex)
             {
+
                 MessageBox.Show(ex.Message.ToString() + "查询出现错误,请重试!");
+                /************日志*********************/
                 Log.WriteLog(ex.Message.ToString() + "查询全部图书信息出现错误!\n");
             }
 
@@ -133,6 +135,7 @@ namespace BMS
             catch(Exception ex)
             {
                 MessageBox.Show(ex.Message.ToString() + "查询图书出现错误,请重试!");
+                /************日志*********************/
                 Log.WriteLog(ex.Message.ToString() + "查询在借图书出现错误!\n");
             }
         }
@@ -175,6 +178,7 @@ namespace BMS
             catch(Exception ex)
             {
                 MessageBox.Show(ex.Message.ToString() + "查询图书出现错误,请重试!");
+                /************日志*********************/
                 Log.WriteLog(ex.Message.ToString() + "查询还书图书出现错误!\n");
             }
 
@@ -187,7 +191,7 @@ namespace BMS
 
         private void dataGridView1_RowStateChanged(object sender, DataGridViewRowStateChangedEventArgs e)
         {
-            for (int i = 0; i < this.dataGridView1.Rows.Count; i++)
+            for (int i = 0; i < this.dataGridView1.Rows.Count-1; i++)
             {
                 DataGridViewRow r = this.dataGridView1.Rows[i];
                 r.HeaderCell.Value = string.Format("{0}", i + 1);
@@ -228,6 +232,7 @@ namespace BMS
             catch(Exception ex)
             {
                 MessageBox.Show(ex.Message.ToString() + "查询预定信息出现错误，请重试！");
+                /************日志*********************/
                 Log.WriteLog(ex.Message.ToString() + "查询预定信息出现错误!\n");
             }
             conn.Close();
@@ -237,11 +242,17 @@ namespace BMS
         {
             if(checkBox1.CheckState == CheckState.Checked)
             {
+                /************日志*********************/
                 string logstring = "查询了勾选的时间段的借阅信息!\n";
                 Log.WriteLog(logstring);
                 str_startime = dateTimePicker1.Text;
                 str_endtime = dateTimePicker2.Text;
             }
+        }
+
+        private void dataGridView1_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
+        {
+
         }
     }
 }
