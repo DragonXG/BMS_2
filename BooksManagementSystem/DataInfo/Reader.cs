@@ -9,11 +9,11 @@ namespace DataInfo
     //读者信息表
     class Reader
     {
-        public String cardName = "";
-        public String readerName = "";
-        public String college = "";
-        public String profession = "";
-        public String telNumber = "";
-        public String loginKey = "";
+        public String cardName;
+        public String readerName;
+        public String college;
+        public String profession;
+        public String telNumber;
+        public String loginKey;
     }
 }

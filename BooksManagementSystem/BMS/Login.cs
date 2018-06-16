@@ -13,11 +13,12 @@ namespace BMS
 {
     public partial class Login : Form
     {
-        public static string LOGTYPE;
-        public static string LOGNAME;
+        
         public Login()
         {
             InitializeComponent();
+            textBox1.Text = "2016080808";
+            textBox2.Text = "111111";
         }
         
 
@@ -28,16 +29,20 @@ namespace BMS
 
         private void button1_Click(object sender, EventArgs e)
         {
+            
             String str = "Server=localhost;Database=bms;Uid=root;password=123456;sslmode=none;";
             MySqlConnection conn = new MySqlConnection(str);
             conn.Open();
-            //读者登陆
             if (comboBox1.Text == "读者")
             {
                 bool flag_1 = false, flag_2 = false, flag_3 = false;
                 string str1 = "";         //用来记录读取数据库的用户名
                 string str2 = "";        //用来记录读取数据库的密码
                 string str3 = "";       //用来记录读取数据库的姓名
+                
+                //QueryBeforeLogin form1 = new QueryBeforeLogin(str1);
+                
+
                 MySqlCommand cmd = new MySqlCommand("select * from reader;", conn);
                 MySqlDataReader read_info;
                 read_info = cmd.ExecuteReader();
@@ -56,14 +61,14 @@ namespace BMS
                     {
                         flag_2 = true;
                     }
-                    if ((textBox1.Text == str1) && (textBox2.Text == str2))
+                    if((textBox1.Text == str1) && (textBox2.Text == str2))
                     {
                         flag_3 = true;
                     }
                 }
                 if (flag_1 == false)        //用户名不正确，给出提示
                 {
-                    errorProvider1.SetError(textBox1, "用户名不存在，请重新输入!");
+                    errorProvider1.SetError(textBox1, "用户名不存在，请重新输入!");     
                     textBox1.Clear();
                     textBox2.Clear();
                 }
@@ -74,16 +79,8 @@ namespace BMS
                 }
                 if (flag_3 == true)
                 {
-                    Log.WriteLog("\n" + comboBox1.Text + ":" + textBox1.Text + "登录成功：\n");
-                    LOGTYPE = comboBox1.Text;
-                    LOGNAME = textBox1.Text;
                     ReaderMain readmain = new ReaderMain(str3, textBox1.Text);
                     Program.checkin_reader = true;
-                    get_number_llm.cardnum = textBox1.Text;
-                    get_number_llm.borrow_cardnum = textBox1.Text;
-                    get_number_llm.denlumima = textBox2.Text;
-                    get_number_llm.borrow_cardnum = textBox1.Text;
-                    get_number_llm.reader_admin = 0;
                     this.Close();
                 }
                 else
@@ -93,6 +90,7 @@ namespace BMS
                 }
                 read_info.Close();
                 conn.Close();
+                
             }
             //管理员登录
             if (comboBox1.Text == "超级管理员")
@@ -102,13 +100,13 @@ namespace BMS
                 string admin_name = "";                 //记录管理员的用户名
                 string admin_pwd = "";                   //记录管理员的密码
                 MySqlCommand admin = new MySqlCommand("select * from administrator;", conn);
-                MySqlDataReader admin_info;
+                MySqlDataReader admin_info; 
                 admin_info = admin.ExecuteReader();
-                while (admin_info.Read())                        //从数据库中扫描匹配的用户名和密码
+                while(admin_info.Read())                        //从数据库中扫描匹配的用户名和密码
                 {
                     admin_name = Convert.ToString(admin_info["LoginName"]);
-                    admin_pwd = Convert.ToString(admin_info["LodinKey"]);
-                    if (textBox1.Text == admin_name)
+                    admin_pwd  = Convert.ToString(admin_info["LodinKey"]);
+                    if(textBox1.Text == admin_name)
                     {
                         admin_flag1 = true;
                     }
@@ -116,34 +114,26 @@ namespace BMS
                     {
                         admin_flag2 = true;
                     }
-                    if ((textBox1.Text == admin_name) && (textBox2.Text == admin_pwd))
+                    if((textBox1.Text == admin_name) && (textBox2.Text == admin_pwd))
                     {
                         admin_flag3 = true;
                     }
                 }
-                if (admin_flag1 == false)            //用户名不正确，给出提示
+                if(admin_flag1 == false)            //用户名不正确，给出提示
                 {
                     errorProvider1.SetError(textBox1, "用户名不存在，请重新输入!");
                     textBox1.Clear();
                     textBox2.Clear();
-                }
-                if (admin_flag2 == false)            //密码不正确，给出提示
+                } 
+                if(admin_flag2 == false)            //密码不正确，给出提示
                 {
                     errorProvider2.SetError(textBox2, "密码不正确，请重新输入！");
                     textBox2.Clear();
                 }
                 if (admin_flag3 == true)
                 {
-                    Log.WriteLog("\n" + comboBox1.Text + ":" + textBox1.Text + "登录成功：\n");
-                    LOGTYPE = comboBox1.Text;
-                    LOGNAME = textBox1.Text;
-                    AdminMain readmain = new AdminMain(textBox1.Text);
+                    AdminMain readmain = new AdminMain();
                     Program.checkin_admin = true;
-                    get_number_llm.cardnum = textBox1.Text;
-                    get_number_llm.borrow_cardnum = textBox1.Text;
-                    get_number_llm.denlumima = textBox2.Text;
-                    get_number_llm.borrow_cardnum = textBox1.Text;
-                    get_number_llm.reader_admin = 1;
                     this.Close();
                 }
                 else

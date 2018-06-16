@@ -13,7 +13,7 @@ namespace BMS
 {
     public partial class QueryAfterLogin : Form
     {
-        string s = "";
+        
         string id = "";
         string strnum = "";
         public QueryAfterLogin(string str)
@@ -52,8 +52,14 @@ namespace BMS
 
         private void button2_Click(object sender, EventArgs e)
         {
-            //string s = "";
+            string s = "";
+            if (listView1.FocusedItem == null)
+            {
+                MessageBox.Show("请选择一本书！");
+                return;
+            }
             s = listView1.FocusedItem.SubItems[0].Text;
+            //MessageBox.Show(s);
             if (s != "")
             {
                 String strConn = "Server = localhost;Database = bms;Uid = root;password = 123456;sslmode = none;";
@@ -120,7 +126,7 @@ namespace BMS
             }
             else
             {
-                MessageBox.Show("请选择一本书！");
+                
             }
         }
 
@@ -131,6 +137,13 @@ namespace BMS
 
             //MessageBox.Show(strnum);
 
+            string s = "";
+            if (listView1.FocusedItem == null)
+            {
+                MessageBox.Show("请选择一本书！");
+                return;
+            }
+            s = listView1.FocusedItem.SubItems[0].Text;
             String strConn = "Server = localhost;Database = bms;Uid = root;password = 123456;sslmode = none;";
             MySqlConnection conn = new MySqlConnection(strConn);
             conn.Open();
@@ -164,13 +177,14 @@ namespace BMS
                     //MessageBox.Show("未预定");
                     string time = DateTime.Now.ToString();
                     //MessageBox.Show(time);
-                    String strSql = "Select * from tbookclass where BookClassID = '" + s + "'";
+                    //MessageBox.Show(s);
+                    String strSql = "select * from tbookclass where BookClassID = '" + s + "'";
 
                     MySqlDataAdapter da = new MySqlDataAdapter(strSql, strConn);
                     DataSet ds = new DataSet();
                     da.Fill(ds, "tbookclass");
-
                     string name = "";
+                    //MessageBox.Show(name+"---\n");
                     foreach (DataRow row in ds.Tables["tbookclass"].Rows)
                     {
                         name = row["BookName"].ToString();
@@ -179,7 +193,7 @@ namespace BMS
                     string strSqladd = "insert into booking values('" + id + "','" + name + "','" + strnum + "','" + time + "')";
                     MySqlCommand cmd = new MySqlCommand(strSqladd, conn);
                     cmd.ExecuteNonQuery();
-                    MessageBox.Show("预订成功！");
+                    MessageBox.Show("《" + name + "》" + "预订成功！");
                 }
                 else
                 {
@@ -197,7 +211,67 @@ namespace BMS
 
         private void button1_Click(object sender, EventArgs e)
         {
+            string s = "";
+            if (listView2.FocusedItem == null)
+            {
+                MessageBox.Show("请选择一本书！");
+                return;
+            }
+            DialogResult dr = MessageBox.Show("确定取消预定吗？", "提示", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+            if (dr == DialogResult.OK)
+            {
+                s = listView2.FocusedItem.SubItems[0].Text;
+                //MessageBox.Show(s);
+                if (s != "")
+                {
+                    String strConn = "Server = localhost;Database = bms;Uid = root;password = 123456;sslmode = none;";
+                    MySqlConnection conn = new MySqlConnection(strConn);
+                    conn.Open();
 
+                    String strSql1 = "select * from booking where BookID = '" + s + "'";
+
+                    MySqlDataAdapter da = new MySqlDataAdapter(strSql1, strConn);
+                    DataSet ds = new DataSet();
+                    da.Fill(ds, "tbookclass");
+                    string name = "";
+                    //MessageBox.Show(name+"---\n");
+                    foreach (DataRow row in ds.Tables["tbookclass"].Rows)
+                    {
+                        name = row["BookName"].ToString();
+                    }
+
+                    String strSql2 = "delete from booking where BookID = '" + s + "'";
+                    MySqlCommand cmd = new MySqlCommand(strSql2, conn);
+                    cmd.ExecuteNonQuery();
+                    int d = 0;
+                    d = this.listView2.SelectedItems[0].Index;
+                    listView2.Items[d].Remove();
+                    MessageBox.Show("《" + name + "》" + "取消预定成功！");
+
+                    conn.Close();
+                }
+            }
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            listView2.Items.Clear();
+            String strConn = "Server = localhost;Database = bms;Uid = root;password = 123456;sslmode = none;";
+            MySqlConnection conn = new MySqlConnection(strConn);
+            conn.Open();
+            MySqlCommand cmd = conn.CreateCommand();
+            cmd.CommandText = "Select * from booking where CardNum = '" + strnum + "'";
+            MySqlDataReader dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                ListViewItem it = new ListViewItem();
+                it.Text = dr["BookID"].ToString();
+                it.SubItems.Add(dr["BookName"].ToString());
+                it.SubItems.Add(dr["BookDate"].ToString());
+                listView2.Items.Add(it);
+            }
+
+            conn.Close();
         }
     }
 }

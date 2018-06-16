@@ -20,8 +20,6 @@ namespace BMS
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-
-
             Application.Run(new Login());
 
             if(checkin_reader == true)
@@ -32,7 +30,6 @@ namespace BMS
             {
                 Application.Run(new AdminMain());
             }       
-
 
         }
     }
