@@ -9,8 +9,8 @@ namespace DataInfo
     //图书信息表
     class BookInfo
     {
-        public String bookId;
-        public String bookClassId;
-        public int sendFlag;
+        public String bookId ="";
+        public String bookClassId = "";
+        public int sendFlag=1;
     }
 }

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.button4 = new System.Windows.Forms.Button();
@@ -51,6 +52,8 @@
             this.序号1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.书名1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.预定时间1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.label4 = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // textBox3
@@ -281,6 +284,20 @@
             this.预定时间1.Text = "预定时间";
             this.预定时间1.Width = 150;
             // 
+            // label4
+            // 
+            this.label4.BackColor = System.Drawing.Color.White;
+            this.label4.Font = new System.Drawing.Font("黑体", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label4.Location = new System.Drawing.Point(681, 20);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(145, 35);
+            this.label4.TabIndex = 38;
+            this.label4.Text = "时间";
+            // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // QueryAfterLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -288,6 +305,7 @@
             this.BackgroundImage = global::BMS.Properties.Resources._12;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(944, 561);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.listView2);
             this.Controls.Add(this.button6);
             this.Controls.Add(this.button1);
@@ -336,5 +354,7 @@
         private System.Windows.Forms.ColumnHeader 序号1;
         private System.Windows.Forms.ColumnHeader 书名1;
         private System.Windows.Forms.ColumnHeader 预定时间1;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Timer timer1;
     }
 }

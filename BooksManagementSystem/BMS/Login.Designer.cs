@@ -43,6 +43,8 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider2)).BeginInit();
             this.SuspendLayout();
@@ -203,6 +205,22 @@
             this.label6.TabIndex = 10;
             this.label6.Text = "图书";
             // 
+            // label7
+            // 
+            this.label7.BackColor = System.Drawing.Color.Transparent;
+            this.label7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label7.Font = new System.Drawing.Font("黑体", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label7.Location = new System.Drawing.Point(776, 13);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(145, 35);
+            this.label7.TabIndex = 13;
+            this.label7.Text = "时间";
+            this.label7.Click += new System.EventHandler(this.label7_Click);
+            // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -211,6 +229,7 @@
             this.BackgroundImage = global::BMS.Properties.Resources._8;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(944, 561);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label6);
@@ -251,6 +270,8 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Timer timer1;
     }
 }
 

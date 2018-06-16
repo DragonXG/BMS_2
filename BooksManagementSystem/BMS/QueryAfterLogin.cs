@@ -16,6 +16,7 @@ namespace BMS
         
         string id = "";
         string strnum = "";
+        //string time0 = "";
         public QueryAfterLogin(string str)
         {
             InitializeComponent();
@@ -93,6 +94,7 @@ namespace BMS
                     textBox2.Clear();
                     DateTime dt = Convert.ToDateTime(time1);
                     string time2 = dt.AddDays(30).ToString();
+
                     textBox2.AppendText("此书已被借阅。\r\n");
                     textBox2.AppendText("借阅时间：");
                     textBox2.AppendText(time1);
@@ -168,16 +170,19 @@ namespace BMS
                 
                 t = ds3.Tables[0].Rows.Count;
                 //MessageBox.Show(t);
-                
-                
-                
 
                 if (t < 3)
                 {
                     //MessageBox.Show("未预定");
+
                     string time = DateTime.Now.ToString();
                     //MessageBox.Show(time);
+
+                    //time0 = time;
+                    //MessageBox.Show(time0);
+
                     //MessageBox.Show(s);
+
                     String strSql = "select * from tbookclass where BookClassID = '" + s + "'";
 
                     MySqlDataAdapter da = new MySqlDataAdapter(strSql, strConn);
@@ -193,7 +198,20 @@ namespace BMS
                     string strSqladd = "insert into booking values('" + id + "','" + name + "','" + strnum + "','" + time + "')";
                     MySqlCommand cmd = new MySqlCommand(strSqladd, conn);
                     cmd.ExecuteNonQuery();
+
+                    /*
+                    DateTime dt = Convert.ToDateTime(time);
+                    //string time2 = dt.AddDays(30).ToString();
+                    string time2 = dt.AddSeconds(10).ToString();
+                    if(label4.Text == time2)
+                    {
+                        String strSqlt = "delete from booking where BookDate = '" + time + "'";
+                        MySqlCommand cmdt = new MySqlCommand(strSqlt, conn);
+                        cmdt.ExecuteNonQuery();
+                    }*/
+
                     MessageBox.Show("《" + name + "》" + "预订成功！");
+                    //MessageBox.Show("《" + name + "》" + "预订成功！\r\n请在30天内借阅。");
                 }
                 else
                 {
@@ -202,11 +220,6 @@ namespace BMS
             }
 
             conn.Close();
-        }
-
-        private void QueryAfterLogin_Load(object sender, EventArgs e)
-        {
-
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -272,6 +285,47 @@ namespace BMS
             }
 
             conn.Close();
+        }
+
+        private void QueryAfterLogin_Load(object sender, EventArgs e)
+        {
+            Timer time1 = new Timer();
+            time1.Interval = 1000;
+            time1.Tick += new System.EventHandler(timer1_Tick);
+            timer1.Start();
+
+            /*label4.Text = DateTime.Now.ToLongTimeString().ToString();
+            Application.DoEvents();
+            System.Threading.Thread.Sleep(100);*/
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            label4.Text = DateTime.Now.ToLongTimeString().ToString();
+
+            /*String strConn = "Server = localhost;Database = bms;Uid = root;password = 123456;sslmode = none;";
+            MySqlConnection conn = new MySqlConnection(strConn);
+            conn.Open();
+
+            String strSql0 = "Select * from booking where BookDate = '" + id + "'";
+            MySqlDataAdapter da0 = new MySqlDataAdapter(strSql0, strConn);
+            DataSet ds0 = new DataSet();
+            da0.Fill(ds0, "recorder");
+            string time1 = "";
+            foreach (DataRow row in ds0.Tables["recorder"].Rows)
+            {
+                time1 = row["BorrowDate"].ToString();
+            }
+
+            DateTime dt = Convert.ToDateTime(time0);
+            string time2 = dt.AddDays(30).ToString();
+            if(label4.Text == time2)
+            {
+                String strSql2 = "delete from booking where BookDate = '" + time0 + "'";
+                MySqlCommand cmd = new MySqlCommand(strSql2, conn);
+                cmd.ExecuteNonQuery();
+            }
+            conn.Close();*/
         }
     }
 }

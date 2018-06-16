@@ -24,7 +24,10 @@ namespace BMS
 
         private void QueryBeforeLogin_Load(object sender, EventArgs e)
         {
-
+            Timer time1 = new Timer();
+            time1.Interval = 1000;
+            time1.Tick += new System.EventHandler(timer1_Tick);
+            timer1.Start();
         }
 
         private void button5_Click(object sender, EventArgs e)
@@ -138,6 +141,7 @@ namespace BMS
             DialogResult dr = MessageBox.Show("您还未登录，是否返回登录界面","提示", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
             if(dr == DialogResult.OK)
             {
+                Program.checkin_login = true;
                 this.Close();
             }
         }
@@ -150,6 +154,11 @@ namespace BMS
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            label4.Text = DateTime.Now.ToLongTimeString().ToString();
         }
     }
 }
