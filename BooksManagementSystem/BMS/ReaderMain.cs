@@ -62,7 +62,9 @@ namespace BMS
         {
             ReaderInfo readinfo = new ReaderInfo(label2.Text);
             /************日志*********************/
-            string logstring = "\t"+ "读者：" + label2.Text + "查询了自己的信息." + "\n";
+
+            string logstring = "借阅证号：" + str_cardnum +"\t"+ "读者：" + label2.Text + "查询了自己的信息." + "\n";
+
             Log.WriteLog(logstring);
             readinfo.Show();
         }
@@ -77,7 +79,9 @@ namespace BMS
         {
             BorrowHistory borrowhistory = new BorrowHistory(str_cardnum);
             /************日志*********************/
-            string logstring = "\t"+"读者：" + label2.Text + "进入了个人图书信息页面." + "\n";
+
+            string logstring = "借阅证号：" + str_cardnum + "\t"+"读者：" + label2.Text + "进入了个人图书信息页面." + "\n";
+
             Log.WriteLog(logstring);
             borrowhistory.Show();
         }
@@ -86,7 +90,9 @@ namespace BMS
         {
             PayForOverdue form = new PayForOverdue(str_cardnum);
             /************日志*********************/
-            string logstring = "\t" + "读者：" + label2.Text + "进入了缴费页面." + "\n";
+
+            string logstring = "借阅证号：" + str_cardnum + "\t" + "读者：" + label2.Text + "进入了缴费页面." + "\n";
+
             Log.WriteLog(logstring);
             form.ShowDialog();
         }

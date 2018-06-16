@@ -25,7 +25,6 @@ namespace BMS
           
                 Application.Run(new Login());
 
-
                 if (checkin_querybefore == true)
                 {
                     Application.Run(new QueryBeforeLogin());
@@ -42,7 +41,6 @@ namespace BMS
                 {
                     Application.Run(new AdminMain());
                 }
-          
 
         }
     }

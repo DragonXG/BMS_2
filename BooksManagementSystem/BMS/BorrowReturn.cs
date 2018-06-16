@@ -399,13 +399,24 @@ namespace BMS
                         textBox6.Text = "";
                         textBox7.Text = "";
 
-                        //更新returnbook数据
+                        //******************日志代码******************
+                        //**************************************************************************************************
+
+                        String str_log = "借阅证号：" + cardnum.ToString() + "  归还ID为：" + bookid.ToString() + "  的图书." + "\n";
+                        Log.WriteLog( str_log);
+ 
+                        //*************************************************
+                        if (if_message == 0)
+                        {
+                            MessageBox.Show("还书成功！");
+                        }
+
                         if (if_message == 1)
                         {
                             updata_returnbook();
                         }
 
-                        //******************日志代码******************
+            /*            //******************日志代码******************
                         //**************************************************************************************************
 
 
@@ -417,7 +428,7 @@ namespace BMS
                         MessageBox.Show("还书成功！");
                         if_can_borrow = true;
                         
-                        button6_Click_run();
+                        button6_Click_run();*/
 
                     }
                 }
@@ -502,7 +513,6 @@ namespace BMS
 
                             //******************日志代码******************
                             //******************************************************************************************
-                            
 
                           
                             String str_log = "";
@@ -966,10 +976,16 @@ namespace BMS
         private void textBox4_TextChanged(object sender, EventArgs e)
         {
 
+            string strlog = "输入借阅书的ID."+"\n";
+            Log.WriteLog(strlog);
+
         }
 
         private void textBox5_TextChanged(object sender, EventArgs e)
         {
+
+            string strlog = "输入还书的图书ID."+"\n";
+            Log.WriteLog(strlog);
 
         }
 

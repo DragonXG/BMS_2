@@ -22,15 +22,15 @@ namespace BMS
             string sFilePath = System.Environment.CurrentDirectory + DateTime.Now.ToString("yyyyMM");
             string sFileName = "rizhi" + DateTime.Now.ToString("yyyy-MM-dd") + ".log";
             sFileName = sFilePath + "\\" + sFileName; //文件的绝对路径
-            StreamReader sRead = new StreamReader(sFileName, Encoding.UTF8);
-            string vline;
-            while((vline = sRead.ReadLine()) != null)
+
+            FileStream f = new FileStream(sFileName, FileMode.OpenOrCreate);
+            StreamReader sRead = new StreamReader(f);
+            while(sRead.ReadLine() != null)
             {
-                ListViewItem lvi = new ListViewItem();
-                lvi.Text = vline;
-                listView1.Items.Add(lvi);
+                string line = sRead.ReadLine();
+                listView1.Items.Add(line);
             }
-            sRead.Close();
+             
 
         }
     }

@@ -24,7 +24,10 @@ namespace BMS
 
         private void QueryBeforeLogin_Load(object sender, EventArgs e)
         {
-
+            Timer time1 = new Timer();
+            time1.Interval = 1000;
+            time1.Tick += new System.EventHandler(timer1_Tick);
+            timer1.Start();
         }
 
         private void button5_Click(object sender, EventArgs e)
@@ -54,7 +57,12 @@ namespace BMS
 
         private void button2_Click(object sender, EventArgs e)
         {
-            //string s = "";
+            string s = "";
+            if (listView1.FocusedItem == null)
+            {
+                MessageBox.Show("请选择一本书！");
+                return;
+            }
             s = listView1.FocusedItem.SubItems[0].Text;
             if (s != "")
             {
@@ -124,7 +132,7 @@ namespace BMS
             }
             else
             {
-                MessageBox.Show("请选择一本书！");
+                
             }
         }
 
@@ -138,9 +146,8 @@ namespace BMS
             if(dr == DialogResult.OK)
             {
 
-                Login login = new Login();
                 Program.checkin_login = true;
-                this.Close();                              
+                this.Close();
 
             }
         }
@@ -153,6 +160,11 @@ namespace BMS
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            label4.Text = DateTime.Now.ToLongTimeString().ToString();
         }
     }
 }

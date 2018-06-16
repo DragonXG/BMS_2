@@ -30,7 +30,9 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.listView1 = new System.Windows.Forms.ListView();
+
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+
             this.SuspendLayout();
             // 
             // label1
@@ -45,6 +47,7 @@
             // 
             // listView1
             // 
+
             this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1});
             this.listView1.FullRowSelect = true;
@@ -59,12 +62,15 @@
             // 
             this.columnHeader1.Text = "日志信息：";
             this.columnHeader1.Width = 1000;
+
             // 
             // Logmaintain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+
             this.ClientSize = new System.Drawing.Size(1163, 506);
+
             this.Controls.Add(this.listView1);
             this.Controls.Add(this.label1);
             this.Name = "Logmaintain";
@@ -79,6 +85,8 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ListView listView1;
+
         private System.Windows.Forms.ColumnHeader columnHeader1;
+
     }
 }

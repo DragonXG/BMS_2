@@ -133,7 +133,6 @@ namespace BMS.Properties {
         /// <summary>
         ///   查找 System.Drawing.Bitmap 类型的本地化资源。
         /// </summary>
-
         internal static System.Drawing.Bitmap _8 {
             get {
                 object obj = ResourceManager.GetObject("8", resourceCulture);
@@ -144,7 +143,6 @@ namespace BMS.Properties {
         /// <summary>
         ///   查找 System.Drawing.Bitmap 类型的本地化资源。
         /// </summary>
-
         internal static System.Drawing.Bitmap ecc56dc89db401f6ebf4c1b997b3610b5d41023f {
             get {
                 object obj = ResourceManager.GetObject("ecc56dc89db401f6ebf4c1b997b3610b5d41023f", resourceCulture);
