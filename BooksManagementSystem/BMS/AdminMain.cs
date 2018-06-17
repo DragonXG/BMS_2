@@ -70,9 +70,11 @@ namespace BMS
 
         private void toolStripButton2_Click(object sender, EventArgs e)
         {
+
             /***************日志******************/
             string strlog = "查看了日志." + "\n";
             Log.WriteLog(strlog);
+
             Logmaintain logmain = new Logmaintain();
             logmain.ShowDialog();
         } 
@@ -102,6 +104,11 @@ namespace BMS
         {
             About form = new About();
             form.Show();
+        }
+
+        private void 退出ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }  
     }
 }

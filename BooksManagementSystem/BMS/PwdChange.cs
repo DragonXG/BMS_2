@@ -24,15 +24,53 @@ namespace BMS
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (next != 1)
+            String yumima = textBox1.Text.Trim();
+            next = 0;
+            next2 = 0;
+
+
+            if (get_number_llm.denlumima != yumima)
             {
-                MessageBox.Show("重新输入原密码！");
-            }
-            else if(next2 != 1)
-            {
-                MessageBox.Show("两次密码不一样！请重新输入");
+                next = 0;
+                label4.Text = "密码不正确！请重新输入！";
+                //MessageBox.Show("密码不正确！请重新输入！");
             }
             else
+            {
+                next = 1;
+            }
+            
+
+            if (next != 1)
+            {
+                label4.Text = "请重新输入原密码！";
+                //MessageBox.Show("请重新输入原密码！");
+            }
+            else if (textBox2.Text.Count() != 6)
+            {
+                label4.Text = "密码为六位！请重新输入！";
+                //MessageBox.Show("密码为六位！请重新输入！");
+                textBox2.Text = "";
+                textBox3.Text = "";
+            }
+            else
+            {
+                if (textBox2.Text != textBox3.Text)
+                {
+                    label4.Text = "两次新密码输入不一样！请重新输入！";
+                    //MessageBox.Show("两次新密码输入不一样！请重新输入！");
+                    textBox2.Text = "";
+                    textBox3.Text = "";
+                }
+                else
+                {
+                    next2 = 1;
+                }
+
+            }
+            
+           
+            if(next == 1 && next2 == 1)
             {
                 try
                 {
@@ -52,8 +90,15 @@ namespace BMS
                         }
                         dareader.Update(dsmydata, "reader");
                         dsmydata.Tables["reader"].AcceptChanges();
-                        MessageBox.Show("修改成功！");
-                        this.Close();
+
+                       get_number_llm.denlumima = textBox3.Text.Trim();
+                        label4.Text = "修改成功！";
+                        textBox1.Text = "";
+                        textBox2.Text = "";
+                        textBox3.Text = "";
+                        
+                        //MessageBox.Show("修改成功！");
+                        //this.Close();
 
 
                     }
@@ -72,8 +117,13 @@ namespace BMS
                         }
                         daadministrator.Update(dsmydata, "administrator");
                         dsmydata.Tables["administrator"].AcceptChanges();
-                        MessageBox.Show("修改成功！");
-                        this.Close();
+                        label4.Text = "修改成功！";
+                        textBox1.Text = "";
+                        textBox2.Text = "";
+                        textBox3.Text = "";
+                        get_number_llm.denlumima = textBox3.Text.Trim();
+                        //MessageBox.Show("修改成功！");
+                        //this.Close();
 
                     }
                     open_mysql_llm.conn.Close();
@@ -84,7 +134,7 @@ namespace BMS
                 }
             }
 
-            this.Close();
+            //this.Close();
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -93,6 +143,7 @@ namespace BMS
         }
 
         private void textBox1_MouseLeave(object sender, EventArgs e)
+
         {
 
             String yumima = textBox1.Text.Trim();
@@ -110,12 +161,13 @@ namespace BMS
                 next = 1;
             }
 
-            
+
           
         }
 
         private void textBox3_MouseLeave(object sender, EventArgs e)
         {
+
 
             next2 = 0;
 
@@ -196,8 +248,13 @@ namespace BMS
                     next2 = 1;
 
                 }
-
             }
+        }
+            
+
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
 
         }
     }

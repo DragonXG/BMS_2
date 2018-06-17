@@ -19,10 +19,10 @@ namespace BMS
         public BorrowReturn()
         {
             InitializeComponent();
-
         }
 
         bool if_can_borrow = true;     //是否能够借书
+        bool max_book_num = true;      //是否达到最大借书量
         int if_get_bookid = 0;         //如果为零，则不能输入图书id，为1才能够
         int maxmouth = 0;              //如果当前日期比预定日期早一个月，为1，否则为0，不能够借书。
         int mouth_max = 30;            //最大借书日期,修改，这里为天数。
@@ -35,7 +35,7 @@ namespace BMS
         int delet_booking = 0;         //执行借书时，是否删除booking里面的数据。
         int if_message = 0;            //是否弹出提示还款信息，0，为不提醒，1为提醒。
         String bookid_1 = "";          //图书id
-       
+        bool do_huanshu = false;          //是否执行还书按钮
 
 
         private void button2_Click(object sender, EventArgs e)   //退出
@@ -49,8 +49,7 @@ namespace BMS
         }
 
         //为returnedbook添加代码，
-
-        private void increase_returnedbook(String bookid, String cardnum, String name, String status,String Arre, ref DataSet dsmydata)      
+        private void increase_returnedbook(String bookid, String cardnum, String name, String status, String Arre, ref DataSet dsmydata)
         {
             try
             {
@@ -89,7 +88,7 @@ namespace BMS
 
                 DataSet dsmydata = new DataSet();
 
-                String strmy_returnedbook = "Select * From returnedbook Where BookID = '" + bookid_1 + "' and BorrowDate = '" + borrow_time + "'";
+                String strmy_returnedbook = "Select * From returnedbook Where BorrowDate = '" + borrow_time + "'";
                 MySqlDataAdapter dareturnedbook = new MySqlDataAdapter(strmy_returnedbook, open_mysql_llm.conn);
                 MySqlCommandBuilder bdreturnedbook = new MySqlCommandBuilder(dareturnedbook);
                 dareturnedbook.Fill(dsmydata, "returnedbook");
@@ -127,7 +126,7 @@ namespace BMS
                 MySqlCommandBuilder bdreturnedbook = new MySqlCommandBuilder(dareturnedbook);
                 dareturnedbook.Fill(dsmydata, "returnedbook");
 
-               
+
                 //MessageBox.Show("执行");
                 String borrow_time = "";    //获得借书时间。
 
@@ -137,7 +136,7 @@ namespace BMS
                     borrow_time = row["BorrowDate"].ToString();
                 }
                 open_mysql_llm.conn.Close();
-                xiugai(borrow_time);     
+                xiugai(borrow_time);
             }
             catch (Exception ex)
             {
@@ -145,143 +144,149 @@ namespace BMS
             }
         }
 
-
         private void button1_Click(object sender, EventArgs e)    //借书按钮
         {
             try
             {
-                if (butten1_times == 0)     
+                if (do_huanshu == false)
                 {
-                    butten1_times++;
-                    if (textBox1.Text.Count() != 0 && textBox4.Text.Count() != 0)
+                    if (max_book_num == true)
                     {
-                        if (if_can_borrow == true)
+                        if (butten1_times == 0)
                         {
-                            if (maxmouth == 0)
+                            butten1_times++;
+                            if (textBox1.Text.Count() != 0 && textBox4.Text.Count() != 0)
                             {
+                                if (if_can_borrow == true)
+                                {
+                                    if (maxmouth == 0)
+                                    {
+                                        MessageBox.Show("不能借，因为该书预定在" + mouth_max.ToString() + "天以内！");
+                                    }
+                                    else
+                                    {
+                                        open_mysql_llm.conn.Open();
 
-                                MessageBox.Show("不能借，因为该书预定在" + mouth_max.ToString() + "天以内！");
+                                        String cardnum = textBox1.Text.Trim();
+                                        String bookid = textBox4.Text.Trim();
+                                        DataSet dsmydata = new DataSet();
+                                        String strmy_bookinformation = "Select * From bookinformation Where BookID = '" + bookid + "'";
+                                        MySqlDataAdapter dabookinformation = new MySqlDataAdapter(strmy_bookinformation, open_mysql_llm.conn);
+                                        MySqlCommandBuilder bdbookinformation = new MySqlCommandBuilder(dabookinformation);
+                                        dabookinformation.Fill(dsmydata, "bookinformation");
 
+                                        //删除预定书的记录
+                                        if (delet_booking == 1)
+                                        {
+                                            String strmy_booking = "Select * From booking Where BookID = '" + bookid + "'";
+                                            MySqlDataAdapter dabooking = new MySqlDataAdapter(strmy_booking, open_mysql_llm.conn);
+                                            MySqlCommandBuilder bdbooking = new MySqlCommandBuilder(dabooking);
+                                            dabooking.Fill(dsmydata, "booking");
+
+                                            dsmydata.Tables["booking"].Rows[0].Delete();
+                                            dabooking.Update(dsmydata, "booking");
+                                            dsmydata.Tables["booking"].AcceptChanges();
+
+                                        }
+
+                                        //到此结束
+
+                                        String bookclassid = "";  //获得编码
+                                        foreach (DataRow row5 in dsmydata.Tables["bookinformation"].Rows)
+                                        {
+                                            row5["SendFlag"] = "1";
+                                            bookclassid = row5["BookClassID"].ToString().Trim();
+                                        }
+                                        dabookinformation.Update(dsmydata, "bookinformation");
+                                        dsmydata.Tables["bookinformation"].AcceptChanges();
+
+                                        //打开tbookclass获得图书名
+                                        String strmy_tbookclass = "Select * From tbookclass Where BookClassID = '" + bookclassid + "'";
+                                        MySqlDataAdapter datbookclass = new MySqlDataAdapter(strmy_tbookclass, open_mysql_llm.conn);
+                                        MySqlCommandBuilder bdtbookclass = new MySqlCommandBuilder(datbookclass);
+                                        datbookclass.Fill(dsmydata, "tbookclass");
+
+                                        String name = "";
+                                        foreach (DataRow row6 in dsmydata.Tables["tbookclass"].Rows)
+                                        {
+                                            name = row6["BookName"].ToString().Trim();
+                                        }
+
+                                        //打开recoreder表
+                                        String strmy_recorder = "Select * From recorder";
+                                        MySqlDataAdapter darecorder = new MySqlDataAdapter(strmy_recorder, open_mysql_llm.conn);
+                                        MySqlCommandBuilder bdrecorder = new MySqlCommandBuilder(darecorder);
+                                        darecorder.Fill(dsmydata, "recorder");
+
+                                        System.DateTime now = new System.DateTime();   //获取系统时间
+                                        now = System.DateTime.Now;
+
+
+                                        //为recorder添加借阅信息。
+                                        DataRow newrow = dsmydata.Tables["recorder"].NewRow();
+                                        newrow["BookID"] = bookid;
+                                        newrow["BorrowDate"] = now;
+                                        newrow["CardNum"] = cardnum;
+                                        //name = "名";
+                                        newrow["BookName"] = name;
+                                        newrow["BorrowingStatus"] = "在借";
+
+
+                                        dsmydata.Tables["recorder"].Rows.Add(newrow);
+                                        darecorder.Update(dsmydata, "recorder");
+                                        dsmydata.Tables["recorder"].AcceptChanges();
+
+                                        //####################################   returnedbook,添加
+                                        increase_returnedbook(bookid, cardnum, name, "借阅", "否", ref  dsmydata);
+
+                                        MessageBox.Show("借书成功！");
+                                        textBox4.Text = "";
+                                        textBox9.Text = "";
+                                        open_mysql_llm.conn.Close();
+
+                                        //******************日志代码******************
+                                        //********************************************************************************************
+
+
+                                        String str_log = "";
+                                        str_log =  "  借阅ID为：" + bookid.ToString() + "  的图书,";
+                                        Log.WriteLog(str_log);
+
+                                        //********************************************
+                                        button6_Click_run();      //再次执行该函数，进行刷新。
+
+                                    }
+                                }
+                                else
+                                {
+                                    //MessageBox.Show("不能够借书！");
+                                    textBox4.Text = "";
+                                    textBox9.Text = "";
+
+                                    get_number_llm.str_message = "要交完费用，才能借书哦！";
+                                    if_message_1 f1 = new if_message_1();
+                                    f1.Show();
+
+                                }
                             }
                             else
                             {
-                                open_mysql_llm.conn.Open();
-
-                                String cardnum = textBox1.Text.Trim();
-                                String bookid = textBox4.Text.Trim();
-                                DataSet dsmydata = new DataSet();
-                                String strmy_bookinformation = "Select * From bookinformation Where BookID = '" + bookid + "'";
-                                MySqlDataAdapter dabookinformation = new MySqlDataAdapter(strmy_bookinformation, open_mysql_llm.conn);
-                                MySqlCommandBuilder bdbookinformation = new MySqlCommandBuilder(dabookinformation);
-                                dabookinformation.Fill(dsmydata, "bookinformation");
-
-
-                                //删除预定书的记录
-                                if (delet_booking == 1)
-                                {
-                                    String strmy_booking = "Select * From booking Where BookID = '" + bookid + "'";
-                                    MySqlDataAdapter dabooking = new MySqlDataAdapter(strmy_booking, open_mysql_llm.conn);
-                                    MySqlCommandBuilder bdbooking = new MySqlCommandBuilder(dabooking);
-                                    dabooking.Fill(dsmydata, "booking");
-
-                                    dsmydata.Tables["booking"].Rows[0].Delete();
-                                    dabooking.Update(dsmydata, "booking");
-                                    dsmydata.Tables["booking"].AcceptChanges();
-
-                                }
-
-                                //到此结束
-
-
-                                String bookclassid = "";  //获得编码
-                                foreach (DataRow row5 in dsmydata.Tables["bookinformation"].Rows)
-                                {
-                                    row5["SendFlag"] = "1";
-                                    bookclassid = row5["BookClassID"].ToString().Trim();
-                                }
-                                dabookinformation.Update(dsmydata, "bookinformation");
-                                dsmydata.Tables["bookinformation"].AcceptChanges();
-
-                                //打开tbookclass获得图书名
-                                String strmy_tbookclass = "Select * From tbookclass Where BookClassID = '" + bookclassid + "'";
-                                MySqlDataAdapter datbookclass = new MySqlDataAdapter(strmy_tbookclass, open_mysql_llm.conn);
-                                MySqlCommandBuilder bdtbookclass = new MySqlCommandBuilder(datbookclass);
-                                datbookclass.Fill(dsmydata, "tbookclass");
-
-                                String name = "";
-                                foreach (DataRow row6 in dsmydata.Tables["tbookclass"].Rows)
-                                {
-                                    name = row6["BookName"].ToString().Trim();
-                                }
-                            
-                                //打开recoreder表
-                                String strmy_recorder = "Select * From recorder";         
-                                MySqlDataAdapter darecorder = new MySqlDataAdapter(strmy_recorder, open_mysql_llm.conn);
-                                MySqlCommandBuilder bdrecorder = new MySqlCommandBuilder(darecorder);
-                                darecorder.Fill(dsmydata, "recorder");
-
-                                System.DateTime now = new System.DateTime();   //获取系统时间
-                                now = System.DateTime.Now;
-
-
-                                //为recorder添加借阅信息。
-                                DataRow newrow = dsmydata.Tables["recorder"].NewRow();
-                                newrow["BookID"] = bookid;
-                                newrow["BorrowDate"] = now;
-                                newrow["CardNum"] = cardnum;
-                                //name = "名";
-                                newrow["BookName"] = name;
-                                newrow["BorrowingStatus"] = "在借";         
-
-
-                                dsmydata.Tables["recorder"].Rows.Add(newrow);
-                                darecorder.Update(dsmydata, "recorder");
-                                dsmydata.Tables["recorder"].AcceptChanges();
-
-                                //####################################   returnedbook,添加
-
-                                increase_returnedbook(bookid, cardnum, name, "借阅", "否", ref  dsmydata);
-
-                                MessageBox.Show("借书成功！");
-                                textBox4.Text = "";
-                                textBox9.Text = "";
-
-                                open_mysql_llm.conn.Close();
-                                
-                                //******************日志代码******************
-                                //********************************************************************************************
-                                string  str_log ="借阅证号：" + cardnum.ToString() + " 于 " + now.ToString() + "  借阅ID为：" + bookid.ToString() + "  的图书.\n";
-                                Log.WriteLog(str_log);
-                                //********************************************
-                                button6_Click_run();      //再次执行该函数，进行刷新。
-                                
+                                MessageBox.Show("不能执行该操作！");
                             }
-                        }
-                        else
-                        {
-
-                            MessageBox.Show("不能够借书！");
-
-                            textBox4.Text = "";
-                            textBox9.Text = "";
-
-
-                            //MessageBox.Show("不能够借书！");
-                            textBox4.Text = "";
-                            textBox9.Text = "";
-
-                            get_number_llm.str_message = "要交完费用，才能借书哦！";
-                            if_message_1 f1 = new if_message_1();
-                            f1.Show();
-
                         }
                     }
                     else
                     {
-                        MessageBox.Show("不能执行该操作！");
+                        MessageBox.Show("已达到最大借数量，不能借书！");
                     }
                 }
-                
+                else
+                {
+                    MessageBox.Show("同学，请先还书啊！不然我不借给你！啊!");
+                    textBox4.Text = "";
+                    textBox9.Text = "";
+                }
+
             }
             catch (Exception ex)
             {
@@ -291,17 +296,11 @@ namespace BMS
 
         private void button5_Click(object sender, EventArgs e)  //还书退出
         {
-            /*************日志*************/
-            string strlog = "退出借还书界面." + "\n";
-            Log.WriteLog(strlog);
             this.Close();
         }
 
         private void button3_Click(object sender, EventArgs e)   //还书按钮
         {
-            /***************日志************/
-            string strlog = "进行还书操作." + "\n";
-            Log.WriteLog(strlog);
             try
             {
                 if (butten3_times == 0)
@@ -329,10 +328,8 @@ namespace BMS
                             name = row["BookName"].ToString();
                             cardnum = row["CardNum"].ToString();
                         }
-
                         //删除recorder记录
-                        dsmydata.Tables["recorder"].Rows[0].Delete();   
-
+                        dsmydata.Tables["recorder"].Rows[0].Delete();
 
                         darecorder.Update(dsmydata, "recorder");
                         dsmydata.Tables["recorder"].AcceptChanges();
@@ -347,7 +344,6 @@ namespace BMS
                         }
                         dabookinformation.Update(dsmydata, "bookinformation");
                         dsmydata.Tables["bookinformation"].AcceptChanges();
-
 
 
                         //**************************注***********************
@@ -369,29 +365,30 @@ namespace BMS
                         textBox6.Text = "";
                         textBox7.Text = "";
 
-                        //******************日志代码******************
-                        //**************************************************************************************************
-
-                        String str_log = "借阅证号：" + cardnum.ToString() + "  归还ID为：" + bookid.ToString() + "  的图书." + "\n";
-                        Log.WriteLog( str_log);
- 
-                        //*************************************************
-                        if (if_message == 0)
-                        {
-                            MessageBox.Show("还书成功！");
-                        }
+                        //更新returnbook数据
                         if (if_message == 1)
                         {
                             updata_returnbook();
-                            if_message_pay f2 = new if_message_pay();
-                            f2.Show();
                         }
-                        button6_Click_run();
 
+                        //******************日志代码******************
+                        //**************************************************************************************************
+
+                        System.DateTime now = new System.DateTime();   //获取系统时间
+                        now = System.DateTime.Now;
+                        
+                        String str_log = "";
+                        str_log =  "  归还ID为：" + bookid.ToString() + "  的图书,";
+                        Log.WriteLog(str_log);
+                        //*************************************************
+                        MessageBox.Show("还书成功！");
+                        if_can_borrow = true;
+
+                        button6_Click_run();
                     }
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message.ToString() + "打开数据库失败！");
             }
@@ -399,9 +396,6 @@ namespace BMS
 
         private void button4_Click(object sender, EventArgs e)   //续借
         {
-            /****************日志*************/
-            string strlog = "进行续借操作." + "\n";
-            Log.WriteLog(strlog);
             try
             {
                 if (butten3_times == 0)
@@ -414,9 +408,7 @@ namespace BMS
                     else if (xujie == 0)
                     {
                         MessageBox.Show("书逾期归还，不能够续借！");
-
                         butten3_times = 0;
-
                     }
                     else
                     {
@@ -440,9 +432,7 @@ namespace BMS
 
                         int days = (now - bookingtime).Days;
 
-
                         if (havebook == 1 && days < 30 && days > -(mouth_max))  //书被预定，且预定时间不早于现在一个月,迟于现在一个月，不能借
-
                         {
                             MessageBox.Show("不能够续借，该书已被预定！");
                         }
@@ -460,21 +450,20 @@ namespace BMS
                                 row2["BorrowDate"] = now;
                                 cardnum = row2["CardNum"].ToString();
                                 name = row2["BookName"].ToString();
-                                
+
                             }
                             darecorder.Update(dsmydata, "recorder");
                             dsmydata.Tables["recorder"].AcceptChanges();
 
                             //添加returnedbook表内容，
-
                             increase_returnedbook(bookid, cardnum, name, "借阅", "否", ref  dsmydata);
 
                             //******************日志代码******************
                             //******************************************************************************************
-                            
-                          
+
+                        
                             String str_log = "";
-                            str_log = "借阅证号：" + cardnum.ToString() + "  续借ID为：" + bookid.ToString() + "  的图书." + "\n";
+                            str_log =  "  续借ID为：" + bookid.ToString() + "  的图书,";
                             Log.WriteLog(str_log);
                             //***********************************************************************
                             MessageBox.Show("续借成功！");
@@ -483,14 +472,13 @@ namespace BMS
                             textBox6.Text = "";
                             textBox7.Text = "";
 
-                            
                         }
 
                         open_mysql_llm.conn.Close();
                     }
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message.ToString() + "打开数据库失败！");
             }
@@ -499,12 +487,11 @@ namespace BMS
         {
             if_get_bookid = 0;
             if_can_borrow = true;
+            do_huanshu = false;  //是否执行还书按钮
             //int people = 1;     //有该借阅证号的人数
             int text8moder = 0;   //textBox8显示的内容
 
-
-            textBox1.Text = get_number_llm.borrow_cardnum;  //获得借阅证号
-
+            textBox1.Text = get_number_llm.borrow_cardnum;  //获得节约证号
 
             textBox2.Text = "";
             textBox3.Text = "";
@@ -513,8 +500,12 @@ namespace BMS
 
 
                 int booknum = 0; //借书的数量
+
+
                 open_mysql_llm.conn.Open();
                 String cardnum = textBox1.Text.Trim();
+               // String ID = "";
+               //String last_data = "";
 
                 DataSet dslibrary = new DataSet();
 
@@ -542,13 +533,12 @@ namespace BMS
                     booknum += 1;  //借的书的数量
 
                     System.DateTime borrowdate = Convert.ToDateTime(row1["BorrowDate"]); //获取借阅时间
-
                     borrowdate = borrowdate.AddDays(mouth_max);       //截止日期
-
                     if (System.DateTime.Compare(now, borrowdate) > 0)
                     {
                         str2 = str2 + row1["BookName"].ToString() + "    " + borrowdate.ToString() + "   " + now.ToString() + "\r\n";
                         if_can_borrow = false;
+                        do_huanshu = true;
                     }
 
                 }
@@ -587,20 +577,27 @@ namespace BMS
                     }
                 }
 
-
-                if (if_can_borrow == false)    //显示不能借书原因
+                if (do_huanshu == true)
                 {
-                    //MessageBox.Show(str2);
-                    get_number_llm.str_message = str2;
-                    if_message_1 f1 = new if_message_1();
-                    f1.Show();
-                    //if_message_pay f2 = new if_message_pay();
-                    //f2.Show();
+                    MessageBox.Show(str2 + "\r\n" + "                              请先还书后再缴费！");
+                }
+                else
+                {
+                    if (if_can_borrow == false)    //显示不能借书原因
+                    {
+                        //MessageBox.Show(str2);
+                        get_number_llm.str_message = str2;
+                        if_message_1 f1 = new if_message_1();
+                        f1.Show();
+                        //if_message_pay f2 = new if_message_pay();
+                        //f2.Show();
+
+                    }
                 }
                 if (booknum >= num_book_max)   // 判断是否超过最多借书量
                 {
                     MessageBox.Show("不能够借书，原因：已达到最大借书量！");
-                    if_can_borrow = false;
+                    max_book_num = false;
                 }
 
                 open_mysql_llm.conn.Close();
@@ -611,7 +608,7 @@ namespace BMS
             }
 
         }
-        private void button6_Click(object sender, EventArgs e)       
+        private void button6_Click(object sender, EventArgs e)
         {
 
         }
@@ -619,18 +616,19 @@ namespace BMS
         private void button7_Click(object sender, EventArgs e)    //图书id确认按钮
         {
             maxmouth = 0;
-
             delet_booking = 0;
+            if (get_number_llm.become_ture == 1)
+            {
+                get_number_llm.become_ture = 0;
+                button6_Click_run();
 
+            }
             try
             {
                 if (if_get_bookid == 1)    //判断是否可以执行这个函数,为1才能后执行
                 {
                     if (textBox4.Text.Count() == 0)
                     {
-                        /************日志*******************/
-                        string strlog = "输入空的图书ID."+"\n";
-                        Log.WriteLog(strlog);
                         textBox9.Text = "请读入图书ID！";
                     }
                     else
@@ -664,23 +662,14 @@ namespace BMS
                         }
                         if (book == 0)
                         {
-                            /************日志*******************/
-                            string strlog = "输入没有的图书ID."+ "\n";
-                            Log.WriteLog(strlog);
                             textBox9.Text = "没有该图书！请重新读取ID！";
                         }
                         else if (jiechu == 1)     //判断该书是否借出，借出则不进行下步动作。
                         {
-                            /************日志*******************/
-                            string strlog = "输入图书ID." + "\n";
-                            Log.WriteLog(strlog);
                             textBox9.Text = "该书已借出，请重新读入ID！";
                         }
                         else
                         {
-                            /************日志*******************/
-                            string strlog = "输入图书ID." + "\n";
-                            Log.WriteLog(strlog);
                             String str1 = "图书ID           订阅标记           借阅日期                图书名" + "\r\n\r\n";
 
                             System.DateTime now = new System.DateTime();   //获取系统时间
@@ -708,15 +697,12 @@ namespace BMS
                             }
 
                             int bookoder = 0; //看书是否被预定。1为预定    
-
                             int delete = 0; //是否删除booking记录，1，删除，0不删除。
-
                             foreach (DataRow row1 in dsmydata.Tables["booking"].Rows)
                             {
                                 bookoder = 1;
                                 System.DateTime borrowdate = Convert.ToDateTime(row1["BookDate"]);  //获取预定时间
                                 System.DateTime latemouse = new System.DateTime();
-
                                 latemouse = now.AddDays(mouth_max);    //一个月以后的现在
                                 int Days = (now - borrowdate).Days;   //计算现在与预定日之间的天数。
                                 if (System.DateTime.Compare(latemouse, borrowdate) < 0 || Days > 30) // 一个月后的现在小于预定日期或者预定日期在两个月以前，借，否则不借。
@@ -746,7 +732,6 @@ namespace BMS
                                 dabooking.Update(dsmydata, "booking");
                                 dsmydata.Tables["booking"].AcceptChanges();
                             }
-
                             if (bookoder == 1)
                             {
                                 str1 = str1 + "是" + "                 ";
@@ -779,8 +764,6 @@ namespace BMS
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message.ToString() + "打开数据库失败！");
-                /************日志*************/
-                Log.WriteLog(ex.Message.ToString() + "输入图书ID错误." + "\n");
             }
 
         }
@@ -790,17 +773,14 @@ namespace BMS
 
             try
             {
+                //不要
+                //get_number_llm.bookid = textBox5.Text;
                 xujie = 0;
                 huanshu = 0;
-
                 if_message = 0;    //重置该函数。
                 String jie_cardnum = "";
-
                 if (textBox5.Text.Count() == 0)
                 {
-                    /************日志*******************/
-                    string strlog = "输入空的还书ID." + "\n";
-                    Log.WriteLog(strlog);
                     textBox10.Text = "请读入图书ID！";
                 }
                 else
@@ -813,9 +793,7 @@ namespace BMS
 
                     DataSet dsmydata = new DataSet();
                     String bookid = textBox5.Text.Trim();
-
                     bookid_1 = bookid;
-
                     String strmy_reader = "Select * From recorder Where BookID = '" + bookid + "'";
                     MySqlDataAdapter darecorder = new MySqlDataAdapter(strmy_reader, open_mysql_llm.conn);
                     MySqlCommandBuilder bdrecorder = new MySqlCommandBuilder(darecorder);
@@ -838,9 +816,6 @@ namespace BMS
                     {
                         if (havebook == 0)
                         {
-                            /************日志*******************/
-                            string strlog = "输入错误的图书ID." + "\n";
-                            Log.WriteLog(strlog);
                             textBox10.Text = "该书没有被借出，重新输入！";
                         }
                         else
@@ -872,11 +847,7 @@ namespace BMS
                     }
                     else
                     {
-                        /***************日志************/
-                        string strlog = "输入错误的图书ID." + "\n";
-                        Log.WriteLog(strlog);
                         MessageBox.Show("该书不为当前借阅证号所借，不能执行还书及续借操作！");
-
                     }
 
                     open_mysql_llm.conn.Close();
@@ -885,12 +856,8 @@ namespace BMS
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message.ToString() + "打开数据库失败！");
-                /***************日志************/
-                string strlog = ex.Message.ToString() + "输入错误的图书ID." + "\n";
-                Log.WriteLog(strlog);
             }
         }
-
 
 
         //以下为了让butten6_click_run函数执行一次
@@ -921,22 +888,6 @@ namespace BMS
             }
         }
 
-        private void textBox4_TextChanged(object sender, EventArgs e)
-        {
 
-        }
-
-        private void textBox5_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void BorrowReturn_Load(object sender, EventArgs e)
-        {
-
-        }
-
-
-     
     }
 }

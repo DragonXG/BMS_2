@@ -34,20 +34,25 @@
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("宋体", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label1.Location = new System.Drawing.Point(25, 125);
+            this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label1.Location = new System.Drawing.Point(43, 184);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(334, 21);
+            this.label1.Size = new System.Drawing.Size(426, 27);
             this.label1.TabIndex = 0;
             this.label1.Text = "软件制作者：GXL,CPY,ZC,LLM,MWQ";
             // 
-            // Form1
+            // About
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(388, 321);
+            this.BackgroundImage = global::BMS.Properties.Resources.reader;
+            this.ClientSize = new System.Drawing.Size(517, 401);
             this.Controls.Add(this.label1);
-            this.Name = "Form1";
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Name = "About";
             this.Text = "关于此软件";
             this.ResumeLayout(false);
             this.PerformLayout();

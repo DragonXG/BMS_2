@@ -62,7 +62,9 @@ namespace BMS
         {
             ReaderInfo readinfo = new ReaderInfo(label2.Text);
             /************日志*********************/
-            string logstring = "\t"+ "读者：" + label2.Text + "查询了自己的信息." + "\n";
+
+            string logstring = "借阅证号：" + str_cardnum +"\t"+ "读者：" + label2.Text + "查询了自己的信息." + "\n";
+
             Log.WriteLog(logstring);
             readinfo.Show();
         }
@@ -71,18 +73,15 @@ namespace BMS
         {
             label2.Text = str_cardname;
             str_cardname = "";
-            ReaderMain reader = new ReaderMain();
-            if(reader.IsDisposed == true)
-            {
-                Program.check = 0;
-            }
         }
 
         private void button1_Click_1(object sender, EventArgs e)
         {
             BorrowHistory borrowhistory = new BorrowHistory(str_cardnum);
             /************日志*********************/
-            string logstring = "\t"+"读者：" + label2.Text + "进入了个人图书信息页面." + "\n";
+
+            string logstring = "借阅证号：" + str_cardnum + "\t"+"读者：" + label2.Text + "进入了个人图书信息页面." + "\n";
+
             Log.WriteLog(logstring);
             borrowhistory.Show();
         }
@@ -91,7 +90,9 @@ namespace BMS
         {
             PayForOverdue form = new PayForOverdue(str_cardnum);
             /************日志*********************/
-            string logstring = "\t" + "读者：" + label2.Text + "进入了缴费页面." + "\n";
+
+            string logstring = "借阅证号：" + str_cardnum + "\t" + "读者：" + label2.Text + "进入了缴费页面." + "\n";
+
             Log.WriteLog(logstring);
             form.ShowDialog();
         }
@@ -108,18 +109,6 @@ namespace BMS
             Log.WriteLog(strlog);
             QueryAfterLogin form = new QueryAfterLogin(str_cardnum);
             form.ShowDialog();
-        }
-
-        private void button7_Click(object sender, EventArgs e)
-        {
-            Program.checkin_relogin = true;
-            this.Close();
-        }
-
-        private void button8_Click(object sender, EventArgs e)
-        {
-            Program.check = 0;
-            this.Close();
         }
 
     }

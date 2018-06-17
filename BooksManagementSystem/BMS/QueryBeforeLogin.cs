@@ -13,7 +13,7 @@ namespace BMS
 {
     public partial class QueryBeforeLogin : Form
     {
-        string s = "";
+       // string s = "";
         string id = "";
         //string strnum = "";
         public QueryBeforeLogin()
@@ -24,13 +24,18 @@ namespace BMS
 
         private void QueryBeforeLogin_Load(object sender, EventArgs e)
         {
-
+            Timer time1 = new Timer();
+            time1.Interval = 1000;
+            time1.Tick += new System.EventHandler(timer1_Tick);
+            timer1.Start();
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
             listView1.Items.Clear();
+
             String strConn = "Server = localhost;Database = bms;Uid = root;password = 123456;sslmode = none;";
+
             MySqlConnection conn = new MySqlConnection(strConn);
             conn.Open();
             MySqlCommand cmd = conn.CreateCommand();
@@ -52,11 +57,24 @@ namespace BMS
 
         private void button2_Click(object sender, EventArgs e)
         {
-            //string s = "";
+            string s = "";
+            if (listView1.FocusedItem == null)
+            {
+                MessageBox.Show("请选择一本书！");
+                return;
+            }
+            if (listView1.SelectedItems.Count <= 0)
+            {
+                MessageBox.Show("请选择一本书！");
+                return;
+            }
+
             s = listView1.FocusedItem.SubItems[0].Text;
             if (s != "")
             {
+
                 String strConn = "Server = localhost;Database = bms;Uid = root;password = 123456;sslmode = none;";
+
                 MySqlConnection conn = new MySqlConnection(strConn);
                 conn.Open();
                 String strSql = "Select * from bookinformation where BookClassID = '" + s + "'";
@@ -120,7 +138,7 @@ namespace BMS
             }
             else
             {
-                MessageBox.Show("请选择一本书！");
+                
             }
         }
 
@@ -133,9 +151,10 @@ namespace BMS
             DialogResult dr = MessageBox.Show("您还未登录，是否返回登录界面","提示", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
             if(dr == DialogResult.OK)
             {
-                Login login = new Login();
+
                 Program.checkin_login = true;
-                this.Close();                              
+                this.Close();
+
             }
         }
 
@@ -147,6 +166,11 @@ namespace BMS
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            label4.Text = DateTime.Now.ToLongTimeString().ToString();
         }
     }
 }

@@ -24,11 +24,11 @@ namespace BMS
         private void Form1_Load(object sender, EventArgs e)
         {
             comboBox1.SelectedIndex = 0;
-            Login login = new Login();       //退出登陆界面
-            if(login.IsDisposed == true)
-            {
-                Program.check = 0;
-            }
+
+            Timer time1 = new Timer();
+            time1.Interval = 1000;
+            time1.Tick += new System.EventHandler(timer1_Tick);
+            timer1.Start();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -79,7 +79,10 @@ namespace BMS
                 }
                 if (flag_3 == true)
                 {
+
                     Log.WriteLog( "借阅证号"+ ":" + textBox1.Text + comboBox1.Text + ":" + str3 + "登录成功!" + "\n");
+
+
                     LOGTYPE = comboBox1.Text;
                     LOGNAME = textBox1.Text;
                     ReaderMain readmain = new ReaderMain(str3, textBox1.Text);
@@ -139,7 +142,10 @@ namespace BMS
                 }
                 if (admin_flag3 == true)
                 {
+
+
                     Log.WriteLog(comboBox1.Text + ":" + textBox1.Text + "登录成功!" + "\n");
+
                     LOGTYPE = comboBox1.Text;
                     LOGNAME = textBox1.Text;
                     AdminMain readmain = new AdminMain(textBox1.Text);
@@ -180,13 +186,26 @@ namespace BMS
         private void button2_Click(object sender, EventArgs e)
         {
             QueryBeforeLogin form = new QueryBeforeLogin();
-            Program.checkin_querybefore = true;
-            this.Close();
+            form.ShowDialog();
+            //Program.checkin_querybefore = true;
+           // this.Close();
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
             this.Close();
+
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            label7.Text = DateTime.Now.ToLongTimeString().ToString();
+
         }
     }
 }

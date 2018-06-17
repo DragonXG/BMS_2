@@ -43,7 +43,7 @@
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button1.Location = new System.Drawing.Point(244, 192);
+            this.button1.Location = new System.Drawing.Point(148, 192);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(108, 33);
             this.button1.TabIndex = 0;
@@ -87,7 +87,7 @@
             // 
             this.textBox1.Location = new System.Drawing.Point(27, 96);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(209, 25);
+            this.textBox1.Size = new System.Drawing.Size(229, 25);
             this.textBox1.TabIndex = 4;
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
@@ -117,7 +117,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(480, 253);
+            this.ClientSize = new System.Drawing.Size(287, 253);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.textBox1);

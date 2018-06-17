@@ -44,7 +44,7 @@ namespace BMS
 
         private void ClearStrings()
         {
-            /*textBox6.Text = "";
+            textBox6.Text = "";
             textBox5.Text = "";
             textBox4.Text = "";
             textBox3.Text = "";
@@ -53,8 +53,8 @@ namespace BMS
             textBox14.Text = "";
             textBox15.Text = "";
             listBox1.Text = "";
-            ListBoxText = "";*/
-
+            ListBoxText = "";
+            /*
             textBox6.Text = "01010110203";
             textBox5.Text = "ACM国际大学生程序设计竞赛-题目与解读";
             textBox4.Text = "俞勇";
@@ -64,7 +64,7 @@ namespace BMS
             textBox14.Text = "谨以此书献给上海交通大学获得ACM-ICPC世界冠军十周年";
             textBox15.Text = "计算机类";
             listBox1.Text = "";
-            ListBoxText = "";
+            ListBoxText = "";*/
         }
 
         private void ClearStrings2()
@@ -329,6 +329,11 @@ namespace BMS
 
         private void button6_Click(object sender, EventArgs e)
         {
+            if (textBox13.Text == "")
+            {
+                MessageBox.Show("没有选中任何信息，无法删除");
+                return;
+            }
             try
             {
                 open_mysql_llm.conn.Open();
@@ -339,6 +344,12 @@ namespace BMS
                 MySqlDataAdapter da1 = new MySqlDataAdapter();
                 da1.SelectCommand = cmd;
                 da1.Fill(dsmydata, "bookinformation");
+                if (dsmydata.Tables["bookinformation"].Rows.Count == 0)
+                {
+                    MessageBox.Show("此书不存在");
+                    open_mysql_llm.conn.Close();
+                    return;
+                }
                 int flag = 0;
                 foreach (DataRow row in dsmydata.Tables["bookinformation"].Rows)
                 {

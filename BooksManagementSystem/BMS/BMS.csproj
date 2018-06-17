@@ -97,7 +97,7 @@
     <Compile Include="PayForOverdue.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PayForOverdue.Designer.cs">
+    <Compile Include="PayForOverdue.designer.cs">
       <DependentUpon>PayForOverdue.cs</DependentUpon>
     </Compile>
     <Compile Include="PayMoney.cs">
@@ -173,6 +173,9 @@
     <EmbeddedResource Include="About.resx">
       <DependentUpon>About.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="if_message_pay.resx">
+      <DependentUpon>if_message_pay.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Logmaintain.resx">
       <DependentUpon>Logmaintain.cs</DependentUpon>
     </EmbeddedResource>
@@ -184,9 +187,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="if_message_1.resx">
       <DependentUpon>if_message_1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="if_message_pay.resx">
-      <DependentUpon>if_message_pay.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PwdChange.resx">
       <DependentUpon>PwdChange.cs</DependentUpon>
@@ -267,6 +267,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\8.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\reader.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\read_1.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

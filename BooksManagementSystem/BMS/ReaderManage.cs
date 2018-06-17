@@ -32,25 +32,6 @@ namespace BMS
 
         private void Clearstrings()
         {
-            /*textBox6.Text = "";
-            textBox5.Text = "";
-            textBox4.Text = "";
-            textBox3.Text = "";
-            textBox2.Text = "";
-            textBox1.Text = "";
-            textBox14.Text = "";*/
-
-            textBox6.Text = "2016080808";
-            textBox5.Text = "张三";
-            textBox4.Text = "成都信息工程大学";
-            textBox3.Text = "大数据";
-            textBox2.Text = "13267678989";
-            textBox1.Text = "111111";
-            textBox14.Text = "本科生";
-        }
-
-        private void Clearstrings2()
-        {
             textBox6.Text = "";
             textBox5.Text = "";
             textBox4.Text = "";
@@ -58,6 +39,25 @@ namespace BMS
             textBox2.Text = "";
             textBox1.Text = "";
             textBox14.Text = "";
+            /*
+            textBox6.Text = "2016080808";
+            textBox5.Text = "张三";
+            textBox4.Text = "成都信息工程大学";
+            textBox3.Text = "大数据";
+            textBox2.Text = "13267678989";
+            textBox1.Text = "111111";
+            textBox14.Text = "本科生";*/
+        }
+
+        private void Clearstrings2()
+        {
+            textBox12.Text = "";
+            textBox11.Text = "";
+            textBox10.Text = "";
+            textBox9.Text = "";
+            textBox8.Text = "";
+            textBox7.Text = "";
+            textBox15.Text = "";
         }
 
         private void button7_Click(object sender, EventArgs e)
@@ -217,6 +217,15 @@ namespace BMS
                 MessageBox.Show("登录密码必须为6位");
                 return;
             }
+            if (LodinKey.Length == 6)
+            {
+                for (int i=0;i<6;i++){
+                    if(LodinKey[i]==' '||LodinKey[i]=='`'||LodinKey[i]=='\\'||LodinKey[i]=='/'){
+                        MessageBox.Show("登陆密码中含有不符合条件的字符");
+                        return;
+                    }
+                }
+            }
             if(ReaderName  == "")
             {
                 MessageBox.Show("读者姓名不能为空");
@@ -302,6 +311,11 @@ namespace BMS
 
         private void button6_Click(object sender, EventArgs e)
         {
+            if (textBox13.Text == "")
+            {
+                MessageBox.Show("兄弟，不要没事搞事啊。");
+                return;
+            }
             try
             {
                 open_mysql_llm.conn.Open();
@@ -323,6 +337,19 @@ namespace BMS
                         break;
                     }
                 }
+                DataSet dsmydata2 = new DataSet();
+                MySqlCommand cmd22 = new MySqlCommand("select * from reader where CardNum ='" + commandstring + "'", open_mysql_llm.conn);
+                MySqlDataAdapter da22 = new MySqlDataAdapter();
+                dsmydata = new DataSet();
+                da22.SelectCommand = cmd;
+                da22.Fill(dsmydata2, "reader");
+                dataGridView1.DataSource = dsmydata.Tables["reader"];
+                if (dsmydata2.Tables["reader"].Rows.Count==0){
+                    MessageBox.Show("该用户不存在");
+                    open_mysql_llm.conn.Close();
+                    return;
+                }
+                
                 if (flag == 1)
                 {
                     open_mysql_llm.conn.Close();
@@ -359,6 +386,11 @@ namespace BMS
                 open_mysql_llm.conn.Close();
                 MessageBox.Show(ex.Message.ToString() + "打开数据库失败");
             }
+        }
+
+        private void textBox12_TextChanged(object sender, EventArgs e)
+        {
+
         }
 
     }

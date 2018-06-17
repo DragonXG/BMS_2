@@ -16,7 +16,6 @@ namespace BMS
         static public bool checkin_admin = false;               //是否进入管理员界面
         static public bool checkin_querybefore = false;     //是否进入预查询界面
         static public bool checkin_login = false;                 //是否进入登陆界面
-        static public bool checkin_relogin = false;                //是否进入返回登陆界面
         static public int check = 1;
         [STAThread]
         static void Main()
@@ -24,35 +23,25 @@ namespace BMS
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
           
-            Application.Run(new Login());
-            while(check == 1)
-            {
-                if (checkin_querybefore == true)
+                Application.Run(new Login());
+
+               /* if (checkin_querybefore == true)
                 {
                     Application.Run(new QueryBeforeLogin());
-                    checkin_querybefore = false;
-                }
-                if (checkin_login == true)
-                {
-                    Application.Run(new Login());
-                    checkin_login = false;
-                }
+                }*/
+               // if (checkin_login == true)
+                //{
+                   // Application.Run(new Login());
+                //}
                 if (checkin_reader == true)
                 {
                     Application.Run(new ReaderMain());
-                    checkin_reader = false;
                 }
                 if (checkin_admin == true)
                 {
                     Application.Run(new AdminMain());
-                    checkin_admin = false;
                 }
-                if(checkin_relogin == true)
-                {
-                    Application.Run(new Login());
-                    checkin_relogin = false;
-                }
-            }
+
         }
     }
 }
