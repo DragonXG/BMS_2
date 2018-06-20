@@ -18,6 +18,8 @@ namespace BMS
         public Login()
         {
             InitializeComponent();
+            textBox1.Text = "2016081002";
+            textBox2.Text = "222222";
         }
         
 

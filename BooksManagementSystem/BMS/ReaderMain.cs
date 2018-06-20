@@ -31,6 +31,10 @@ namespace BMS
             ts = false;
         }
 
+        public ReaderMain(bool ts1)
+        {
+            ts = ts1;
+        }
         private void button2_Click(object sender, EventArgs e)
         {
             /************日志*********************/
@@ -67,9 +71,10 @@ namespace BMS
             label2.Text = str_cardname;
             str_cardname = "";
             //ReaderMain_Load2();
-            Timer time1 = new Timer();
+            DeleteMessageFunction();
+            /*Timer time1 = new Timer();
             time1.Interval = 1000;
-            timer1.Start();
+            timer1.Start();*/
 
         }
 
@@ -115,54 +120,12 @@ namespace BMS
             MessageBox.Show(ts1);
             string deleteflag1 = DeleteFlag.ToString();
             MessageBox.Show(deleteflag1);*/
-
-            if (ts == false && DeleteFlag == false)
-            {
-                MessageBox.Show("暂无消息。");
-            }
-            else
-            {
-                if (ts == true)
-                {
-                    yudingtishi form = new yudingtishi(bookname);
-                    form.ShowDialog();
-                }
-                if (DeleteFlag == true)
-                {
-                    MessageBox.Show(DeleteMessage);
-                    DeleteFlag = false;
-                }
-            }
-        }
-
-        private void timer1_Tick(object sender, EventArgs e)
-        {
             try
             {
-                //删书提示
-                open_mysql_llm.conn.Open();
-                DataSet dsmydata = new DataSet();
-                MySqlCommand cmd = new MySqlCommand("select * from systemprompt where CardNum ='" + str_cardnum + "'", open_mysql_llm.conn);
-                MySqlDataAdapter da1 = new MySqlDataAdapter();
-                da1.SelectCommand = cmd;
-                da1.Fill(dsmydata, "systemprompt");
-                foreach (DataRow row in dsmydata.Tables["systemprompt"].Rows)
-                {
-                    if (row[0].ToString() == str_cardnum)
-                    {
-                        DeleteMessage = row[1].ToString();
-                        DeleteFlag = true;
-                    }
-                }
-                MySqlCommand cmd3 = new MySqlCommand();
-                cmd3.Connection = open_mysql_llm.conn;
-                cmd3.CommandText = "delete from systemprompt where CardNum = '" + str_cardnum + "'";
-                cmd3.ExecuteNonQuery();
-                open_mysql_llm.conn.Close();
-
                 //预定提示
                 string strnum = str_cardnum;
                 String strConn = "Server = localhost;Database = bms;Uid = root;password = 123456;sslmode = none;";
+                //string strConn = open_mysql_llm.conn.ToString();
                 MySqlConnection conn = new MySqlConnection(strConn);
                 conn.Open();
                 String strSql3 = "Select * from booking where CardNum = '" + strnum + "'";
@@ -205,9 +168,123 @@ namespace BMS
                     }
                 }
                 conn.Close();
+                //open_mysql_llm.conn.Close();
             }
             catch (Exception ex)
             {
+
+                open_mysql_llm.conn.Close();
+                MessageBox.Show(ex.Message.ToString());
+                Log.WriteLog(ex.Message.ToString());
+            }
+
+            if (ts == false && DeleteFlag == false)
+            {
+                MessageBox.Show("暂无消息。");
+            }
+            else
+            {
+                if (ts == true)
+                {
+                    yudingtishi form = new yudingtishi(bookname);
+                    form.ShowDialog();
+                }
+                if (DeleteFlag == true)
+                {
+                    MessageBox.Show(DeleteMessage);
+                    DeleteFlag = false;
+                }
+            }
+        }
+
+        private void DeleteMessageFunction()
+        {
+            try
+            {
+                //删书提示
+                open_mysql_llm.conn.Open();
+                DataSet dsmydata = new DataSet();
+                MySqlCommand cmd = new MySqlCommand("select * from systemprompt where CardNum ='" + str_cardnum + "'", open_mysql_llm.conn);
+                MySqlDataAdapter da1 = new MySqlDataAdapter();
+                da1.SelectCommand = cmd;
+                da1.Fill(dsmydata, "systemprompt");
+                foreach (DataRow row in dsmydata.Tables["systemprompt"].Rows)
+                {
+                    if (row[0].ToString() == str_cardnum)
+                    {
+                        DeleteMessage = row[1].ToString();
+                        DeleteFlag = true;
+                    }
+                }
+                MySqlCommand cmd3 = new MySqlCommand();
+                cmd3.Connection = open_mysql_llm.conn;
+                cmd3.CommandText = "delete from systemprompt where CardNum = '" + str_cardnum + "'";
+                cmd3.ExecuteNonQuery();
+                open_mysql_llm.conn.Close();
+            }
+            catch (Exception ex)
+            {
+                open_mysql_llm.conn.Close();
+                MessageBox.Show(ex.Message.ToString());
+                Log.WriteLog(ex.Message.ToString());
+            }
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            /*try
+            {
+                              //预定提示
+                string strnum = str_cardnum;
+                String strConn = "Server = localhost;Database = bms;Uid = root;password = 123456;sslmode = none;";
+                //string strConn = open_mysql_llm.conn.ToString();
+                MySqlConnection conn = new MySqlConnection(strConn);
+                conn.Open();
+                String strSql3 = "Select * from booking where CardNum = '" + strnum + "'";
+                MySqlDataAdapter da3 = new MySqlDataAdapter(strSql3, strConn);
+                DataSet ds3 = new DataSet();
+                int t;
+                da3.Fill(ds3, "booking");
+                //if(ds3 != null && ds3.Tables.Count > 0)
+                string[] bookids = { "", "", "" };
+                string[] booknames = { "", "", "" };
+                bookname = "";
+                ts = false;
+
+                t = ds3.Tables[0].Rows.Count;
+                if (t > 0)
+                {
+                    for (int i = 0; i < t; i++)
+                    {
+                        //foreach (DataRow row in ds3.Tables["booking"].Rows)
+
+                        bookids[i] = ds3.Tables[0].Rows[i]["BookID"].ToString();
+                        booknames[i] = ds3.Tables[0].Rows[i]["BookName"].ToString();
+
+
+                        String strSql = "Select * from bookinformation where BookID = '" + bookids[i] + "'";
+                        MySqlDataAdapter da = new MySqlDataAdapter(strSql, strConn);
+                        DataSet ds = new DataSet();
+                        da.Fill(ds, "bookinformation");
+                        string sf = "";
+                        foreach (DataRow row in ds.Tables["bookinformation"].Rows)
+                        {
+                            sf = row["SendFlag"].ToString();
+                        }
+
+                        if (sf == "0")
+                        {
+                            bookname += bookids[i] + "《" + booknames[i] + "》\r\n";
+                            ts = true;
+                        }
+                    }
+                }
+                conn.Close();
+                //open_mysql_llm.conn.Close();
+            }
+            catch (Exception ex)
+            {
+
                 open_mysql_llm.conn.Close();
                 MessageBox.Show(ex.Message.ToString());
                 Log.WriteLog(ex.Message.ToString());
@@ -228,7 +305,7 @@ namespace BMS
                 {
                     button7.BackColor = Color.White;
                 }
-            }
+            }*/
         }
 
     }

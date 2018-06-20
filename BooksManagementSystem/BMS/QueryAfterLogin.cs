@@ -20,6 +20,8 @@ namespace BMS
         string strnum = "";
         string time0 = DateTime.Now.ToString();
         string name = "";
+        static private bool ts;
+        static public string bookname;
         Timer mytime = new Timer();
         
 
