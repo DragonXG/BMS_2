@@ -38,6 +38,7 @@ namespace BMS
                 MessageBox.Show(success);
                 PayForOverdue PayOver = new PayForOverdue();
                 PayOver.Success(success);
+                get_number_llm.become_ture = 1;
                 /************日志*********************/
                 string logstring = "缴费成功." + "\n";
                 Log.WriteLog(logstring);

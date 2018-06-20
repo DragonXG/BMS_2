@@ -191,7 +191,7 @@ namespace BMS
 
         private void dataGridView1_RowStateChanged(object sender, DataGridViewRowStateChangedEventArgs e)
         {
-            for (int i = 0; i < this.dataGridView1.Rows.Count; i++)
+            for (int i = 0; i < this.dataGridView1.Rows.Count-1; i++)
             {
                 DataGridViewRow r = this.dataGridView1.Rows[i];
                 r.HeaderCell.Value = string.Format("{0}", i + 1);
@@ -248,6 +248,11 @@ namespace BMS
                 str_startime = dateTimePicker1.Text;
                 str_endtime = dateTimePicker2.Text;
             }
+        }
+
+        private void dataGridView1_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
+        {
+
         }
     }
 }

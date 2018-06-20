@@ -35,7 +35,8 @@
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.listView1 = new System.Windows.Forms.ListView();
-            this.序号 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.图书编号 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.ID号 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.书名 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.作者 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.出版社 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -49,11 +50,13 @@
             this.button1 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.listView2 = new System.Windows.Forms.ListView();
-            this.序号1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.ID号1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.书名1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.预定时间1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.label4 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.timer2 = new System.Windows.Forms.Timer(this.components);
+            this.textBox5 = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // textBox3
@@ -108,9 +111,9 @@
             this.button2.BackColor = System.Drawing.Color.Orange;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Font = new System.Drawing.Font("宋体", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button2.Location = new System.Drawing.Point(86, 311);
+            this.button2.Location = new System.Drawing.Point(336, 311);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(99, 30);
+            this.button2.Size = new System.Drawing.Size(100, 30);
             this.button2.TabIndex = 30;
             this.button2.Text = "图书状态";
             this.button2.UseVisualStyleBackColor = false;
@@ -119,7 +122,8 @@
             // listView1
             // 
             this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.序号,
+            this.图书编号,
+            this.ID号,
             this.书名,
             this.作者,
             this.出版社,
@@ -128,15 +132,20 @@
             this.listView1.GridLines = true;
             this.listView1.Location = new System.Drawing.Point(86, 115);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(552, 190);
+            this.listView1.Size = new System.Drawing.Size(740, 190);
             this.listView1.TabIndex = 29;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
             // 
-            // 序号
+            // 图书编号
             // 
-            this.序号.Text = "序号";
-            this.序号.Width = 80;
+            this.图书编号.Text = "图书编号";
+            this.图书编号.Width = 80;
+            // 
+            // ID号
+            // 
+            this.ID号.Text = "ID号";
+            this.ID号.Width = 40;
             // 
             // 书名
             // 
@@ -162,7 +171,7 @@
             this.button5.BackColor = System.Drawing.Color.Orange;
             this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button5.Font = new System.Drawing.Font("宋体", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button5.Location = new System.Drawing.Point(562, 77);
+            this.button5.Location = new System.Drawing.Point(751, 78);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(75, 31);
             this.button5.TabIndex = 28;
@@ -173,19 +182,17 @@
             // textBox4
             // 
             this.textBox4.Font = new System.Drawing.Font("宋体", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.textBox4.Location = new System.Drawing.Point(449, 78);
-            this.textBox4.Multiline = true;
+            this.textBox4.Location = new System.Drawing.Point(525, 78);
             this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(100, 31);
+            this.textBox4.Size = new System.Drawing.Size(150, 31);
             this.textBox4.TabIndex = 27;
             // 
             // textBox1
             // 
             this.textBox1.Font = new System.Drawing.Font("宋体", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.textBox1.Location = new System.Drawing.Point(187, 78);
-            this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(150, 31);
+            this.textBox1.Size = new System.Drawing.Size(200, 31);
             this.textBox1.TabIndex = 26;
             // 
             // label3
@@ -195,7 +202,7 @@
             this.label3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label3.Font = new System.Drawing.Font("宋体", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(343, 78);
+            this.label3.Location = new System.Drawing.Point(419, 78);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(100, 29);
             this.label3.TabIndex = 25;
@@ -257,7 +264,7 @@
             // listView2
             // 
             this.listView2.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.序号1,
+            this.ID号1,
             this.书名1,
             this.预定时间1});
             this.listView2.FullRowSelect = true;
@@ -269,10 +276,10 @@
             this.listView2.UseCompatibleStateImageBehavior = false;
             this.listView2.View = System.Windows.Forms.View.Details;
             // 
-            // 序号1
+            // ID号1
             // 
-            this.序号1.Text = "序号";
-            this.序号1.Width = 80;
+            this.ID号1.Text = "ID号";
+            this.ID号1.Width = 80;
             // 
             // 书名1
             // 
@@ -298,6 +305,19 @@
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // timer2
+            // 
+            this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
+            // 
+            // textBox5
+            // 
+            this.textBox5.Font = new System.Drawing.Font("楷体", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.textBox5.Location = new System.Drawing.Point(86, 311);
+            this.textBox5.Multiline = true;
+            this.textBox5.Name = "textBox5";
+            this.textBox5.Size = new System.Drawing.Size(240, 30);
+            this.textBox5.TabIndex = 39;
+            // 
             // QueryAfterLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -305,6 +325,7 @@
             this.BackgroundImage = global::BMS.Properties.Resources._12;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(944, 561);
+            this.Controls.Add(this.textBox5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.listView2);
             this.Controls.Add(this.button6);
@@ -321,9 +342,11 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.KeyPreview = true;
             this.Name = "QueryAfterLogin";
             this.Text = " 登录后查询";
             this.Load += new System.EventHandler(this.QueryAfterLogin_Load);
+            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.QueryAfterLogin_KeyPress);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -337,11 +360,7 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.ListView listView1;
-        private System.Windows.Forms.ColumnHeader 序号;
-        private System.Windows.Forms.ColumnHeader 书名;
-        private System.Windows.Forms.ColumnHeader 作者;
-        private System.Windows.Forms.ColumnHeader 出版社;
-        private System.Windows.Forms.ColumnHeader 类别;
+        private System.Windows.Forms.ColumnHeader 图书编号;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.TextBox textBox1;
@@ -351,10 +370,17 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.ListView listView2;
-        private System.Windows.Forms.ColumnHeader 序号1;
+        private System.Windows.Forms.ColumnHeader ID号1;
         private System.Windows.Forms.ColumnHeader 书名1;
         private System.Windows.Forms.ColumnHeader 预定时间1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Timer timer2;
+        private System.Windows.Forms.ColumnHeader ID号;
+        private System.Windows.Forms.ColumnHeader 书名;
+        private System.Windows.Forms.ColumnHeader 作者;
+        private System.Windows.Forms.ColumnHeader 出版社;
+        private System.Windows.Forms.ColumnHeader 类别;
+        private System.Windows.Forms.TextBox textBox5;
     }
 }

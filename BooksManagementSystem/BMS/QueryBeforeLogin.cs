@@ -15,11 +15,13 @@ namespace BMS
     {
         string s = "";
         string id = "";
+        string name = "";
         //string strnum = "";
         public QueryBeforeLogin()
         {
             InitializeComponent();
             //strnum = str1;
+
         }
 
         private void QueryBeforeLogin_Load(object sender, EventArgs e)
@@ -33,24 +35,43 @@ namespace BMS
         private void button5_Click(object sender, EventArgs e)
         {
             listView1.Items.Clear();
-            String strConn = "Server = localhost;Database = bms;Uid = root;password = 123456;sslmode = none;";
-            MySqlConnection conn = new MySqlConnection(strConn);
-            conn.Open();
-            MySqlCommand cmd = conn.CreateCommand();
-            cmd.CommandText = "Select * from tbookclass where BookName like '%" + textBox1.Text + "%' and BookAuthor like '%" + textBox4.Text + "%'";
-            MySqlDataReader dr = cmd.ExecuteReader();
-            while (dr.Read())
+            try
             {
-                ListViewItem it = new ListViewItem();
-                it.Text = dr["BookClassID"].ToString();
-                it.SubItems.Add(dr["BookName"].ToString());
-                it.SubItems.Add(dr["BookAuthor"].ToString());
-                it.SubItems.Add(dr["BookPress"].ToString());
-                it.SubItems.Add(dr["BookClass"].ToString());
-                listView1.Items.Add(it);
-            }
+                String strConn = "Server = localhost;Database = bms;Uid = root;password = 123456;sslmode = none;";
+                MySqlConnection conn = new MySqlConnection(strConn);
+                conn.Open();
+                MySqlCommand cmd = conn.CreateCommand();
+                cmd.CommandText = "Select * from tbookclass where BookName like '%" + textBox1.Text + "%' and BookAuthor like '%" + textBox4.Text + "%'";
+                MySqlDataReader dr = cmd.ExecuteReader();
+                while (dr.Read())
+                {
+                    ListViewItem it = new ListViewItem();
+                    it.Text = dr["BookClassID"].ToString();
 
-            conn.Close();
+                    String strSql = "Select * from bookinformation where BookClassID = '" + it.Text + "'";
+                    MySqlDataAdapter da = new MySqlDataAdapter(strSql, strConn);
+                    DataSet ds = new DataSet();
+                    da.Fill(ds, "bookinformation");
+                    //string id = "";
+                    foreach (DataRow row in ds.Tables["bookinformation"].Rows)
+                    {
+                        id = row["BookID"].ToString();
+                    }
+                    it.SubItems.Add(id);
+
+                    it.SubItems.Add(dr["BookName"].ToString());
+                    it.SubItems.Add(dr["BookAuthor"].ToString());
+                    it.SubItems.Add(dr["BookPress"].ToString());
+                    it.SubItems.Add(dr["BookClass"].ToString());
+                    listView1.Items.Add(it);
+                }
+
+                conn.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString() + "打开数据库失败！");
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -61,74 +82,99 @@ namespace BMS
                 MessageBox.Show("请选择一本书！");
                 return;
             }
+            if (this.listView1.SelectedItems.Count <= 0)
+            {
+                MessageBox.Show("请选择一本书！");
+                return;
+            }
+
             s = listView1.FocusedItem.SubItems[0].Text;
             if (s != "")
             {
-                String strConn = "Server = localhost;Database = bms;Uid = root;password = 123456;sslmode = none;";
-                MySqlConnection conn = new MySqlConnection(strConn);
-                conn.Open();
-                String strSql = "Select * from bookinformation where BookClassID = '" + s + "'";
-
-                MySqlDataAdapter da = new MySqlDataAdapter(strSql, strConn);
-                DataSet ds = new DataSet();
-                da.Fill(ds, "bookinformation");
-                //string id = "";
-                string sf = "";
-                foreach (DataRow row in ds.Tables["bookinformation"].Rows)
+                try
                 {
-                    id = row["BookID"].ToString();
-                    sf = row["SendFlag"].ToString();
-                }
-                String strSql0 = "Select * from recorder where BookID = '" + id + "'";
-                MySqlDataAdapter da0 = new MySqlDataAdapter(strSql0, strConn);
-                DataSet ds0 = new DataSet();
-                da0.Fill(ds0, "recorder");
-                string time1 = "";
+                    String strConn = "Server = localhost;Database = bms;Uid = root;password = 123456;sslmode = none;";
+                    MySqlConnection conn = new MySqlConnection(strConn);
+                    conn.Open();
 
-                foreach (DataRow row in ds0.Tables["recorder"].Rows)
-                {
-                    time1 = row["BorrowDate"].ToString();
-                }
+                    String strSql11 = "select * from tbookclass where BookClassID = '" + s + "'";
 
-                if (sf == "1")
-                {
-                    textBox2.Clear();
-                    DateTime dt = Convert.ToDateTime(time1);
-                    string time2 = dt.AddDays(30).ToString();
-                    textBox2.AppendText("此书已被借阅。\r\n");
-                    textBox2.AppendText("借阅时间：");
-                    textBox2.AppendText(time1);
-                    textBox2.AppendText("\r\n最晚归还时间：");
-                    textBox2.AppendText(time2);
-                }
-                else
-                {
-                    textBox2.Clear();
-                    textBox2.Text = "此书未被借阅。";
-                }
-                //MessageBox.Show(sf);
+                    MySqlDataAdapter da11 = new MySqlDataAdapter(strSql11, strConn);
+                    DataSet ds11 = new DataSet();
+                    da11.Fill(ds11, "tbookclass");
+                    //string name = "";
+                    //MessageBox.Show(name+"---\n");
+                    foreach (DataRow row in ds11.Tables["tbookclass"].Rows)
+                    {
+                        name = row["BookName"].ToString();
+                    }
 
-                String strSql2 = "select * from booking where BookID = '" + id + "'";
+                    String strSql = "Select * from bookinformation where BookClassID = '" + s + "'";
 
-                MySqlDataAdapter da1 = new MySqlDataAdapter(strSql2, strConn);
-                DataSet ds1 = new DataSet();
-                da1.Fill(ds1, "booking");
-                if (ds1.Tables["booking"].Rows.Count != 0)
-                {
-                    textBox3.Clear();
-                    textBox3.Text = "此书已被预定。";
-                }
-                else
-                {
-                    textBox3.Clear();
-                    textBox3.Text = "此书未被预定。";
-                }
+                    MySqlDataAdapter da = new MySqlDataAdapter(strSql, strConn);
+                    DataSet ds = new DataSet();
+                    da.Fill(ds, "bookinformation");
+                    //string id = "";
+                    string sf = "";
+                    foreach (DataRow row in ds.Tables["bookinformation"].Rows)
+                    {
+                        id = row["BookID"].ToString();
+                        sf = row["SendFlag"].ToString();
+                    }
 
-                conn.Close();
-            }
-            else
-            {
-                
+                    textBox5.Text = id + "《" + name + "》";
+
+                    String strSql0 = "Select * from recorder where BookID = '" + id + "'";
+                    MySqlDataAdapter da0 = new MySqlDataAdapter(strSql0, strConn);
+                    DataSet ds0 = new DataSet();
+                    da0.Fill(ds0, "recorder");
+                    string time1 = "";
+
+                    foreach (DataRow row in ds0.Tables["recorder"].Rows)
+                    {
+                        time1 = row["BorrowDate"].ToString();
+                    }
+
+                    if (sf == "1")
+                    {
+                        textBox2.Clear();
+                        DateTime dt = Convert.ToDateTime(time1);
+                        string time2 = dt.AddDays(30).ToString();
+                        textBox2.AppendText("此书已被借阅。\r\n");
+                        textBox2.AppendText("借阅时间：");
+                        textBox2.AppendText(time1);
+                        textBox2.AppendText("\r\n最晚归还时间：");
+                        textBox2.AppendText(time2);
+                    }
+                    else
+                    {
+                        textBox2.Clear();
+                        textBox2.Text = "此书未被借阅。";
+                    }
+                    //MessageBox.Show(sf);
+
+                    String strSql2 = "select * from booking where BookID = '" + id + "'";
+
+                    MySqlDataAdapter da1 = new MySqlDataAdapter(strSql2, strConn);
+                    DataSet ds1 = new DataSet();
+                    da1.Fill(ds1, "booking");
+                    if (ds1.Tables["booking"].Rows.Count != 0)
+                    {
+                        textBox3.Clear();
+                        textBox3.Text = "此书已被预定。";
+                    }
+                    else
+                    {
+                        textBox3.Clear();
+                        textBox3.Text = "此书未被预定。";
+                    }
+
+                    conn.Close();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message.ToString() + "打开数据库失败！");
+                }
             }
         }
 
@@ -159,6 +205,14 @@ namespace BMS
         private void timer1_Tick(object sender, EventArgs e)
         {
             label4.Text = DateTime.Now.ToLongTimeString().ToString();
+        }
+
+        private void QueryBeforeLogin_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+            {
+                button5.PerformClick();
+            }
         }
     }
 }

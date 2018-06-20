@@ -25,14 +25,14 @@ namespace BMS
           
                 Application.Run(new Login());
 
-                if (checkin_querybefore == true)
+               /* if (checkin_querybefore == true)
                 {
                     Application.Run(new QueryBeforeLogin());
-                }
-                if (checkin_login == true)
-                {
-                    Application.Run(new Login());
-                }
+                }*/
+               // if (checkin_login == true)
+                //{
+                   // Application.Run(new Login());
+                //}
                 if (checkin_reader == true)
                 {
                     Application.Run(new ReaderMain());
@@ -41,7 +41,7 @@ namespace BMS
                 {
                     Application.Run(new AdminMain());
                 }
-          
+
         }
     }
 }
