@@ -20,6 +20,10 @@ namespace BMS
         {
             InitializeComponent();
 
+            Timer time1 = new Timer();
+            time1.Interval = 1000;
+            time1.Tick += new System.EventHandler(timer1_Tick);
+            timer1.Start();
         }
 
         public AdminMain(string text_name)
@@ -109,6 +113,11 @@ namespace BMS
         private void 退出ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            label7.Text = DateTime.Now.ToLongTimeString().ToString();
         }  
     }
 }

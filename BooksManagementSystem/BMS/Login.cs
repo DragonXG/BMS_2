@@ -18,6 +18,8 @@ namespace BMS
         public Login()
         {
             InitializeComponent();
+            textBox1.Text = "2016081002";
+            textBox2.Text = "222222";
         }
         
 
@@ -81,8 +83,6 @@ namespace BMS
                 {
 
                     Log.WriteLog( "借阅证号"+ ":" + textBox1.Text + comboBox1.Text + ":" + str3 + "登录成功!" + "\n");
-
-
                     LOGTYPE = comboBox1.Text;
                     LOGNAME = textBox1.Text;
                     ReaderMain readmain = new ReaderMain(str3, textBox1.Text);
@@ -206,6 +206,14 @@ namespace BMS
         {
             label7.Text = DateTime.Now.ToLongTimeString().ToString();
 
+        }
+
+        private void Login_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if(e.KeyChar == 13)
+            {
+                button1.PerformClick();
+            }
         }
     }
 }

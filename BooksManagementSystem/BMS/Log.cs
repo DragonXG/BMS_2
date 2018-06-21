@@ -38,7 +38,7 @@ namespace BMS
                 fs = new FileStream(sFileName, FileMode.Create, FileAccess.Write);
             }
             sw = new StreamWriter(fs);
-            sw.WriteLine(DateTime.Now.ToString("yyyy-MM-dd HH-mm-ss") + "   ---   " + strLog);
+            sw.WriteLine(DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "   ---   " + strLog);
             sw.Close();
             fs.Close();
         }
